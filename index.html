@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ernesto Diaz • Business Analytics Portfolio</title>
+  <meta name="description" content="Business Analytics portfolio of Ernesto Diaz: projects in Python, SQL, Tableau, dbt, Power BI." />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+  <style>
+    :root{
+      --bg:#0b0f1a;          /* deep navy */
+      --panel:#0f1424;       /* page background */
+      --card:#0f172a;        /* cards */
+      --edge:#1f2a44;        /* outlines */
+      --text:#e5e7eb;        /* primary text */
+      --muted:#9aa4bd;       /* secondary */
+      --accent:#22c55e;      /* green accent */
+      --accent-2:#60a5fa;    /* blue */
+      --shadow: 0 8px 30px rgba(0,0,0,.35);
+      --radius: 16px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--panel);color:var(--text);
+      font:16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial}
+    a{color:var(--accent-2);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* Layout */
+    .wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:300px 1fr;gap:28px;padding:28px}
+    aside{position:sticky;top:28px;align-self:start;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+      border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:22px}
+    main{min-width:0}
+
+    .name{font-size:34px;font-weight:800;margin:0}
+    .tag{margin:4px 0 16px;color:var(--muted)}
+
+    .nav{display:flex;flex-direction:column;gap:10px;margin:16px 0 20px}
+    .nav a{display:block;padding:10px 12px;border-radius:10px;border:1px solid transparent}
+    .nav a:hover{border-color:rgba(255,255,255,0.08);background:rgba(255,255,255,0.02)}
+
+    .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    .btn{display:inline-block;padding:9px 14px;border-radius:999px;border:1px solid #2a3354;background:#141a30;color:#fff}
+    .btn.primary{background:var(--accent);border-color:transparent;color:#062b12}
+
+    section{background:var(--card);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius);box-shadow:var(--shadow);
+      padding:24px;margin:0 0 24px}
+    h2{margin:0 0 12px;font-size:24px}
+    p{margin:0 0 10px}
+
+    .proj{display:grid;grid-template-columns:1fr;gap:12px}
+    .card{padding:16px;border:1px solid rgba(255,255,255,.06);border-radius:12px;background:rgba(255,255,255,.02)}
+    .card h3{margin:0 0 6px;font-size:18px}
+
+    .badges{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-start}
+    .badges img{height:36px}
+
+    footer{color:var(--muted);text-align:center;padding:16px}
+
+    @media (max-width: 900px){
+      .wrap{grid-template-columns:1fr}
+      aside{position:relative}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <aside>
+      <h1 class="name">Ernesto Diaz</h1>
+      <p class="tag">Business Analytics · Data • Finance • Technology</p>
+
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="btns">
+        <a class="btn primary" href="assets/Ernesto%20Diaz%20-%20Resume.pdf" download>📄 Download</a>
+        <a class="btn" href="assets/Ernesto%20Diaz%20-%20Resume.pdf" target="_blank" rel="noopener">🌐 View</a>
+        <a class="btn" href="https://github.com/ediaz-usf" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </aside>
+
+    <main>
+      <section id="about">
+        <h2>About Me</h2>
+        <p>
+          Analytical, detail-oriented <strong>Business Analytics student</strong> with hands-on experience in
+          <strong>Python, SQL, Tableau, and Power BI</strong>. Skilled at organizing and interpreting large datasets,
+          building data-driven solutions, and turning insights into strategy. Currently at the
+          <strong>University of South Florida</strong>; preparing for <strong>Study Abroad in Florence (Summer 2025)</strong>.
+        </p>
+      </section>
+
+      <section id="projects">
+        <h2>Featured Projects</h2>
+        <div class="proj">
+          <article class="card">
+            <h3>🚀 <a href="https://github.com/ediaz-usf/Analyzing-Startup-Companies-Project" target="_blank" rel="noopener">Startup Analytics Dashboard</a></h3>
+            <p>Interactive <strong>Tableau dashboard</strong> analyzing 7,000+ rows of startup funding data. Insights on valuations, funding stages, and investor activity.</p>
+          </article>
+
+          <article class="card">
+            <h3>🏫 <a href="https://github.com/ediaz-usf/NYC-Public-Schools-SAT-Performance-Analysis" target="_blank" rel="noopener">NYC SAT Performance (Python)</a></h3>
+            <p>Pandas analysis of NYC public school SAT scores. Ranked schools by subject; identified borough-level performance gaps.</p>
+          </article>
+
+          <article class="card">
+            <h3>🏨 <a href="https://www.datacamp.com/datalab/w/f4e0e283-7362-4d0a-8239-15477ce33142" target="_blank" rel="noopener">Hotel SQL Analysis</a></h3>
+            <p>SQL project analyzing hotel branch performance. Queried a PostgreSQL database to isolate underperforming branches and services.</p>
+          </article>
+
+          <article class="card">
+            <h3>🛍️ Retail Sales Dashboard and Trend Analysis</h3>
+            <p>Analyzed <strong>7,000+ rows of retail sales data</strong>. Designed and deployed an interactive Tableau dashboard to visualize trends and KPIs.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills">
+        <h2>Skills &amp; Tools</h2>
+        <div class="badges">
+          <img alt="Python" src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white&style=for-the-badge" />
+          <img alt="SQL" src="https://img.shields.io/badge/SQL-336791?logo=postgresql&logoColor=white&style=for-the-badge" />
+          <img alt="Tableau" src="https://img.shields.io/badge/Tableau-E97627?logo=tableau&logoColor=white&style=for-the-badge" />
+          <img alt="Power BI" src="https://img.shields.io/badge/Power%20BI-F2C811?logo=powerbi&logoColor=black&style=for-the-badge" />
+          <img alt="dbt" src="https://img.shields.io/badge/dbt-FF694B?logo=dbt&logoColor=white&style=for-the-badge" />
+          <img alt="Excel" src="https://img.shields.io/badge/Excel-217346?logo=microsoft-excel&logoColor=white&style=for-the-badge" />
+          <img alt="Snowflake" src="https://img.shields.io/badge/Snowflake-29B5E8?logo=snowflake&logoColor=white&style=for-the-badge" />
+          <img alt="Airflow" src="https://img.shields.io/badge/Airflow-017CEE?logo=apache-airflow&logoColor=white&style=for-the-badge" />
+          <img alt="Git" src="https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white&style=for-the-badge" />
+        </div>
+      </section>
+
+      <section id="resume">
+        <h2>Resume</h2>
+        <div class="btns">
+          <a class="btn primary" href="assets/Ernesto%20Diaz%20-%20Resume.pdf" download>📄 Download Resume</a>
+          <a class="btn" href="assets/Ernesto%20Diaz%20-%20Resume.pdf" target="_blank" rel="noopener">🌐 View Resume</a>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Let’s Connect</h2>
+        <div class="btns">
+          <a class="btn" href="https://www.linkedin.com/in/ernesto-d-4ab849155/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="mailto:ernestoabel.diaz@gmail.com">Email</a>
+        </div>
+      </section>
+
+      <footer>
+        <small>© <span id="y"></span> Ernesto Diaz</small>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

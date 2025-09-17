@@ -1,163 +1,521 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ernesto Diaz • Business Analytics Portfolio</title>
-  <meta name="description" content="Business Analytics portfolio of Ernesto Diaz: projects in Python, SQL, Tableau, dbt, Power BI." />
+  <meta name="description" content="Business Analytics portfolio of Ernesto Diaz — projects in Python, SQL, Tableau, dbt, Power BI." />
   <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+
+  <!-- Inter (variable) for a modern, sturdy, professional feel -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      --bg:#0b0f1a;          /* deep navy */
-      --panel:#0f1424;       /* page background */
-      --card:#0f172a;        /* cards */
-      --edge:#1f2a44;        /* outlines */
-      --text:#e5e7eb;        /* primary text */
-      --muted:#9aa4bd;       /* secondary */
-      --accent:#22c55e;      /* green accent */
-      --accent-2:#60a5fa;    /* blue */
-      --shadow: 0 8px 30px rgba(0,0,0,.35);
-      --radius: 16px;
+      --bg:#0b1220;
+      --surface:#0f1424;
+      --text:#e7eaf3;
+      --muted:#a1acc7;
+      --link:#8ab4ff;
+      --accent:#22c55e;
+      --accent-2:#86efac;
+      --shadow:0 14px 40px -20px rgba(2,12,27,.7);
+      --focus:2px solid #86efac;
     }
+
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--panel);color:var(--text);
-      font:16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial}
-    a{color:var(--accent-2);text-decoration:none}
+    html{scroll-behavior:auto; color-scheme:dark}
+    body{
+      margin:0; background:var(--bg); color:var(--text);
+      font:15px/1.7 "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      letter-spacing:0.01em;
+    }
+    a{color:var(--link); text-decoration:none}
     a:hover{text-decoration:underline}
+    a:focus-visible{outline:var(--focus); border-radius:6px}
 
-    /* Layout */
-    .wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:300px 1fr;gap:28px;padding:28px}
-    aside{position:sticky;top:28px;align-self:start;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
-      border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:22px}
-    main{min-width:0}
+    /* Layout — extra spacious */
+    .wrap{
+      max-width:1300px; margin:0 auto;
+      display:grid; grid-template-columns:360px 1fr; gap:100px;
+      padding:56px 56px 24px;
+    }
+    aside{
+      position:sticky; top:56px; align-self:start; display:flex; flex-direction:column; gap:24px;
+      transform:translateX(-36px); /* more left */
+    }
+    main{
+      min-width:0; display:flex; flex-direction:column; gap:110px;
+      transform:translateX(36px);  /* more right */
+    }
 
-    .name{font-size:34px;font-weight:800;margin:0}
-    .tag{margin:4px 0 16px;color:var(--muted)}
+    /* Left profile — no hover box, just subtle highlight */
+    header.profile{padding:0}
+    .name{
+      font-size:32px; font-weight:800; margin:0 0 6px;
+      transition:color .25s ease, transform .15s ease;
+    }
+    header.profile:hover .name{color:var(--accent); transform:translateX(2px)}
+    .title{margin:0; color:var(--muted); font-size:14px}
 
-    .nav{display:flex;flex-direction:column;gap:10px;margin:16px 0 20px}
-    .nav a{display:block;padding:10px 12px;border-radius:10px;border:1px solid transparent}
-    .nav a:hover{border-color:rgba(255,255,255,0.08);background:rgba(255,255,255,0.02)}
+    /* Sidebar nav — highlight only (no bg boxes) */
+    .nav{display:flex; flex-direction:column; gap:8px; padding:12px 0}
+    .nav a{
+      color:var(--muted); font-size:14.5px; padding:6px 2px; border-radius:4px;
+      transition:color .15s ease, transform .15s ease, font-weight .15s ease;
+    }
+    .nav a:hover{color:var(--text); transform:translateX(3px); font-weight:600}
+    .nav a[aria-current="true"]{color:#fff; font-weight:700; transform:translateX(3px)}
+    
+    /* Content */
+    section{padding:0; margin:0}
+    h2{margin:0 0 16px; font-size:22px; font-weight:800}
+    p{margin:0 0 16px; color:var(--muted)} /* dimmer body copy */
 
-    .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
-    .btn{display:inline-block;padding:9px 14px;border-radius:999px;border:1px solid #2a3354;background:#141a30;color:#fff}
-    .btn.primary{background:var(--accent);border-color:transparent;color:#062b12}
+    /* Experience (panels still appear on hover on the RIGHT only) */
+    .timeline{display:flex; flex-direction:column; gap:22px}
+    .item{
+      padding:8px 0; border-radius:12px; background:transparent; box-shadow:none;
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .item:hover{transform:translateY(-2px); background:linear-gradient(180deg, var(--surface), transparent 140%); box-shadow:var(--shadow)}
+    .item h3{margin:0 0 6px; font-size:17px; color:var(--text); transition:color .2s ease}
+    .item:hover h3{color:var(--accent)}
+    .item time{color:var(--muted); font-size:13px}
+    .tools{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
+    .tool{
+      background:rgba(34,197,94,.18); color:#a7f3d0;
+      padding:6px 10px; border-radius:999px; font-size:12px; font-weight:600;
+    }
 
-    section{background:var(--card);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius);box-shadow:var(--shadow);
-      padding:24px;margin:0 0 24px}
-    h2{margin:0 0 12px;font-size:24px}
-    p{margin:0 0 10px}
+    .social {
+        display:flex;
+        gap:16px;
+        margin-top:20px;
+    }
+    .social a svg {
+        height:28px;
+        width:28px;
+        opacity:.9;
+        transition:opacity .2s ease, transform .2s ease;
+    }
+    .social a:hover svg {
+        opacity:1;
+        transform:translateY(-1px);
+    }
 
-    .proj{display:grid;grid-template-columns:1fr;gap:12px}
-    .card{padding:16px;border:1px solid rgba(255,255,255,.06);border-radius:12px;background:rgba(255,255,255,.02)}
-    .card h3{margin:0 0 6px;font-size:18px}
+    /* Projects */
+    .grid{display:grid; gap:16px; grid-template-columns:repeat(12,1fr)}
+    .card{
+      grid-column: span 12;
+      display:grid; grid-template-columns:1.2fr 1fr; gap:16px;
+      align-items:start; padding:10px 0; border-radius:14px;
+      background:transparent; box-shadow:none; overflow:hidden;
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .card:hover{transform:translateY(-3px); background:linear-gradient(180deg, var(--surface), transparent 150%); box-shadow:var(--shadow)}
+    .card .thumb{height:160px; border-radius:10px; overflow:hidden; background:#0b1020}
+    .card .thumb img{width:100%; height:100%; object-fit:cover; display:block}
+    .card .content{display:flex; flex-direction:column}
+    .card h3{margin:0 0 8px; font-size:18px; color:var(--text); transition:color .2s ease}
+    .card:hover h3, .card:hover h3 a{color:var(--accent)}
+    .tag-row{display:flex; gap:8px; flex-wrap:wrap; margin:8px 0 0}
 
-    .badges{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-start}
+    /* Skills */
+    .badges{display:flex; flex-wrap:wrap; gap:10px}
     .badges img{height:36px}
 
-    footer{color:var(--muted);text-align:center;padding:16px}
+    /* Footer */
+    footer{padding:56px 0 24px; display:flex; justify-content:center; gap:22px}
+    footer a{display:inline-flex}
+    footer a svg{height:28px; width:28px; opacity:.9; transition:opacity .2s ease, transform .2s ease}
+    footer a:hover svg{opacity:1; transform:translateY(-1px)}
 
-    @media (max-width: 900px){
-      .wrap{grid-template-columns:1fr}
-      aside{position:relative}
+    /* Responsive reset of large offsets */
+    @media (max-width:1100px){
+      .wrap{grid-template-columns:1fr; gap:32px; padding:32px 24px}
+      aside, main{transform:none}
+      .card{grid-template-columns:1fr; grid-column:span 12}
+      .card .thumb{height:140px}
     }
+
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none!important; animation:none!important; scroll-behavior:auto!important}
+    }
+
+    /* Cursor spotlight */
+:root { --spot-size: 800px; }
+#spotlight{
+  position:fixed; inset:0; pointer-events:none; z-index:999; /* above content, non-interactive */
+  background: radial-gradient(
+    circle var(--spot-size) at var(--spot-x, 50%) var(--spot-y, 50%),
+    rgba(255,255,255,0.02), /* inner glow (subtle) */
+    rgba(255,255,255,0.01) 30%,
+    transparent 60%
+  );
+  opacity:0; transition:opacity .25s ease;
+}
+@media (prefers-reduced-motion: reduce){
+  #spotlight{ display:none !important; }
+}
+
   </style>
 </head>
+
 <body>
   <div class="wrap">
+    <!-- Left rail (clean: no hover boxes, no resume buttons) -->
     <aside>
-      <h1 class="name">Ernesto Diaz</h1>
-      <p class="tag">Business Analytics · Data • Finance • Technology</p>
+      <header class="profile" role="banner">
+        <h1 class="name">Ernesto Diaz</h1>
+        <p class="title">Data Analyst</p>
+      </header>
 
-      <nav class="nav">
+      <nav class="nav" id="side-nav" aria-label="Section navigation">
         <a href="#about">About</a>
+        <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
+        <a href="#skills">Skills &amp; Tools</a>
         <a href="#resume">Resume</a>
-        <a href="#contact">Contact</a>
       </nav>
 
-      <div class="btns">
-        <a class="btn primary" href="assets/Ernesto%20Diaz%20-%20Resume.pdf" download>📄 Download</a>
-        <a class="btn" href="assets/Ernesto%20Diaz%20-%20Resume.pdf" target="_blank" rel="noopener">🌐 View</a>
-        <a class="btn" href="https://github.com/ediaz-usf" target="_blank" rel="noopener">GitHub</a>
-      </div>
+      <div class="social">
+  <a href="https://www.linkedin.com/in/ernesto-d-4ab849155/" target="_blank" rel="noopener" aria-label="LinkedIn">
+    <!-- LinkedIn SVG -->
+    <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M19 3A2.94 2.94 0 0 1 22 6v12a2.94 2.94 0 0 1-3 3H5a2.94 2.94 0 0 1-3-3V6a2.94 2.94 0 0 1 3-3h14M8.34 18.34V9.5H5.67v8.84h2.67m-1.33-10a1.55 1.55 0 1 0 0-3.1 1.55 1.55 0 0 0 0 3.1M20 18.34V13a4.18 4.18 0 0 0-4.17-4.17 3.6 3.6 0 0 0-3 1.66V9.5H10.2v8.84h2.67v-4.83a1.94 1.94 0 1 1 3.88 0v4.83z"/></svg>
+  </a>
+  <a href="https://github.com/ediaz-usf" target="_blank" rel="noopener" aria-label="GitHub">
+    <!-- GitHub SVG -->
+    <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M12 .5A11.5 11.5 0 0 0 .5 12.27c0 5.22 3.4 9.64 8.13 11.2.59.12.8-.26.8-.57v-2c-3.31.73-4-1.61-4-1.61a3.19 3.19 0 0 0-1.34-1.76c-1.09-.74.08-.73.08-.73a2.52 2.52 0 0 1 1.84 1.23 2.56 2.56 0 0 0 3.48 1 2.54 2.54 0 0 1 .76-1.6c-2.64-.31-5.42-1.35-5.42-6A4.67 4.67 0 0 1 6.9 7.1a4.31 4.31 0 0 1 .12-3.19s1-.33 3.22 1.23a11.11 11.11 0 0 1 5.87 0c2.21-1.56 3.22-1.23 3.22-1.23.43 1.08.37 2.3.12 3.19a4.68 4.68 0 0 1 1.24 3.24c0 4.67-2.79 5.68-5.45 6a2.78 2.78 0 0 1 .8 2.17v3.22c0 .31.21.69.81.57A11.5 11.5 0 0 0 23.5 12.27 11.5 11.5 0 0 0 12 .5Z"/></svg>
+  </a>
+  <a href="mailto:ernestoabel.diaz@gmail.com" aria-label="Email">
+    <!-- Email SVG -->
+    <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5Z"/></svg>
+  </a>
+</div>
+
     </aside>
 
-    <main>
+    <!-- Main -->
+    <main id="main" role="main">
       <section id="about">
-        <h2>About Me</h2>
+        <!-- Title removed per request -->
         <p>
           Analytical, detail-oriented <strong>Business Analytics student</strong> with hands-on experience in
           <strong>Python, SQL, Tableau, and Power BI</strong>. Skilled at organizing and interpreting large datasets,
-          building data-driven solutions, and turning insights into strategy. Currently studying at the
-          <strong>University of South Florida 🐂.</strong>
+          building data-driven solutions, and turning insights into strategy. Currently at the
+          <strong>University of South Florida</strong>.
         </p>
       </section>
 
+      <section id="experience">
+        <!-- Title removed per request -->
+        <div class="timeline">
+          <article class="item">
+            <h3>Knack — Data/Statistics Tutor</h3>
+            <time datetime="2024-05">May 2024</time> – <time datetime="2025-09">Present</time>
+            <ul>
+              <li>Created individualized learning plans for college-level students with data-driven insights, resulting in a 25% improvement in scores.</li>
+              <li>Earned consistent 5-star ratings by effectively communicating complex concepts to diverse learners and providing data-driven feedback.</li>
+              <li>Enhanced communication skills by effectively simplifying quantitative concepts to support data-driven academic improvement.</li>
+            </ul>
+            <div class="tools" aria-label="Tools used">
+              <span class="tool">Statistics</span>
+              <span class="tool">Data Analysis</span>
+              <span class="tool">Tutoring</span>
+            </div>
+          </article>
+
+          <article class="item">
+            <h3>Colegio Yannette — Data Analytics Intern</h3>
+            <time datetime="2020-04">Apr 2020</time> – <time datetime="2020-06">Jun 2020</time>
+            <ul>
+              <li>Managed registration and updates of critical data for 200+ students, ensuring data integrity.</li>
+              <li>Reviewed invoices and payments, identifying opportunities for process improvements and enhancing clarity and efficiency.</li>
+              <li>Strengthened data quality control and improved operational efficiency through data entry in Excel.</li>
+            </ul>
+            <div class="tools">
+              <span class="tool">Excel</span>
+              <span class="tool">Data Quality</span>
+              <span class="tool">Process Improvement</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <section id="projects">
-        <h2>Featured Projects</h2>
-        <div class="proj">
+        <!-- Title removed per request -->
+        <div class="grid">
           <article class="card">
-            <h3>🚀 <a href="https://github.com/ediaz-usf/Analyzing-Startup-Companies-Project" target="_blank" rel="noopener">Startup Analytics Dashboard</a></h3>
-            <p>Interactive <strong>Tableau dashboard</strong> analyzing 7,000+ rows of startup funding data. Insights on valuations, funding stages, and investor activity.</p>
+            <div class="thumb" aria-hidden="true">
+              <img loading="lazy" decoding="async" src="assets/startup-dashboard.jpg" alt="">
+            </div>
+            <div class="content">
+              <h3>🚀 <a href="https://github.com/ediaz-usf/Analyzing-Startup-Companies-Project" target="_blank" rel="noopener">Startup Analytics Dashboard</a></h3>
+              <p>Interactive <strong>Tableau dashboard</strong> analyzing 7,000+ rows of startup funding data. Insights on valuations, funding stages, and investor activity.</p>
+              <div class="tag-row">
+                <span class="tool">Python</span><span class="tool">Pandas</span><span class="tool">Matplotlib</span><span class="tool">Seaborn</span>
+              </div>
+            </div>
           </article>
 
           <article class="card">
-            <h3>🏫 <a href="https://github.com/ediaz-usf/NYC-Public-Schools-SAT-Performance-Analysis" target="_blank" rel="noopener">NYC SAT Performance (Python)</a></h3>
-            <p>Pandas analysis of NYC public school SAT scores. Ranked schools by subject; identified borough-level performance gaps.</p>
+            <div class="thumb" aria-hidden="true">
+              <img loading="lazy" decoding="async" src="assets/nyc-sat.png" alt="">
+            </div>
+            <div class="content">
+              <h3>🏫 <a href="https://github.com/ediaz-usf/NYC-Public-Schools-SAT-Performance-Analysis" target="_blank" rel="noopener">NYC SAT Performance (Python)</a></h3>
+              <p>Pandas analysis of NYC public school SAT scores. Ranked schools by subject; identified borough-level performance gaps.</p>
+              <div class="tag-row">
+                <span class="tool">Python</span><span class="tool">Pandas</span>
+              </div>
+            </div>
           </article>
 
           <article class="card">
-            <h3>🏨 <a href="https://www.datacamp.com/datalab/w/f4e0e283-7362-4d0a-8239-15477ce33142" target="_blank" rel="noopener">Hotel SQL Analysis</a></h3>
-            <p>SQL project analyzing hotel branch performance. Queried a PostgreSQL database to isolate underperforming branches and services.</p>
+            <div class="thumb" aria-hidden="true">
+              <img loading="lazy" decoding="async" src="assets/hotel-sql.png" alt="">
+            </div>
+            <div class="content">
+              <h3>🏨 <a href="https://www.datacamp.com/datalab/w/f4e0e283-7362-4d0a-8239-15477ce33142" target="_blank" rel="noopener">Hotel SQL Analysis</a></h3>
+              <p>Analyzed hotel branch performance via <strong>PostgreSQL</strong>—isolated underperforming branches and services with targeted queries.</p>
+              <div class="tag-row">
+                <span class="tool">PostgreSQL</span>
+              </div>
+            </div>
           </article>
 
           <article class="card">
-            <h3>🛍️ Retail Sales Dashboard and Trend Analysis</h3>
-            <p>Analyzed <strong>7,000+ rows of retail sales data</strong>. Designed and deployed an interactive Tableau dashboard to visualize trends and KPIs.</p>
+            <div class="thumb" aria-hidden="true">
+              <img loading="lazy" decoding="async" src="assets/retail-sales.jpg" alt="">
+            </div>
+            <div class="content">
+              <h3>🛍️ Retail Sales Dashboard and Trend Analysis</h3>
+              <p>Analyzed <strong>7,000+ rows</strong> of retail sales data and built an interactive Tableau dashboard to visualize KPIs and trends.</p>
+              <div class="tag-row">
+                <span class="tool">Tableau</span><span class="tool">Excel</span>
+              </div>
+            </div>
           </article>
         </div>
       </section>
 
-      <section id="skills">
-        <h2>Skills &amp; Tools</h2>
-        <div class="badges">
-          <img alt="Python" src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white&style=for-the-badge" />
-          <img alt="SQL" src="https://img.shields.io/badge/SQL-336791?logo=postgresql&logoColor=white&style=for-the-badge" />
-          <img alt="Tableau" src="https://img.shields.io/badge/Tableau-E97627?logo=tableau&logoColor=white&style=for-the-badge" />
-          <img alt="Power BI" src="https://img.shields.io/badge/Power%20BI-F2C811?logo=powerbi&logoColor=black&style=for-the-badge" />
-          <img alt="dbt" src="https://img.shields.io/badge/dbt-FF694B?logo=dbt&logoColor=white&style=for-the-badge" />
-          <img alt="Excel" src="https://img.shields.io/badge/Excel-217346?logo=microsoft-excel&logoColor=white&style=for-the-badge" />
-          <img alt="Snowflake" src="https://img.shields.io/badge/Snowflake-29B5E8?logo=snowflake&logoColor=white&style=for-the-badge" />
-          <img alt="Airflow" src="https://img.shields.io/badge/Airflow-017CEE?logo=apache-airflow&logoColor=white&style=for-the-badge" />
-          <img alt="Git" src="https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white&style=for-the-badge" />
+      <section id="skills" aria-labelledby="skills-h">
+        <h2 id="skills-h">Skills &amp; Tools</h2>
+        <div class="badges" role="list">
+          <img alt="Python" src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white&style=for-the-badge" loading="lazy" decoding="async" />
+          <img alt="SQL" src="https://img.shields.io/badge/SQL-336791?logo=postgresql&logoColor=white&style=for-the-badge" loading="lazy" decoding="async" />
+          <img alt="Tableau" src="https://img.shields.io/badge/Tableau-E97627?logo=tableau&logoColor=white&style=for-the-badge" loading="lazy" decoding="async" />
+          <img alt="Power BI" src="https://img.shields.io/badge/Power%20BI-F2C811?logo=powerbi&logoColor=black&style=for-the-badge" loading="lazy" decoding="async" />
+          <img alt="dbt" src="https://img.shields.io/badge/dbt-FF694B?logo=dbt&logoColor=white&style=for-the-badge" loading="lazy" decoding="async" />
+          <img alt="Excel" src="https://img.shields.io/badge/Excel-217346?logo=microsoft-excel&logoColor=white&style=for-the-badge" loading="lazy" decoding="async" />
+          <img alt="Snowflake" src="https://img.shields.io/badge/Snowflake-29B5E8?logo=snowflake&logoColor=white&style=for-the-badge" loading="lazy" decoding="async" />
+          <img alt="Airflow" src="https://img.shields.io/badge/Airflow-017CEE?logo=apache-airflow&logoColor=white&style=for-the-badge" loading="lazy" decoding="async" />
+          <img alt="Git" src="https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white&style=for-the-badge" loading="lazy" decoding="async" />
         </div>
       </section>
 
-      <section id="resume">
-        <h2>Resume</h2>
-        <div class="btns">
-          <a class="btn primary" href="assets/Ernesto%20Diaz%20-%20Resume.pdf" download>📄 Download Resume</a>
-          <a class="btn" href="assets/Ernesto%20Diaz%20-%20Resume.pdf" target="_blank" rel="noopener">🌐 View Resume</a>
+      <section id="resume" aria-labelledby="resume-h">
+        <h2 id="resume-h">Resume</h2>
+        <div class="badges" style="gap:12px">
+          <a class="tool" href="assets/Ernesto%20Diaz%20-%20Resume.pdf" download>📄 Download Resume</a>
+          <a class="tool" href="assets/Ernesto%20Diaz%20-%20Resume.pdf" target="_blank" rel="noopener">🌐 View Resume</a>
         </div>
       </section>
 
-      <section id="contact">
-        <h2>Let’s Connect</h2>
-        <div class="btns">
-          <a class="btn" href="https://www.linkedin.com/in/ernesto-d-4ab849155/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn" href="mailto:ernestoabel.diaz@gmail.com">Email</a>
-        </div>
-      </section>
-
-      <footer>
-        <small>© <span id="y"></span> Ernesto Diaz</small>
+      <footer aria-label="Social links">
       </footer>
     </main>
   </div>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    // Scrollspy + custom smooth scroll (slower)
+    const nav = document.getElementById('side-nav');
+    const links = Array.from(nav.querySelectorAll('a'));
+    const aboutLink  = links.find(a => a.getAttribute('href') === '#about');
+    const resumeLink = links.find(a => a.getAttribute('href') === '#resume');
+    const sections = links.map(l => document.querySelector(l.getAttribute('href'))).filter(Boolean);
+
+    function setActive(el){
+      links.forEach(a => a.setAttribute('aria-current','false'));
+      el && el.setAttribute('aria-current','true');
+    }
+    
+    // --- Center-based scrollspy (resolves edge ambiguity) ---
+
+function currentSectionByCenter(){
+  const centerY = (window.scrollY || document.documentElement.scrollTop) + window.innerHeight / 2;
+  let best = null, bestDist = Infinity;
+  for(const s of sections){
+    const rect = s.getBoundingClientRect();
+    const top = (window.scrollY || document.documentElement.scrollTop) + rect.top;
+    const bottom = top + rect.height;
+    const mid = (top + bottom) / 2;
+    const dist = Math.abs(mid - centerY);
+    if(dist < bestDist){ bestDist = dist; best = s; }
+  }
+  return best;
+}
+
+function updateActiveByCenter(){
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  const viewportBottom = scrollTop + window.innerHeight;
+  const docHeight = Math.max(
+    document.body.scrollHeight, document.documentElement.scrollHeight
+  );
+
+  // Only force at the true extremes
+  if (scrollTop <= 1 && aboutLink){
+    setActive(aboutLink);
+    history.replaceState(null, '', '#about');
+    return;
+  }
+  if (viewportBottom >= docHeight - 1 && resumeLink){
+    setActive(resumeLink);
+    history.replaceState(null, '', '#resume');
+    return;
+  }
+
+  const s = currentSectionByCenter();
+  if(!s) return;
+  const link = links.find(a => a.getAttribute('href') === '#' + s.id);
+  if(link){
+    setActive(link);
+    history.replaceState(null, '', '#' + s.id);
+  }
+}
+
+// run + bind
+updateActiveByCenter();
+window.addEventListener('scroll', updateActiveByCenter, { passive: true });
+window.addEventListener('resize', updateActiveByCenter);
+document.addEventListener('DOMContentLoaded', updateActiveByCenter);
+
+    // Ensure first/last sections highlight at the extremes
+    function clampEnds(){
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const viewportBottom = scrollTop + window.innerHeight;
+    const docHeight = Math.max(
+        document.body.scrollHeight, document.documentElement.scrollHeight
+    );
+
+  // Top of page → force "About"
+  if (scrollTop <= 2 && aboutLink) {
+    setActive(aboutLink);
+    history.replaceState(null, '', '#about');
+    return;
+  }
+
+  // Bottom of page → force "Resume"
+  if (viewportBottom >= docHeight - 2 && resumeLink) {
+    setActive(resumeLink);
+    history.replaceState(null, '', '#resume');
+    return;
+  }
+}
+
+window.addEventListener('scroll', clampEnds, { passive: true });
+window.addEventListener('resize', clampEnds);
+document.addEventListener('DOMContentLoaded', clampEnds);
+
+
+    // Custom smooth scroll (~900ms, eased)
+    function smoothScrollTo(targetY, duration = 900){
+      const startY = window.scrollY || document.documentElement.scrollTop;
+      const delta = targetY - startY;
+      const startTime = performance.now();
+      const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
+      function step(now){
+        const t = Math.min(1, (now - startTime) / duration);
+        window.scrollTo(0, startY + delta * easeOutCubic(t));
+        if(t < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    links.forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        const id = a.getAttribute('href');
+        const el = document.querySelector(id);
+        if(!el) return;
+        const rect = el.getBoundingClientRect();
+        const targetY = (window.scrollY || document.documentElement.scrollTop) + rect.top;
+        smoothScrollTo(targetY, 900);
+        setActive(a);
+      });
+    });
+
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      document.documentElement.style.scrollBehavior = 'auto';
+    }
+
+    // --- Cursor spotlight (subtle, performant) ---
+    document.addEventListener('DOMContentLoaded', function(){
+  const spot = document.getElementById('spotlight');
+  if(!spot) return;
+
+  let targetX = window.innerWidth / 2;
+  let targetY = window.innerHeight / 2;
+  let currentX = targetX;
+  let currentY = targetY;
+  let rafId = null;
+  let visible = false;
+
+  const lerp = (a,b,t)=>a+(b-a)*t;
+
+  function animate(){
+    currentX = lerp(currentX, targetX, 0.18);
+    currentY = lerp(currentY, targetY, 0.18);
+    spot.style.setProperty('--spot-x', `${currentX}px`);
+    spot.style.setProperty('--spot-y', `${currentY}px`);
+    rafId = requestAnimationFrame(animate);
+  }
+
+  function show(){
+    if(!visible){
+      visible = true;
+      spot.style.opacity = '1';
+      if(!rafId) rafId = requestAnimationFrame(animate);
+    }
+  }
+  function hide(){
+    visible = false;
+    spot.style.opacity = '0';
+    if(rafId){ cancelAnimationFrame(rafId); rafId = null; }
+  }
+
+  // Mouse / pointer tracking
+  window.addEventListener('pointermove', (e)=>{
+    // ignore touch pointers to avoid battery drain on mobile
+    if(e.pointerType === 'touch') return;
+    targetX = e.clientX; targetY = e.clientY;
+    show();
+  }, {passive:true});
+
+  window.addEventListener('pointerenter', (e)=>{
+    if(e.pointerType === 'touch') return;
+    show();
+  });
+  window.addEventListener('pointerleave', hide);
+
+  // Hide on scroll if user never moved the mouse yet (prevents faint glow on load)
+  let hasMoved = false;
+  window.addEventListener('pointermove', ()=>{ hasMoved = true; }, {once:true});
+  window.addEventListener('scroll', ()=>{ if(!hasMoved) hide(); }, {passive:true});
+
+  // Coarse pointers (touch devices): keep it off
+  if(window.matchMedia && window.matchMedia('(pointer: coarse)').matches){
+    hide();
+  }
+})();
   </script>
+
+  <!-- Spotlight overlay -->
+<div id="spotlight" aria-hidden="true"></div>
+
 </body>
 </html>

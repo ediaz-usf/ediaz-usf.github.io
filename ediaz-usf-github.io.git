@@ -207,7 +207,7 @@
           Analytical, detail-oriented <strong>Business Analytics student</strong> with hands-on experience in
           <strong>Python, SQL, Tableau, and Power BI</strong>. Skilled at organizing and interpreting large datasets,
           building data-driven solutions, and turning insights into strategy. Currently at the
-          <strong>University of South Florida 🐂</strong>.
+          <strong>University of South Florida</strong>.
         </p>
       </section>
 
@@ -251,7 +251,7 @@
         <div class="grid">
           <article class="card">
             <div class="thumb" aria-hidden="true">
-              <img loading="lazy" decoding="async" src="assets/startup-dashboard.png" alt="">
+              <img loading="lazy" decoding="async" src="assets/startup-dashboard.jpg" alt="">
             </div>
             <div class="content">
               <h3>🚀 <a href="https://github.com/ediaz-usf/Analyzing-Startup-Companies-Project" target="_blank" rel="noopener">Startup Analytics Dashboard</a></h3>

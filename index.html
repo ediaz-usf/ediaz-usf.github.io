@@ -223,6 +223,35 @@
   #spotlight{ display:none !important; }
 }
 
+/* --- Mobile/vertical screens: stack, no sticky, no transforms --- */
+@media (max-width: 900px){
+  .wrap{
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    padding: 20px 16px !important;
+  }
+  aside{
+    position: static !important;   /* disable sticky */
+    top: auto !important;
+    transform: none !important;    /* undo left shift */
+    z-index: 0 !important;
+    margin-bottom: 8px;
+  }
+  main{
+    transform: none !important;    /* undo right shift */
+    z-index: 1;                    /* ensure content sits above */
+    gap: 64px;
+  }
+  .name{ font-size: 26px; }        /* slightly smaller heading on phones */
+  .nav a{ transform: none !important; } /* prevent hover shift from nudging layout */
+  .social{ gap: 14px; }
+  .card{
+    grid-template-columns: 1fr !important;
+  }
+  .card .thumb{ width: 100%; }
+}
+
+
   </style>
 </head>
 

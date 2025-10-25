@@ -1,0 +1,237 @@
+    :root{
+      --bg:#0b1220;
+      --surface:#0f1424;
+      --text:#e7eaf3;
+      --muted:#a1acc7;
+      --link:#8ab4ff;
+      --accent:#22c55e;
+      --accent-2:#86efac;
+      --shadow:0 14px 40px -20px rgba(2,12,27,.7);
+      --focus:2px solid #86efac;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:auto; color-scheme:dark}
+    body{
+      margin:0; background:var(--bg); color:var(--text);
+      font:15px/1.7 "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      letter-spacing:0.01em;
+    }
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+    a:focus-visible{outline:var(--focus); border-radius:6px}
+
+    /* Layout — extra spacious */
+    .wrap{
+      max-width:1300px; margin:0 auto;
+      display:grid; grid-template-columns:360px 1fr; gap:100px;
+      padding:56px 56px 24px;
+    }
+    aside{
+      position:sticky; top:56px; align-self:start; display:flex; flex-direction:column; gap:24px;
+      transform:translateX(-36px); /* more left */
+    }
+    main{
+      min-width:0; display:flex; flex-direction:column; gap:110px;
+      transform:translateX(36px);  /* more right */
+    }
+
+    /* Left profile — no hover box, just subtle highlight */
+    header.profile{padding:0}
+    .name{
+      font-size:32px; font-weight:800; margin:0 0 6px;
+      transition:color .25s ease, transform .15s ease;
+    }
+    header.profile:hover .name{color:var(--accent); transform:translateX(2px)}
+    .title{margin:0; color:var(--muted); font-size:14px}
+
+    /* Sidebar nav — highlight only (no bg boxes) */
+    .nav{display:flex; flex-direction:column; gap:8px; padding:12px 0}
+    .nav a{
+      color:var(--muted); font-size:14.5px; padding:6px 2px; border-radius:4px;
+      transition:color .15s ease, transform .15s ease, font-weight .15s ease;
+    }
+    .nav a:hover{color:var(--text); transform:translateX(3px); font-weight:600}
+    .nav a[aria-current="true"]{color:#fff; font-weight:700; transform:translateX(3px)}
+    
+    /* Content */
+    section{padding:0; margin:0}
+    h2{margin:0 0 16px; font-size:22px; font-weight:800}
+    p{margin:0 0 16px; color:var(--muted)} /* dimmer body copy */
+
+    /* Experience (panels still appear on hover on the RIGHT only) */
+    .timeline{display:flex; flex-direction:column; gap:22px}
+    .item{
+      padding:8px 0; border-radius:12px; background:transparent; box-shadow:none;
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .item:hover{transform:translateY(-2px); background:linear-gradient(180deg, var(--surface), transparent 140%); box-shadow:var(--shadow)}
+    .item h3{margin:0 0 6px; font-size:17px; color:var(--text); transition:color .2s ease}
+    .item:hover h3{color:var(--accent)}
+    .item time{color:var(--muted); font-size:13px}
+    .tools{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
+    .tool{
+      background:rgba(34,197,94,.18); color:#a7f3d0;
+      padding:6px 10px; border-radius:999px; font-size:12px; font-weight:600;
+    }
+
+    .social {
+        display:flex;
+        gap:16px;
+        margin-top:20px;
+    }
+    .social a svg {
+        height:28px;
+        width:28px;
+        opacity:.9;
+        transition:opacity .2s ease, transform .2s ease;
+    }
+    .social a:hover svg {
+        opacity:1;
+        transform:translateY(-1px);
+    }
+
+    /* Projects */
+    .grid{
+  display:flex;               /* vertical stack of cards */
+  flex-direction:column;
+  gap:32px;                   /* space between cards */
+}
+    .card{
+  display:grid;
+  grid-template-columns: 220px 1fr;   /* thumb width then content */
+  align-items:center;
+  gap:20px;
+  padding:6px 0;                      /* no big box; clean line */
+  border-radius:12px;
+  background:transparent;
+  box-shadow:none;
+  transition:transform .18s ease, filter .18s ease;
+}
+.card:hover{ transform:translateY(-2px); filter:brightness(1.03); }
+
+.card .thumb{
+  width:220px;
+  aspect-ratio: 16 / 10;      /* rectangular like screenshot */
+  border-radius:10px;
+  overflow:hidden;
+  background:#0b1020;
+}
+
+.card .thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;           /* slight crop/zoom OK */
+  display:block;
+}
+
+    .card .content{ display:flex; flex-direction:column; gap:6px; }
+.card h3{
+  margin:0;
+  font-size:18px;
+  line-height:1.2;
+  font-weight:800;
+}
+    .card h3 a.ext{
+  color:inherit;
+  text-decoration:none;
+  position:relative;
+  padding-right:18px;         /* room for arrow */
+}
+.card h3 a.ext::after{
+  content:"↗";
+  position:absolute;
+  right:0; top:0;
+  font-size:.9em;
+  color:var(--muted);
+  transition:transform .18s ease, color .18s ease;
+}
+    .card:hover h3 a.ext::after{ transform:translateY(-1px); color:var(--text); }
+    .card p{
+  margin:0;
+  color:var(--muted);         /* lighter paragraph like Brittany’s */
+  font-size:14.5px;
+}
+    .tag-row{ display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
+.tool{
+  background:rgba(19,94,84,.22); /* teal-ish pill */
+  color:#74d9c8;
+  padding:5px 10px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:600;
+}
+@media (max-width: 720px){
+  .card{
+    grid-template-columns: 1fr;
+    align-items:start;
+  }
+  .card .thumb{ width:100%; }
+}
+
+    /* Skills */
+    .badges{display:flex; flex-wrap:wrap; gap:10px}
+    .badges img{height:36px}
+
+    /* Footer */
+    footer{padding:56px 0 24px; display:flex; justify-content:center; gap:22px}
+    footer a{display:inline-flex}
+    footer a svg{height:28px; width:28px; opacity:.9; transition:opacity .2s ease, transform .2s ease}
+    footer a:hover svg{opacity:1; transform:translateY(-1px)}
+
+    /* Responsive reset of large offsets */
+    @media (max-width:1100px){
+      .wrap{grid-template-columns:1fr; gap:32px; padding:32px 24px}
+      aside, main{transform:none}
+      .card{grid-template-columns:1fr; grid-column:span 12}
+      .card .thumb{height:140px}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none!important; animation:none!important; scroll-behavior:auto!important}
+    }
+
+    /* Cursor spotlight */
+:root { --spot-size: 800px; }
+#spotlight{
+  position:fixed; inset:0; pointer-events:none; z-index:999; /* above content, non-interactive */
+  background: radial-gradient(
+    circle var(--spot-size) at var(--spot-x, 50%) var(--spot-y, 50%),
+    rgba(255,255,255,0.02), /* inner glow (subtle) */
+    rgba(255,255,255,0.01) 30%,
+    transparent 60%
+  );
+  opacity:0; transition:opacity .25s ease;
+}
+@media (prefers-reduced-motion: reduce){
+  #spotlight{ display:none !important; }
+}
+
+/* --- Mobile/vertical screens: stack, no sticky, no transforms --- */
+@media (max-width: 900px){
+  .wrap{
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    padding: 20px 16px !important;
+  }
+  aside{
+    position: static !important;   /* disable sticky */
+    top: auto !important;
+    transform: none !important;    /* undo left shift */
+    z-index: 0 !important;
+    margin-bottom: 8px;
+  }
+  main{
+    transform: none !important;    /* undo right shift */
+    z-index: 1;                    /* ensure content sits above */
+    gap: 64px;
+  }
+  .name{ font-size: 26px; }        /* slightly smaller heading on phones */
+  .nav a{ transform: none !important; } /* prevent hover shift from nudging layout */
+  .social{ gap: 14px; }
+  .card{
+    grid-template-columns: 1fr !important;
+  }
+  .card .thumb{ width: 100%; }
+}

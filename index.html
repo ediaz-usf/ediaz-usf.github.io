@@ -3,16 +3,256 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ernesto Diaz • Business Analytics Portfolio</title>
-  <meta name="description" content="Business Analytics portfolio of Ernesto Diaz — projects in Python, SQL, Tableau, dbt, Power BI." />
+  <title>Ernesto Diaz • Data & AI Portfolio</title>
+  <meta name="description" content="Portfolio of Ernesto Diaz — AI/ML research, data analytics, and engineering projects in Python, SQL, PyTorch, Tableau, and more." />
   <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
 
   <!-- Inter (variable) for a modern, sturdy, professional feel -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
 
+  <style>
+    :root{
+      --bg:#0b1220;
+      --surface:#0f1424;
+      --text:#e7eaf3;
+      --muted:#a1acc7;
+      --link:#8ab4ff;
+      --accent:#22c55e;
+      --accent-2:#86efac;
+      --shadow:0 14px 40px -20px rgba(2,12,27,.7);
+      --focus:2px solid #86efac;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:auto; color-scheme:dark}
+    body{
+      margin:0; background:var(--bg); color:var(--text);
+      font:15px/1.7 "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      letter-spacing:0.01em;
+    }
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+    a:focus-visible{outline:var(--focus); border-radius:6px}
+
+    /* Layout — extra spacious */
+    .wrap{
+      max-width:1300px; margin:0 auto;
+      display:grid; grid-template-columns:360px 1fr; gap:100px;
+      padding:56px 56px 24px;
+    }
+    aside{
+      position:sticky; top:56px; align-self:start; display:flex; flex-direction:column; gap:24px;
+      transform:translateX(-36px); /* more left */
+    }
+    main{
+      min-width:0; display:flex; flex-direction:column; gap:110px;
+      transform:translateX(36px);  /* more right */
+    }
+
+    /* Left profile — no hover box, just subtle highlight */
+    header.profile{padding:0}
+    .name{
+      font-size:32px; font-weight:800; margin:0 0 6px;
+      transition:color .25s ease, transform .15s ease;
+    }
+    header.profile:hover .name{color:var(--accent); transform:translateX(2px)}
+    .title{margin:0; color:var(--muted); font-size:14px}
+
+    /* Sidebar nav — highlight only (no bg boxes) */
+    .nav{display:flex; flex-direction:column; gap:8px; padding:12px 0}
+    .nav a{
+      color:var(--muted); font-size:14.5px; padding:6px 2px; border-radius:4px;
+      transition:color .15s ease, transform .15s ease, font-weight .15s ease;
+    }
+    .nav a:hover{color:var(--text); transform:translateX(3px); font-weight:600}
+    .nav a[aria-current="true"]{color:#fff; font-weight:700; transform:translateX(3px)}
+    
+    /* Content */
+    section{padding:0; margin:0}
+    h2{margin:0 0 16px; font-size:22px; font-weight:800}
+    p{margin:0 0 16px; color:var(--muted)} /* dimmer body copy */
+
+    /* Experience (panels still appear on hover on the RIGHT only) */
+    .timeline{display:flex; flex-direction:column; gap:22px}
+    .item{
+      padding:8px 0; border-radius:12px; background:transparent; box-shadow:none;
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .item:hover{transform:translateY(-2px); background:linear-gradient(180deg, var(--surface), transparent 140%); box-shadow:var(--shadow)}
+    .item h3{margin:0 0 6px; font-size:17px; color:var(--text); transition:color .2s ease}
+    .item:hover h3{color:var(--accent)}
+    .item time{color:var(--muted); font-size:13px}
+    .tools{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
+    .tool{
+      background:rgba(34,197,94,.18); color:#a7f3d0;
+      padding:6px 10px; border-radius:999px; font-size:12px; font-weight:600;
+    }
+
+    .social {
+        display:flex;
+        gap:16px;
+        margin-top:20px;
+    }
+    .social a svg {
+        height:28px;
+        width:28px;
+        opacity:.9;
+        transition:opacity .2s ease, transform .2s ease;
+    }
+    .social a:hover svg {
+        opacity:1;
+        transform:translateY(-1px);
+    }
+
+    /* Projects */
+    .grid{
+  display:flex;               /* vertical stack of cards */
+  flex-direction:column;
+  gap:32px;                   /* space between cards */
+}
+    .card{
+  display:grid;
+  grid-template-columns: 220px 1fr;   /* thumb width then content */
+  align-items:center;
+  gap:20px;
+  padding:6px 0;                      /* no big box; clean line */
+  border-radius:12px;
+  background:transparent;
+  box-shadow:none;
+  transition:transform .18s ease, filter .18s ease;
+}
+.card:hover{ transform:translateY(-2px); filter:brightness(1.03); }
+
+.card .thumb{
+  width:220px;
+  aspect-ratio: 16 / 10;      /* rectangular like screenshot */
+  border-radius:10px;
+  overflow:hidden;
+  background:#0b1020;
+}
+
+.card .thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;           /* slight crop/zoom OK */
+  display:block;
+}
+
+    .card .content{ display:flex; flex-direction:column; gap:6px; }
+.card h3{
+  margin:0;
+  font-size:18px;
+  line-height:1.2;
+  font-weight:800;
+}
+    .card h3 a.ext{
+  color:inherit;
+  text-decoration:none;
+  position:relative;
+  padding-right:18px;         /* room for arrow */
+}
+.card h3 a.ext::after{
+  content:"↗";
+  position:absolute;
+  right:0; top:0;
+  font-size:.9em;
+  color:var(--muted);
+  transition:transform .18s ease, color .18s ease;
+}
+    .card:hover h3 a.ext::after{ transform:translateY(-1px); color:var(--text); }
+    .card p{
+  margin:0;
+  color:var(--muted);         /* lighter paragraph like Brittany’s */
+  font-size:14.5px;
+}
+    .tag-row{ display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
+.tool{
+  background:rgba(19,94,84,.22); /* teal-ish pill */
+  color:#74d9c8;
+  padding:5px 10px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:600;
+}
+@media (max-width: 720px){
+  .card{
+    grid-template-columns: 1fr;
+    align-items:start;
+  }
+  .card .thumb{ width:100%; }
+}
+
+    /* Skills */
+    .badges{display:flex; flex-wrap:wrap; gap:10px}
+    .badges img{height:36px}
+
+    /* Footer */
+    footer{padding:56px 0 24px; display:flex; justify-content:center; gap:22px}
+    footer a{display:inline-flex}
+    footer a svg{height:28px; width:28px; opacity:.9; transition:opacity .2s ease, transform .2s ease}
+    footer a:hover svg{opacity:1; transform:translateY(-1px)}
+
+    /* Responsive reset of large offsets */
+    @media (max-width:1100px){
+      .wrap{grid-template-columns:1fr; gap:32px; padding:32px 24px}
+      aside, main{transform:none}
+      .card{grid-template-columns:1fr; grid-column:span 12}
+      .card .thumb{height:140px}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none!important; animation:none!important; scroll-behavior:auto!important}
+    }
+
+    /* Cursor spotlight */
+:root { --spot-size: 800px; }
+#spotlight{
+  position:fixed; inset:0; pointer-events:none; z-index:999; /* above content, non-interactive */
+  background: radial-gradient(
+    circle var(--spot-size) at var(--spot-x, 50%) var(--spot-y, 50%),
+    rgba(255,255,255,0.02), /* inner glow (subtle) */
+    rgba(255,255,255,0.01) 30%,
+    transparent 60%
+  );
+  opacity:0; transition:opacity .25s ease;
+}
+@media (prefers-reduced-motion: reduce){
+  #spotlight{ display:none !important; }
+}
+
+/* --- Mobile/vertical screens: stack, no sticky, no transforms --- */
+@media (max-width: 900px){
+  .wrap{
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    padding: 20px 16px !important;
+  }
+  aside{
+    position: static !important;   /* disable sticky */
+    top: auto !important;
+    transform: none !important;    /* undo left shift */
+    z-index: 0 !important;
+    margin-bottom: 8px;
+  }
+  main{
+    transform: none !important;    /* undo right shift */
+    z-index: 1;                    /* ensure content sits above */
+    gap: 64px;
+  }
+  .name{ font-size: 26px; }        /* slightly smaller heading on phones */
+  .nav a{ transform: none !important; } /* prevent hover shift from nudging layout */
+  .social{ gap: 14px; }
+  .card{
+    grid-template-columns: 1fr !important;
+  }
+  .card .thumb{ width: 100%; }
+}
+
+
+  </style>
 </head>
 
 <body>
@@ -21,7 +261,7 @@
     <aside>
       <header class="profile" role="banner">
         <h1 class="name">Ernesto Diaz</h1>
-        <p class="title">Data Analyst</p>
+        <p class="title">Data &amp; AI Engineer</p>
       </header>
 
       <nav class="nav" id="side-nav" aria-label="Section navigation">
@@ -41,7 +281,7 @@
     <!-- GitHub SVG -->
     <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M12 .5A11.5 11.5 0 0 0 .5 12.27c0 5.22 3.4 9.64 8.13 11.2.59.12.8-.26.8-.57v-2c-3.31.73-4-1.61-4-1.61a3.19 3.19 0 0 0-1.34-1.76c-1.09-.74.08-.73.08-.73a2.52 2.52 0 0 1 1.84 1.23 2.56 2.56 0 0 0 3.48 1 2.54 2.54 0 0 1 .76-1.6c-2.64-.31-5.42-1.35-5.42-6A4.67 4.67 0 0 1 6.9 7.1a4.31 4.31 0 0 1 .12-3.19s1-.33 3.22 1.23a11.11 11.11 0 0 1 5.87 0c2.21-1.56 3.22-1.23 3.22-1.23.43 1.08.37 2.3.12 3.19a4.68 4.68 0 0 1 1.24 3.24c0 4.67-2.79 5.68-5.45 6a2.78 2.78 0 0 1 .8 2.17v3.22c0 .31.21.69.81.57A11.5 11.5 0 0 0 23.5 12.27 11.5 11.5 0 0 0 12 .5Z"/></svg>
   </a>
-  <a href="mailto:ernestoabel.diaz@gmail.com" aria-label="Email">
+  <a href="/cdn-cgi/l/email-protection#c5a0b7aba0b6b1aaa4a7a0a9eba1aca4bf85a2a8a4aca9eba6aaa8" aria-label="Email">
     <!-- Email SVG -->
     <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5Z"/></svg>
   </a>
@@ -54,23 +294,13 @@
       <section id="about">
         <!-- Title removed per request -->
         <p>
-  I am an <strong>analytical and detail-oriented Business Analytics student</strong> with a strong foundation in
-  <strong>Python, SQL, Tableau, Power BI, and Excel</strong>. My academic and project experience have trained me to
-  approach complex problems with a data-driven mindset—translating raw data into meaningful insights and actionable
-  strategies. I enjoy working at the intersection of <strong>data, finance, and technology</strong>, where I can combine
-  technical skills with business acumen to solve real-world challenges.
+  I'm an <strong>AI &amp; data engineer</strong> finishing my BS in Business Analytics &amp; Information Systems at the <strong>University of South Florida</strong> (May 2026). I build end-to-end pipelines that span LLM fine-tuning, clinical data engineering, and business intelligence — bridging the gap between raw data and real decisions.
 </p>
 <p>
-  At the <strong>University of South Florida</strong>, I have developed a track record of tackling projects that involve
-  cleaning, modeling, and visualizing large datasets, often identifying key trends that influence decision-making. My
-  experiences include tutoring students in statistics and analytics, interning as a data analyst, and building
-  interactive dashboards that make complex data accessible to a wide audience.
+  Currently I'm a <strong>Research Assistant at Blue Cross Blue Shield</strong>, where I fine-tuned a medical LLM using QLoRA on 15,000+ clinical prompt-response pairs and engineered synthetic oncology datasets from TCGA standards. I hold a Bright Futures Academic Scholarship, studied abroad in Florence, Italy, and consistently earn 5-star reviews tutoring data analytics at USF.
 </p>
 <p>
-  In the summer of 2025, I <strong>studied abroad in Florence, Italy</strong>, where I gained not only cultural
-  perspective but also a deeper appreciation for global approaches to business and technology. Long-term, I aspire to
-  grow into a role where I can contribute to <strong>data strategy, financial analysis, or business intelligence</strong>,
-  helping organizations unlock value from their data.
+  My work spans <strong>Python, PyTorch, SQL, Tableau, and cloud platforms</strong> (AWS, GCP, Azure). I'm passionate about applying AI and data engineering to healthcare, finance, and wherever meaningful impact hides in messy data.
 </p>
 
       </section>
@@ -79,32 +309,37 @@
         <!-- Title removed per request -->
         <div class="timeline">
           <article class="item">
-            <h3>Florida Blue – USF | AI in Healthcare Research Fellow</h3>
-            <time datetime="2025-10">Oct 2025</time> – <time datetime="9999-12">Present</time>
+            <h3>Blue Cross Blue Shield — AI &amp; Machine Learning Research Assistant</h3>
+            <time datetime="2025-10">Oct 2025</time> – <time>Present</time>
             <ul>
-              <li>Conducting research under the 2025 Florida Blue/USF program, focusing on diagnostic and clinical applications of generative AI.</li>
-              <li>Exploring how machine learning and generative AI can create personalized treatment plans using electronic health records, genomic data, and clinical notes.</li>
+              <li>Fine-tuned Med42-8B LLM using a <strong>QLoRA pipeline</strong> in Python, reducing training loss from <strong>2.49 → 0.09</strong> across 15,000+ clinical prompt-response pairs for oncology decision support.</li>
+              <li>Engineered a synthetic dataset of <strong>5,200+ TCGA-LUAD–style patient records</strong> covering NCCN guideline adherence and mutation-driven reasoning, generating 30,000+ instruction-tuned training pairs.</li>
+              <li>Resolved a JSONL data quality gap, redesigning pipeline logic to push clinical citation coverage to <strong>75%+</strong> and significantly improve model reliability.</li>
+              <li>Deployed and evaluated Med42 LLM, achieving <strong>72% accuracy on USMLE benchmarks</strong> — outperforming GPT-3.5 by ~11 points.</li>
+              <li>Built SQL-based pipelines to analyze 10,000+ lung cancer EHR records for patient survival patterns.</li>
             </ul>
             <div class="tools" aria-label="Tools used">
-              <span class="tool">Generative AI</span>
-              <span class="tool">Machine Learning</span>
-              <span class="tool">Healthcare Analytics</span>
+              <span class="tool">Python</span>
+              <span class="tool">PyTorch</span>
+              <span class="tool">QLoRA / LoRA</span>
+              <span class="tool">Hugging Face</span>
+              <span class="tool">SQL</span>
+              <span class="tool">GCP</span>
             </div>
           </article>
 
-        <div class="timeline">
           <article class="item">
-            <h3>Knack — Data/Statistics Tutor</h3>
-            <time datetime="2024-05">May 2024</time> – <time datetime="2025-09">Present</time>
+            <h3>Knack — Data Analytics Tutor</h3>
+            <time datetime="2024-05">May 2024</time> – <time>Present</time>
             <ul>
-              <li>Created individualized learning plans for college-level students with data-driven insights, resulting in a 25% improvement in scores.</li>
-              <li>Earned consistent 5-star ratings by effectively communicating complex concepts to diverse learners and providing data-driven feedback.</li>
-              <li>Enhanced communication skills by effectively simplifying quantitative concepts to support data-driven academic improvement.</li>
+              <li>Created individualized learning plans for <strong>20+ students</strong> with data-driven insights, resulting in a <strong>25% average improvement</strong> in scores.</li>
+              <li>Earned consistent <strong>5-star ratings</strong> across sessions, simplifying complex concepts in Excel and Statistics into accessible outlines.</li>
+              <li>Leveraged <strong>Tableau and Excel</strong> to provide visual, data-driven feedback that accelerated student comprehension and performance.</li>
             </ul>
             <div class="tools" aria-label="Tools used">
+              <span class="tool">Tableau</span>
+              <span class="tool">Excel</span>
               <span class="tool">Statistics</span>
-              <span class="tool">Data Analysis</span>
-              <span class="tool">Tutoring</span>
             </div>
           </article>
 
@@ -129,6 +364,58 @@
         <!-- Title removed per request -->
         <div class="grid">
           <article class="card">
+            <div class="thumb" aria-hidden="true">
+              <img loading="lazy" decoding="async" src="assets/oncology-ai.png" alt="">
+            </div>
+            <div class="content">
+              <h3>🧬 <a class="ext" href="https://ediaz-usf.github.io/" target="_blank" rel="noopener">Oncology AI Clinical Decision Support</a></h3>
+              <p>Fine-tuned <strong>Med42-8B</strong> on a synthetic TCGA-LUAD dataset using QLoRA and 4-bit quantization, cutting training loss from 2.49 → 0.09 over 15,000+ clinical pairs. Engineered 5,200+ patient records and 30,000+ instruction-tuned training pairs spanning treatment recommendations and mutation reasoning. Achieved <strong>72% USMLE accuracy</strong>, outperforming GPT-3.5 by ~11 points.</p>
+              <div class="tag-row">
+                <span class="tool">Python</span><span class="tool">PyTorch</span><span class="tool">QLoRA</span><span class="tool">Hugging Face</span><span class="tool">Hex</span><span class="tool">GCS</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb" aria-hidden="true">
+              <img loading="lazy" decoding="async" src="assets/sp500-regime.png" alt="">
+            </div>
+            <div class="content">
+              <h3>📈 <a class="ext" href="https://ediaz-usf.github.io/" target="_blank" rel="noopener">S&amp;P 500 Market Regime &amp; Sector Rotation</a></h3>
+              <p>Engineered <strong>15+ technical features</strong> across 2.9M+ daily prices for multi-horizon return forecasting. Designed a market regime classification system producing <strong>9 distinct market states</strong> and surfacing historically outperforming sectors. Built macro-level indicators including % above SMA-50/200 and advance/decline ratios.</p>
+              <div class="tag-row">
+                <span class="tool">Python</span><span class="tool">Pandas</span><span class="tool">NumPy</span><span class="tool">Matplotlib</span><span class="tool">Seaborn</span><span class="tool">yfinance</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb" aria-hidden="true">
+              <img loading="lazy" decoding="async" src="assets/hospital-ops.png" alt="">
+            </div>
+            <div class="content">
+              <h3>🏥 <a class="ext" href="https://ediaz-usf.github.io/" target="_blank" rel="noopener">Hospital Operations &amp; Patient Flow Analytics</a></h3>
+              <p>Analyzed <strong>1,000+ appointment records</strong> to surface high-traffic departments handling ~30% above-average load. Designed a 7-table relational schema (patients, doctors, departments, appointments) on Google Cloud, then built SQL-driven KPIs and <strong>Tableau dashboards</strong> aimed at reducing wait times.</p>
+              <div class="tag-row">
+                <span class="tool">PostgreSQL</span><span class="tool">Python</span><span class="tool">Tableau</span><span class="tool">GCP</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb" aria-hidden="true">
+              <img loading="lazy" decoding="async" src="assets/expense-tracker.png" alt="">
+            </div>
+            <div class="content">
+              <h3>📱 <a class="ext" href="https://ediaz-usf.github.io/" target="_blank" rel="noopener">Mobile Expense Tracker</a></h3>
+              <p>Built a full-featured mobile app to manage <strong>100+ expense records</strong> with CRUD functionality using React Native and SQLite. Designed SQL queries to aggregate daily spending totals and power a <strong>time-series chart visualization</strong> across selectable date ranges.</p>
+              <div class="tag-row">
+                <span class="tool">React Native</span><span class="tool">SQLite</span><span class="tool">JavaScript</span><span class="tool">Git</span>
+              </div>
+            </div>
+          </article>
+
+
             <div class="thumb" aria-hidden="true">
               <img loading="lazy" decoding="async" src="assets/startup-dashboard.png" alt="">
             </div>
@@ -187,13 +474,20 @@
         <div class="badges" role="list">
           <img alt="Python" src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white&style=for-the-badge" loading="lazy" decoding="async" />
           <img alt="SQL" src="https://img.shields.io/badge/SQL-336791?logo=postgresql&logoColor=white&style=for-the-badge" loading="lazy" decoding="async" />
+          <img alt="PyTorch" src="https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white&style=for-the-badge" loading="lazy" decoding="async" />
+          <img alt="scikit-learn" src="https://img.shields.io/badge/scikit--learn-F7931E?logo=scikitlearn&logoColor=white&style=for-the-badge" loading="lazy" decoding="async" />
+          <img alt="Hugging Face" src="https://img.shields.io/badge/Hugging%20Face-FFD21E?logo=huggingface&logoColor=black&style=for-the-badge" loading="lazy" decoding="async" />
           <img alt="Tableau" src="https://img.shields.io/badge/Tableau-E97627?logo=tableau&logoColor=white&style=for-the-badge" loading="lazy" decoding="async" />
           <img alt="Power BI" src="https://img.shields.io/badge/Power%20BI-F2C811?logo=powerbi&logoColor=black&style=for-the-badge" loading="lazy" decoding="async" />
+          <img alt="AWS" src="https://img.shields.io/badge/AWS-232F3E?logo=amazonaws&logoColor=white&style=for-the-badge" loading="lazy" decoding="async" />
+          <img alt="Google Cloud" src="https://img.shields.io/badge/Google%20Cloud-4285F4?logo=googlecloud&logoColor=white&style=for-the-badge" loading="lazy" decoding="async" />
+          <img alt="Azure" src="https://img.shields.io/badge/Azure-0078D4?logo=microsoftazure&logoColor=white&style=for-the-badge" loading="lazy" decoding="async" />
+          <img alt="Snowflake" src="https://img.shields.io/badge/Snowflake-29B5E8?logo=snowflake&logoColor=white&style=for-the-badge" loading="lazy" decoding="async" />
+          <img alt="MongoDB" src="https://img.shields.io/badge/MongoDB-47A248?logo=mongodb&logoColor=white&style=for-the-badge" loading="lazy" decoding="async" />
           <img alt="dbt" src="https://img.shields.io/badge/dbt-FF694B?logo=dbt&logoColor=white&style=for-the-badge" loading="lazy" decoding="async" />
           <img alt="Excel" src="https://img.shields.io/badge/Excel-217346?logo=microsoft-excel&logoColor=white&style=for-the-badge" loading="lazy" decoding="async" />
-          <img alt="Snowflake" src="https://img.shields.io/badge/Snowflake-29B5E8?logo=snowflake&logoColor=white&style=for-the-badge" loading="lazy" decoding="async" />
-          <img alt="Airflow" src="https://img.shields.io/badge/Airflow-017CEE?logo=apache-airflow&logoColor=white&style=for-the-badge" loading="lazy" decoding="async" />
           <img alt="Git" src="https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white&style=for-the-badge" loading="lazy" decoding="async" />
+          <img alt="React Native" src="https://img.shields.io/badge/React%20Native-61DAFB?logo=react&logoColor=black&style=for-the-badge" loading="lazy" decoding="async" />
         </div>
       </section>
 
@@ -201,7 +495,7 @@
         <h2 id="resume-h">Resume</h2>
         <div class="badges" style="gap:12px">
           <a class="tool" href="assets/Ernesto%20Diaz%20-%20Resume.pdf" download>📄 Download Resume</a>
-          <a class="tool" href="assets/Ernesto%20Diaz%20-%20Resume.pdf?v=3" target="_blank" rel="noopener">🌐 View Resume</a>
+          <a class="tool" href="assets/Ernesto%20Diaz%20-%20Resume.pdf" target="_blank" rel="noopener">🌐 View Resume</a>
         </div>
       </section>
 
@@ -387,4 +681,11 @@ document.addEventListener('DOMContentLoaded', clampEnds);
   window.addEventListener('scroll', ()=>{ if(!hasMoved) hide(); }, {passive:true});
 
   // Coarse pointers (touch devices): keep it off
-  if(window.matchMedia && window.matchMedia('
+  if(window.matchMedia && window.matchMedia('(pointer: coarse)').matches){
+    hide();
+    return;
+  }
+});
+  </script>
+</body>
+</html>

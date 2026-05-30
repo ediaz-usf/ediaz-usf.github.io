@@ -191,6 +191,7 @@
     color: var(--ink);
   }
   .hero h1 .word.brush { padding: 0 6px; }
+  .hero h1 .word.brush:hover { transform: none; letter-spacing: inherit; }
   /* Bigger washes on the giant hero title so the watercolor breathes */
   .hero h1 .word.brush::before { left: -8%; right: -6%; top: -12%; bottom: -8%; filter: blur(calc(9px * var(--wash-blur))); }
   .hero h1 .word.brush::after  { filter: blur(calc(13px * var(--wash-blur))); }

@@ -4,8 +4,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ernesto Diaz — Data &amp; Analytics Engineer · FinOps</title>
-<meta name="description" content="Ernesto Diaz — data and analytics engineer. Cloud FinOps, executive financial reporting, analytics engineering. New York, NY." />
+<title>Ernesto Diaz — Data &amp; Technology Analyst · Cloud FinOps</title>
+<meta name="description" content="Ernesto Diaz — data and technology analyst. Cloud FinOps, financial analytics, AI solutions. New York, NY." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23eceef1'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' fill='%232f5673' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,7 +18,7 @@
   --accent:#2f5673;--accent-soft:rgba(47,86,115,.13);
   --serif:"Newsreader",Georgia,"Times New Roman",serif;
   --sans:"Geist",ui-sans-serif,system-ui,-apple-system,sans-serif;
-  --gut:clamp(20px,4vw,72px);
+  --gut:clamp(20px,4vw,96px);
   --ease:cubic-bezier(.19,1,.22,1);
 }
 *{box-sizing:border-box}
@@ -33,7 +33,7 @@ p{margin:0}
 /* paper grain, generated in-browser */
 .grain{position:fixed;inset:0;z-index:120;pointer-events:none;opacity:.42;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.34'/%3E%3C/svg%3E")}
 
-.wrap{max-width:1340px;margin:0 auto;padding:0 var(--gut)}
+.wrap{width:100%;max-width:min(1680px,94vw);margin:0 auto;padding:0 var(--gut);box-sizing:border-box}
 .lbl{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.17em;text-transform:uppercase;color:var(--ink-3)}
 .lbl.ac{color:var(--accent)}
 .num-t{font-variant-numeric:tabular-nums lining-nums}
@@ -53,7 +53,7 @@ hr.rule{border:0;border-top:1px solid var(--rule);margin:0}
 .rh{position:fixed;top:0;left:0;right:0;z-index:110;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px) saturate(1.1);border-bottom:1px solid var(--rule-2);transform:translateY(-101%);transition:transform .55s var(--ease)}
 .rh.on{transform:none}
 .rh .bar{height:1.5px;background:var(--accent);width:var(--sp,0%);transition:width .1s linear}
-.rh .in{display:flex;align-items:center;justify-content:space-between;gap:24px;height:50px;max-width:1340px;margin:0 auto;padding:0 var(--gut)}
+.rh .in{display:flex;align-items:center;justify-content:space-between;gap:24px;height:50px;width:100%;max-width:min(1680px,94vw);margin:0 auto;padding:0 var(--gut);box-sizing:border-box}
 .rh .nm{font-family:var(--serif);font-size:16px}
 .rh .sec{font-size:11px;font-weight:600;letter-spacing:.17em;text-transform:uppercase;color:var(--ink-3)}
 .rh .to{font-size:13px;color:var(--ink-2)}
@@ -121,6 +121,7 @@ body.ready h1.head em::after{transform:scaleX(1)}
 .ledger{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--rule)}
 .ledger div{padding:22px 26px 24px;border-left:1px solid var(--rule-2)}
 .ledger div:first-child{border-left:0;padding-left:0}
+.ledger .lbl{display:block;margin-bottom:14px}
 .ledger .v{display:block;font-family:var(--serif);font-weight:300;font-size:clamp(30px,3.4vw,46px);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
 .ledger .k{display:block;margin-top:10px;font-size:12.5px;line-height:1.4;color:var(--ink-3);max-width:22ch}
 @media(max-width:900px){.ledger{grid-template-columns:repeat(2,1fr)}.ledger div:nth-child(3){border-left:0;padding-left:0}.ledger div:nth-child(-n+2){border-bottom:1px solid var(--rule-2)}}
@@ -146,6 +147,15 @@ section{padding:clamp(76px,9vw,140px) 0 0}
 .notes .n:last-child{border-bottom:0}
 .notes .n p{font-size:13.5px;line-height:1.55;color:var(--ink-3);margin-top:6px;text-wrap:pretty}
 .notes .n b{display:block;font-family:var(--serif);font-size:16px;color:var(--ink)}
+.fig-click{cursor:pointer;text-decoration:underline;text-decoration-color:var(--rule)}
+.case.wide-fig{grid-template-columns:minmax(0,.88fr) minmax(0,1.28fr)}
+.fig-car{position:relative;cursor:pointer;padding:0 10px 22px 0}
+.fig-car::before{content:"";position:absolute;top:8px;left:8px;right:-2px;bottom:-2px;background:var(--paper-2);border:1px solid var(--rule);z-index:0}
+.fig-car svg{position:relative;z-index:1;background:var(--paper-2);display:block}
+.fig-car:hover::before{top:11px;left:11px}
+.fig-dots{display:flex;gap:6px;justify-content:center;margin-top:10px}
+.fig-dots span{width:6px;height:6px;border-radius:50%;background:var(--rule);transition:background .2s}
+.fig-dots span.on{background:var(--accent)}
 .exp{margin-top:clamp(52px,6vw,84px);border-top:1px solid var(--ink)}
 .exp .row{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) 150px;gap:24px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--rule-2);transition:padding-left .45s var(--ease)}
 .exp .row:hover{padding-left:12px}
@@ -189,7 +199,7 @@ section{padding:clamp(76px,9vw,140px) 0 0}
 .cap{margin-top:14px;font-family:var(--serif);font-style:italic;font-size:14px;line-height:1.5;color:var(--ink-3);max-width:54ch}
 .cap b{font-style:normal;font-family:var(--sans);font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);margin-right:8px}
 .fig-split{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:end}
-@media(max-width:900px){.case,.case.flip{grid-template-columns:1fr}.case.flip .fig-wrap{order:0}.fig-wrap{position:static}}
+@media(max-width:900px){.case,.case.flip,.case.wide-fig{grid-template-columns:1fr}.case.flip .fig-wrap{order:0}.fig-wrap{position:static}}
 
 /* svg primitives */
 .hair{stroke:var(--rule);stroke-width:1;fill:none}
@@ -201,7 +211,7 @@ section{padding:clamp(76px,9vw,140px) 0 0}
 @media(max-width:640px){.tx{font-size:12.5px}.txn{font-size:11.4px}.tv{font-size:19px}}
 .tv{font-family:"Newsreader",serif;font-size:15px;fill:var(--ink);font-variant-numeric:tabular-nums}
 .tv.ac{fill:var(--accent)}
-.dashed{stroke-dasharray:var(--len);stroke-dashoffset:calc(var(--len) * (1 - var(--p,0)))}
+.dashed{stroke-dasharray:var(--len);stroke-dashoffset:calc(var(--len) * (1 - var(--p,0)));transition:stroke-dashoffset .18s linear}
 .cell-ac{opacity:clamp(0,(var(--p,0) - var(--t)) * 5,1)}
 
 /* full-width plates */
@@ -271,7 +281,7 @@ footer .note{margin-top:24px;max-width:50ch;font-size:15.5px;line-height:1.62;co
 </style>
 </head>
 <body>
-<div id="pre"><div class="pin"><span class="pname">Ernesto Diaz</span><span class="prule"></span><span class="prole">Data Analyst-Engineer · Cloud FinOps</span></div></div>
+<div id="pre"><div class="pin"><span class="pname">Ernesto Diaz</span><span class="prule"></span><span class="prole">Data &amp; Technology Analyst</span></div></div>
 <div class="grain" aria-hidden="true"></div>
 
 <div class="rh" id="rh"><div class="bar" id="rhbar"></div><div class="in"><a class="nm" href="#top">Ernesto Diaz</a><span class="sec" id="rhsec">Position</span><a class="to ulink" href="mailto:ernestoabel.diaz@gmail.com">ernestoabel.diaz@gmail.com</a></div></div>
@@ -291,20 +301,20 @@ footer .note{margin-top:24px;max-width:50ch;font-size:15.5px;line-height:1.62;co
 
   <div class="hero">
     <div class="dateline">
-      <span><b>Focus</b> Cloud cost &amp; executive reporting</span><span><b>Base</b> New York, NY</span><span><b>Current</b> Cloud FinOps &amp; Financial Analysis, SitusAMC</span>
+      <span><b>Focus</b> Data, finance &amp; cloud technology</span><span><b>Base</b> New York, NY</span><span><b>Current</b> Cloud FinOps &amp; Financial Analysis, SitusAMC</span>
     </div>
     <div class="hero-grid">
       <div>
-        <h1 class="head"><span class="ln"><i>Data Analyst-Engineer</i></span><span class="ln"><i><em>Cloud FinOps</em> Analyst</i></span></h1>
-        <p class="head-sub"><span class="ln"><i>I make financial data legible.</i></span></p>
-        <p class="lede rv d1">Analytics engineering with a finance bias — cloud FinOps, executive reporting, and the unglamorous pipeline work that makes a number trustworthy before anyone builds a chart on top of it. <em>Most of the work happens before the chart.</em></p>
-        <div class="now rv d2"><span class="dot"></span><p><b>Now</b> — Cloud FinOps &amp; Financial Analysis at SitusAMC, New York. Executive reporting with Accounting; cloud cost governance with FinOps and Cloud Engineering.</p></div>
+        <h1 class="head"><span class="ln"><i>Data &amp; Technology Analyst</i></span></h1>
+        <p class="head-sub"><span class="ln"><i>Cloud FinOps · Financial Analytics · AI Solutions</i></span></p>
+        <p class="lede rv d1"><em>I make financial data legible.</em> I work at the intersection of data, finance, and technology — turning messy enterprise data into information executives can trust and act on. Cloud costs, financial reporting, AI-assisted workflows: different domains, same discipline. <em>Most of the work happens before the chart.</em></p>
+        <div class="now rv d2"><span class="dot"></span><p><b>Now</b> — Cloud FinOps &amp; Financial Analyst at SitusAMC, New York. Executive reporting with Accounting; cloud cost governance with FinOps and Cloud Engineering.</p></div>
         <div class="cta rv d3">
           <a class="btn" href="#work" data-mag>Selected work<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
           <a class="btn gh" href="mailto:ernestoabel.diaz@gmail.com" data-mag>Get in touch</a>
         </div>
       </div>
-      <figure class="portrait rv d2">
+      <figure class="portrait rv d2" style="align-self:start">
         <div class="pt" id="pt"><img src="assets/profile-hero.png" alt="Portrait of Ernesto Diaz" onerror="this.closest('.pt').classList.add('noimg');this.remove()" /><span class="tone"></span><span class="lift"></span></div>
         <figcaption><span>Ernesto Diaz</span><span>New York, NY</span></figcaption>
       </figure>
@@ -312,10 +322,10 @@ footer .note{margin-top:24px;max-width:50ch;font-size:15.5px;line-height:1.62;co
   </div>
 
   <div class="ledger rv">
-    <div><span class="v">14.2M+</span><span class="k">journal entries modeled into executive dashboards</span></div>
-    <div><span class="v">6+</span><span class="k">reporting solutions across three business segments</span></div>
-    <div><span class="v">−90%</span><span class="k">alert noise after triage &amp; owner routing</span></div>
-    <div><span class="v">25 yrs</span><span class="k">of S&amp;P 500 history modeled for regime research</span></div>
+    <div><span class="lbl">Cloud FinOps</span><span class="v">7 → 3</span><span class="k">FinOps platforms evaluated and narrowed to finalists</span></div>
+    <div><span class="lbl">Executive Reporting</span><span class="v">3 business units</span><span class="k">Financial reporting across Corporate, CRE, and Residential</span></div>
+    <div><span class="lbl">AI / Automation</span><span class="v">90% less noise</span><span class="k">Cloud alert noise reduced through AI-assisted triage</span></div>
+    <div><span class="lbl">Data Engineering</span><span class="v">SQL → Python → BI</span><span class="k">End-to-end analytical workflows from source data to reporting</span></div>
   </div>
 
   <!-- 01 POSITION -->
@@ -323,23 +333,17 @@ footer .note{margin-top:24px;max-width:50ch;font-size:15.5px;line-height:1.62;co
     <div class="shead">
       <span class="folio">01</span>
       <div>
-        <h2><span class="ln"><i>One foot in finance,</i></span><span class="ln"><i>one in <em>research</em>.</i></span></h2>
-        <p class="dek rv">Where I sit, what I've done, and which of it is the actual through-line.</p>
+        <h2><span class="ln"><i>An engineer's hands,</i></span><span class="ln"><i>a <em>finance</em> read.</i></span></h2>
       </div>
     </div>
     <div class="pos">
       <div class="prose rv">
-        <p class="first">I like problems that sit between <em>technical depth</em> and a real business answer. Financial reporting is full of them: the number has to be right, and it has to mean something to whoever opens the file.</p>
-        <p>At <b>SitusAMC</b> the work runs on two separate tracks. With the <b>Accounting team</b>, on Accounting's data, I build executive reporting for Corporate IT, Global Prepaid and SG&amp;A — <b>14.2M+</b> journal entries modeled into six reporting solutions spanning three business segments and 90+ products.</p>
-        <p>The second track is cloud cost, and it doesn't touch Accounting at all: a triage and owner-routing framework built for my own <b>FinOps team</b> and the <b>Cloud Engineering</b> team, plus vendor evaluation and writing things down so the next analyst doesn't rediscover them.</p>
-        <p>The through-line is <em>analytics engineering</em>. Get the grain and the pipeline right, then make the output legible. That's the same job whether the input is journal entries, twenty-five years of S&amp;P 500 prices, or a seven-table hospital schema.</p>
-        <p>Before that I spent eight months on a research collaboration between <b>USF</b> and <b>Florida Blue</b>, fine-tuning Med42-8B for lung cancer decision support — synthetic corpus generation, QLoRA training, clinical validity review. It is the hardest thing I've built, and it's <em>not the lane I work in day to day</em>; it's just why a messy pipeline doesn't scare me.</p>
+        <p class="first">I started in <em>data analysis and data engineering</em> — SQL, pipelines, getting a messy dataset into a shape someone can actually use. That's still the part of the work I'm best at.</p>
+        <p>Financial and operational problems pulled me in because the numbers have to be trustworthy and useful, not just interesting. I now apply those same data-engineering and analytics habits at <b>Cloud FinOps and financial analysis at SitusAMC</b> — executive reporting with Accounting, cloud cost governance with FinOps and Cloud Engineering — and I'm drawn to work that sits at the intersection of data, finance, cloud technology, and the decisions a business actually has to make.</p>
       </div>
       <aside class="notes rv d1">
-        <div class="n"><b>Where I gravitate</b><p>FinOps, financial analysis, and analytics engineering on finance-adjacent teams — reporting ownership over dashboard decoration.</p></div>
-        <div class="n"><b>How I work</b><p>Model first, visualize second. Document as I go — twenty-plus internal docs at SitusAMC now used by Legal, InfoSec and Vendor Management.</p></div>
-        <div class="n"><b>Teaching habit</b><p>Two years tutoring data analytics and statistics through Knack: 20+ students, five-star average. Good practice for explaining a number to someone who didn't build it.</p></div>
-        <div class="n"><b>Languages</b><p>English and Spanish, both fluent.</p></div>
+        <div class="n"><b>Where I gravitate</b><p>FinOps, financial analytics, analytics engineering, and technology-focused analytical roles where I own the underlying data or problem — not just decorate dashboards.</p></div>
+        <div class="n"><b>How I work</b><p>Model first, visualize second. Make the number trustworthy, document the logic, then build the reporting layer.</p></div>
       </aside>
     </div>
     <div class="exp rv">
@@ -369,57 +373,10 @@ footer .note{margin-top:24px;max-width:50ch;font-size:15.5px;line-height:1.62;co
     </div>
     <div class="cases">
 
-      <!-- 01 Executive dashboard -->
-      <article class="case" data-scrub>
+<!-- 01 S&P 500 -->
+      <article class="case wide-fig" data-scrub>
         <div>
-          <div class="cmeta rv"><span class="cn">01</span><span class="cd">Financial Reporting · with Accounting</span><span class="cd">2026</span></div>
-          <h3 class="rv">Executive dashboard for Corporate IT, Prepaid &amp; SG&amp;A</h3>
-          <p class="desc rv d1">Built in close partnership with the <b>Accounting team</b>, on Accounting's data. I own the path from raw journal entries to the dashboard leadership actually opens — grain, reconciliation, and the six reporting solutions sitting on top.</p>
-          <div class="stats rv d1">
-            <div class="s"><span class="v">14.2M+</span><span class="k">journal entries processed into interactive dashboards</span></div>
-            <div class="s"><span class="v">6+</span><span class="k">reporting solutions delivered to leadership</span></div>
-            <div class="s"><span class="v">90+</span><span class="k">products across three business segments — Corporate IT, Global Prepaid, SG&amp;A</span></div>
-          </div>
-          <div class="stack rv d2"><span class="lbl">Stack</span><p class="st">Excel · SQL · Power BI · Accounting source systems</p></div>
-          <a class="clink rv d2" href="mailto:ernestoabel.diaz@gmail.com?subject=Executive%20reporting%20work">Internal work — ask me about it ↗</a>
-        </div>
-        <div class="fig-wrap rv d1">
-          <div class="fig">
-            <div class="ft"><span>Fig. 02</span><span>Reporting surface</span></div>
-            <svg viewBox="0 0 480 250" role="img" aria-label="Schematic of ninety product cells across three business segments above a band of journal entries funneling into six reporting solutions"><g id="f1-grid"></g><g id="f1-flow"></g></svg>
-          </div>
-          <p class="cap"><b>Fig. 02</b>Schematic. Above: ninety product cells across the three segments the dashboard covers. Below: 14.2M+ journal entries reduced to grain and funneled into the six reporting solutions built with Accounting.</p>
-        </div>
-      </article>
-
-      <!-- 02 Alert triage & routing -->
-      <article class="case flip" data-scrub>
-        <div>
-          <div class="cmeta rv"><span class="cn">02</span><span class="cd">FinOps · with Cloud Engineering</span><span class="cd">2026</span></div>
-          <h3 class="rv">Cloud cost alert triage &amp; owner-routing framework</h3>
-          <p class="desc rv d1">A separate workstream from the reporting above, built for my own <b>FinOps team</b> and the <b>Cloud Engineering</b> team — no Accounting involvement. Every alert is either suppressed as noise or lands with a named owner; nothing sits in a shared inbox.</p>
-          <div class="stats rv d1">
-            <div class="s"><span class="v">100,000+</span><span class="k">CloudHealth policy alerts and 30+ historical reports reviewed</span></div>
-            <div class="s"><span class="v">−90%</span><span class="k">alert noise after triage, prioritization and owner routing</span></div>
-            <div class="s"><span class="v">7</span><span class="k">FinOps platforms scored on 25+ functional, security and pricing criteria via MoSCoW matrices</span></div>
-            <div class="s"><span class="v">20+</span><span class="k">internal docs adopted by Legal, InfoSec and Vendor Management; wired into a Custom GPT saving ~3–4 hrs/week</span></div>
-          </div>
-          <div class="stack rv d2"><span class="lbl">Stack</span><p class="st">AWS · Azure · CloudHealth · SQL · MoSCoW · Custom GPT</p></div>
-          <a class="clink rv d2" href="mailto:ernestoabel.diaz@gmail.com?subject=FinOps%20alert%20routing">Internal work — ask me about it ↗</a>
-        </div>
-        <div class="fig-wrap rv d1">
-          <div class="fig">
-            <div class="ft"><span>Fig. 03</span><span>Triage &amp; routing</span></div>
-            <svg viewBox="0 0 480 250" role="img" aria-label="Schematic of one hundred thousand policy alerts reduced by triage to a working queue and routed to three owner groups"><g id="f1b"></g></svg>
-          </div>
-          <p class="cap"><b>Fig. 03</b>Schematic. One tick per thousand policy alerts; accent ticks survive triage. Each survivor is routed to a named owner on Cloud Engineering, FinOps, or the owning service team.</p>
-        </div>
-      </article>
-
-      <!-- 03 S&P 500 -->
-      <article class="case" data-scrub>
-        <div>
-          <div class="cmeta rv"><span class="cn">03</span><span class="cd">Quantitative Research</span><span class="cd">2026</span></div>
+          <div class="cmeta rv"><span class="cn">01</span><span class="cd">Quantitative Research</span><span class="cd">2026</span></div>
           <h3 class="rv"><a href="https://github.com/ediaz-usf/SP500-Analysis-Project/tree/main" target="_blank" rel="noopener">S&amp;P 500 market regimes &amp; sector rotation<span class="ar">↗</span></a></h3>
           <p class="desc rv d1">A regime-aware sector rotation model built on twenty-five years of S&amp;P 500 data. I engineered the feature pipeline, classified market states, ranked sectors within each regime, and backtested the strategy end to end.</p>
           <div class="stats rv d1">
@@ -433,38 +390,99 @@ footer .note{margin-top:24px;max-width:50ch;font-size:15.5px;line-height:1.62;co
         </div>
         <div class="fig-wrap rv d1">
           <div class="fig">
-            <div class="ft"><span>Fig. 04</span><span>Regime space</span></div>
-            <svg viewBox="0 0 480 320" role="img" aria-label="Three by three matrix of the nine market regimes, and a bar comparison of strategy versus benchmark cumulative return"><g id="f2-matrix"></g><g id="f2-bars"></g></svg>
+            <div class="ft"><span>Fig. 02</span><span>Backtest &amp; sector map</span><span class="fig-click" id="f2-ind">1 / 2 — click to switch</span></div>
+            <div class="fig-car" id="f2-car">
+              <svg class="f2p" viewBox="0 0 480 320" role="img" aria-label="Cumulative growth of one dollar for the strategy versus the equal-weight benchmark from 2008 to 2026, with cumulative return, Sharpe ratio and max drawdown"><g id="f2-growth"></g></svg>
+              <svg class="f2p" style="display:none" viewBox="0 0 480 324" role="img" aria-label="Heatmap of average 21-day forward return by sector and market regime, shaded green by return strength"><g id="f2-heat"></g></svg>
+            </div>
+            <div class="fig-dots" id="f2-dots"><span class="on"></span><span></span></div>
           </div>
-          <p class="cap"><b>Fig. 04</b>The classification space: trend (bear / neutral / bull) against volatility (low / mid / high). Each glyph is that regime's signature, not its data. Below, measured cumulative return against the equal-weight benchmark.</p>
+          <p class="cap" id="f2-cap"><b>Fig. 02</b>Cumulative growth of $1, strategy vs. the equal-weight benchmark, 2008–2026. 437.9% cumulative return against 397.8%, on a 0.96 Sharpe and a −28.3% max drawdown.</p>
         </div>
       </article>
 
-      <!-- 04 Oncology -->
+      
+
+<!-- 02 Oncology -->
       <article class="case flip" data-scrub>
         <div>
-          <div class="cmeta rv"><span class="cn">04</span><span class="cd">Applied ML Research</span><span class="cd">2025 — 2026</span></div>
+          <div class="cmeta rv"><span class="cn">02</span><span class="cd">Applied ML Research</span><span class="cd">2025 — 2026</span></div>
           <h3 class="rv"><a href="https://app.hex.tech/019d0dac-70a5-7000-afb6-89f9a561208d/hex/Blue-Cross---AI-Agent-032lUHH6eZFLAK3nYdXBDC/draft/logic" target="_blank" rel="noopener">Oncology clinical decision support<span class="ar">↗</span></a></h3>
-          <p class="desc rv d1">Fine-tuned <b>Med42-8B</b> on a synthetic lung cancer corpus with QLoRA and 4-bit quantization. Built the pipeline end to end: corpus generation, training runs, clinical validity checks, safety review, and a Hex reporting layer for the research team.</p>
+          <p class="desc rv d1">The question was whether a small model, fine-tuned, could beat its own base and GPT-3.5 on structured clinical tasks. I fine-tuned <b>Med42-8B</b> on 14k synthetic NSCLC cases with QLoRA across six iterative training runs. Partway through, I found that 30% of one run's outputs were duplicates — I rewrote the data generator, regenerated the corpus, and the next run converged cleanly on data that couldn't be memorized. I also built evaluation beyond ROUGE alone, since ROUGE scored a wrong drug recommendation at 97.8.</p>
           <div class="stats rv d1">
-            <div class="s"><span class="v">14,000+</span><span class="k">clinical prompt–response pairs generated</span></div>
-            <div class="s"><span class="v">2.20 → 0.10</span><span class="k">training loss across six runs</span></div>
-            <div class="s"><span class="v">71.4%</span><span class="k">pharmacological validity on a 50-case drug recall evaluation</span></div>
-            <div class="s"><span class="v">+0.45</span><span class="k">ROUGE over the Med42 baseline and GPT-3.5</span></div>
+            <div class="s"><span class="v">0.705</span><span class="k">ROUGE-1 on held-out test data — 2.8× both base Med42 and GPT-3.5</span></div>
+            <div class="s"><span class="v">71.4%</span><span class="k">clinically appropriate drug recommendations on the held-out drug-recall cases</span></div>
+            <div class="s"><span class="v">3.80/4</span><span class="k">format adherence — the only model that holds structure across all three task types</span></div>
+            <div class="s"><span class="v">30% → 0.25%</span><span class="k">duplicate response rate after regenerating the 14k-case corpus</span></div>
           </div>
           <div class="stack rv d2"><span class="lbl">Stack</span><p class="st">Python · PyTorch · QLoRA · Hugging Face · Hex · SQL</p></div>
           <a class="clink rv d2" href="https://app.hex.tech/019d0dac-70a5-7000-afb6-89f9a561208d/hex/Blue-Cross---AI-Agent-032lUHH6eZFLAK3nYdXBDC/draft/logic" target="_blank" rel="noopener">View the project ↗</a>
         </div>
         <div class="fig-wrap rv d1">
           <div class="fig">
-            <div class="ft"><span>Fig. 05</span><span>Corpus &amp; evaluation</span></div>
-            <svg viewBox="0 0 480 250" role="img" aria-label="Dot field representing the training corpus, and a fifty cell strip showing 71.4 percent pharmacological validity"><g id="f3-field"></g><g id="f3-eval"></g></svg>
+            <div class="ft"><span>Fig. 03</span><span>Cohort face validity</span><span class="fig-click" id="f3-ind">1 / 2 — click to switch</span></div>
+            <div class="fig-car" id="f3-car">
+              <svg class="f3p" viewBox="0 0 480 300" role="img" aria-label="Kaplan-Meier survival curves for the synthetic cohort by cancer stage, showing the expected stage I to IV survival gradient with confidence bands"><g id="f3-km"></g></svg>
+              <svg class="f3p" style="display:none" viewBox="0 0 480 300" role="img" aria-label="Kaplan-Meier survival curves for the synthetic cohort by driver mutation, showing overlapping curves with wide confidence bands"><g id="f3-km2"></g></svg>
+            </div>
+            <div class="fig-dots" id="f3-dots"><span class="on"></span><span></span></div>
           </div>
-          <p class="cap"><b>Fig. 05</b>Left: the synthetic corpus, one dot per hundred prompt–response pairs. Right: the fifty-case drug recall evaluation, accent cells marking the 71.4% judged pharmacologically valid.</p>
+          <p class="cap" id="f3-cap"><b>Fig. 03</b>Kaplan–Meier survival by stage on the synthetic cohort, 4,784 patients. Stage I to IV separate in the order they should — the dominant prognostic driver behaves as it does in real NSCLC outcomes, a face-validity check on the generated data, not a claim of causal survival analysis.</p>
         </div>
       </article>
 
-      <!-- 05 Hospital ops -->
+      
+
+<!-- 03 Executive dashboard -->
+      <article class="case" data-scrub>
+        <div>
+          <div class="cmeta rv"><span class="cn">03</span><span class="cd">Financial Reporting · with Accounting</span><span class="cd">2026</span></div>
+          <h3 class="rv">Executive dashboard for Corporate IT, Prepaid &amp; SG&amp;A</h3>
+          <p class="desc rv d1">Built with the <b>Accounting team</b>, on Accounting's data. I built the dashboard itself — the data model behind it, the formulas, and the six reporting views leadership opens.</p>
+          <div class="stats rv d1">
+            <div class="s"><span class="v">14.2M+</span><span class="k">journal entries the dashboard reports on</span></div>
+            <div class="s"><span class="v">6+</span><span class="k">reporting solutions delivered to leadership</span></div>
+            <div class="s"><span class="v">90+</span><span class="k">products across three business segments — Corporate IT, Global Prepaid, SG&amp;A</span></div>
+          </div>
+          <div class="stack rv d2"><span class="lbl">Stack</span><p class="st">Excel · SQL · Power BI · Accounting source systems</p></div>
+          <a class="clink rv d2" href="mailto:ernestoabel.diaz@gmail.com?subject=Executive%20reporting%20work">Internal work — ask me about it ↗</a>
+        </div>
+        <div class="fig-wrap rv d1">
+          <div class="fig">
+            <div class="ft"><span>Fig. 04</span><span>Reporting surface</span></div>
+            <svg viewBox="0 0 480 250" role="img" aria-label="Schematic of ninety product cells across three business segments above a band of journal entries funneling into six reporting solutions"><g id="f1-grid"></g><g id="f1-flow"></g></svg>
+          </div>
+          <p class="cap"><b>Fig. 04</b>Schematic. Above: ninety product cells across the three segments the dashboard covers. Below: the 14.2M+ journal entries behind it, feeding the six reporting views built with Accounting.</p>
+        </div>
+      </article>
+
+      
+
+<!-- 04 Custom GPT for cloud cost alerts -->
+      <article class="case flip" data-scrub>
+        <div>
+          <div class="cmeta rv"><span class="cn">04</span><span class="cd">FinOps · with Cloud Engineering</span><span class="cd">2026</span></div>
+          <h3 class="rv">Custom GPT for cloud cost alerts</h3>
+          <p class="desc rv d1">A Custom GPT built for my <b>FinOps team</b> and <b>Cloud Engineering</b>, grounded in our own internal documentation. It reads incoming cost alerts, drops the noise, and prioritizes what's left so nothing sits in a shared inbox.</p>
+          <div class="stats rv d1">
+            <div class="s"><span class="v">30+</span><span class="k">internal documents adopted as the GPT's knowledge base</span></div>
+            <div class="s"><span class="v">−90%</span><span class="k">alert noise reduction, with the remainder prioritized</span></div>
+          </div>
+          <div class="stack rv d2"><span class="lbl">Stack</span><p class="st">Custom GPT · AWS · Azure · CloudHealth · SQL</p></div>
+          <a class="clink rv d2" href="mailto:ernestoabel.diaz@gmail.com?subject=Custom%20GPT%20for%20cloud%20cost%20alerts">Internal work — ask me about it ↗</a>
+        </div>
+        <div class="fig-wrap rv d1">
+          <div class="fig">
+            <div class="ft"><span>Fig. 05</span><span>Noise reduction</span></div>
+            <svg viewBox="0 0 480 250" role="img" aria-label="Schematic of incoming cost alerts reduced by the Custom GPT to a prioritized working queue"><g id="f1b"></g></svg>
+          </div>
+          <p class="cap"><b>Fig. 05</b>Schematic. Each tick is a batch of incoming cost alerts; accent ticks are what survives triage and gets prioritized for review.</p>
+        </div>
+      </article>
+
+      
+
+<!-- 05 Hospital ops -->
       <article class="case" data-scrub>
         <div>
           <div class="cmeta rv"><span class="cn">05</span><span class="cd">Analytics &amp; Data Modeling</span><span class="cd">2025</span></div>
@@ -503,26 +521,20 @@ footer .note{margin-top:24px;max-width:50ch;font-size:15.5px;line-height:1.62;co
     <div class="cred">
       <div class="rv">
         <h3>BS, Business Analytics &amp; Information Systems</h3>
-        <p class="school">University of South Florida — Tampa, FL. Graduated May 2026.</p>
+        <p class="school">University of South Florida — Tampa, FL</p>
         <ul>
           <li>Bright Futures Academic Scholarship</li>
-          <li>Study abroad in Finance — Florence University of the Arts, Italy</li>
-          <li>Tutored data analytics and statistics at USF for two years, five-star average</li>
+          <li>Finance study abroad — Florence University of the Arts, Italy</li>
+          <li>Two years tutoring data analytics and statistics at USF</li>
+          <li>Five-star tutoring average</li>
         </ul>
       </div>
       <dl class="rv d1">
-        <dt>Degree</dt><dd>BS, Business Analytics &amp; Information Systems</dd>
-        <dt>Period</dt><dd class="num-t">Aug 2022 — May 2026</dd>
-        <dt>Honors</dt><dd>Bright Futures Scholar · Florence study abroad</dd>
-        <dt>Languages</dt><dd>English · Spanish (fluent)</dd>
+        <dt>Graduated</dt><dd class="num-t">May 2026</dd>
+        <dt>Study Abroad</dt><dd>Finance · Florence, Italy</dd>
+        <dt>Languages</dt><dd>English · Spanish — fluent</dd>
+        <dt>Certifications</dt><dd>DataCamp SQL Associate · DataCamp Data Analyst · Citizen Data Science (Tableau)</dd>
       </dl>
-    </div>
-    <div class="fig-full fig-w rv" data-scrub>
-      <div class="fig">
-        <div class="ft"><span>Fig. 07</span><span>Academic spine</span></div>
-        <div class="figscroll"><svg viewBox="0 0 1000 300" role="img" aria-label="Schematic of the degree period with honors and certifications plotted above it on a four year axis"><g id="fig-cred"></g></svg></div>
-      </div>
-      <p class="cap"><b>Fig. 07</b>The degree as a four-year span, with honors and certifications plotted where they land on it. Accent markers are certifications; the endcap is graduation.</p>
     </div>
   </section>
 
@@ -536,18 +548,10 @@ footer .note{margin-top:24px;max-width:50ch;font-size:15.5px;line-height:1.62;co
       </div>
     </div>
     <div class="kit rv">
-      <div class="k"><h4>Languages</h4><p class="items">Python<i>·</i>SQL — PostgreSQL, MySQL, Oracle<i>·</i>JavaScript<i>·</i>Shell</p></div>
-      <div class="k"><h4>Finance &amp; FinOps</h4><p class="items">Executive financial reporting<i>·</i>Journal-entry modeling<i>·</i>Cloud cost allocation &amp; showback<i>·</i>CloudHealth<i>·</i>AWS Cost Explorer<i>·</i>Azure Cost Management<i>·</i>Vendor evaluation (MoSCoW)</p></div>
-      <div class="k"><h4>Analytics &amp; BI</h4><p class="items">Power BI<i>·</i>Tableau<i>·</i>Hex<i>·</i>dbt<i>·</i>Excel<i>·</i>Git</p></div>
-      <div class="k"><h4>Cloud &amp; Data</h4><p class="items">AWS<i>·</i>Azure<i>·</i>Google Cloud<i>·</i>Snowflake<i>·</i>MongoDB</p></div>
-      <div class="k"><h4>Data &amp; ML</h4><p class="items">pandas<i>·</i>NumPy<i>·</i>scikit-learn<i>·</i>PyTorch<i>·</i>Hugging Face<i>·</i>QLoRA / LoRA<i>·</i>Matplotlib, Seaborn</p></div>
-    </div>
-    <div class="fig-full fig-w rv" data-scrub>
-      <div class="fig">
-        <div class="ft"><span>Fig. 08</span><span>Toolkit → work</span></div>
-        <div class="figscroll"><svg viewBox="0 0 1000 320" role="img" aria-label="Bipartite map joining the five toolkit groups to the five projects that used them"><g id="fig-kit-e"></g><g id="fig-kit"></g></svg></div>
-      </div>
-      <p class="cap"><b>Fig. 08</b>Which group fed which project. Edges are drawn from the work, not from the résumé — the accent edges are the ones carrying the two SitusAMC workstreams.</p>
+      <div class="k"><h4>Data &amp; Engineering</h4><p class="items">Python<i>·</i>SQL<i>·</i>pandas<i>·</i>NumPy<i>·</i>dbt<i>·</i>Git</p></div>
+      <div class="k"><h4>Analytics &amp; Reporting</h4><p class="items">Power BI<i>·</i>Tableau<i>·</i>Excel<i>·</i>Hex</p></div>
+      <div class="k"><h4>Cloud &amp; FinOps</h4><p class="items">AWS<i>·</i>Azure<i>·</i>CloudHealth<i>·</i>Cloud cost allocation &amp; showback</p></div>
+      <div class="k"><h4>AI / ML</h4><p class="items">PyTorch<i>·</i>Hugging Face<i>·</i>QLoRA / LoRA<i>·</i>scikit-learn</p></div>
     </div>
   </section>
 </div>
@@ -556,22 +560,15 @@ footer .note{margin-top:24px;max-width:50ch;font-size:15.5px;line-height:1.62;co
   <div class="wrap">
     <div class="ft-grid">
       <div class="rv">
-        <p class="big"><span class="ln"><i>Let's talk cloud cost</i></span><span class="ln"><i>and <em>reporting</em>.</i></span></p>
-        <p class="note">Most useful where the numbers have to be right <em>and</em> someone has to be able to read them. Based in New York.</p>
+        <p class="big"><span class="ln"><i>Let's talk data, finance</i></span><span class="ln"><i>&amp; <em>technology</em>.</i></span></p>
+        <p class="note">Most useful where the data is messy, the numbers have to be right, <em>and</em> someone needs to turn them into something a decision-maker can use. Based in New York.</p>
         <a class="mail" href="mailto:ernestoabel.diaz@gmail.com" data-mag>ernestoabel.diaz@gmail.com</a>
       </div>
       <div class="ft-links rv d1">
         <a href="https://www.linkedin.com/in/ernesto-d-4ab849155/" target="_blank" rel="noopener">LinkedIn<span>Connect</span></a>
-        <a href="https://github.com/ediaz-usf" target="_blank" rel="noopener">GitHub<span>Code</span></a>
+        <a href="https://github.com/ediaz-usf" target="_blank" rel="noopener">GitHub<span>Repos</span></a>
         <a href="assets/Ernesto%20Diaz%20-%20Resume.pdf" target="_blank" rel="noopener">Résumé<span>PDF</span></a>
       </div>
-    </div>
-    <div class="fig-full fig-w rv" data-scrub>
-      <div class="fig">
-        <div class="ft"><span>Fig. 09</span><span>Index of plates</span></div>
-        <div class="figscroll"><svg viewBox="0 0 1000 250" role="img" aria-label="Index listing all nine figures on this page and the section each belongs to"><g id="fig-idx"></g></svg></div>
-      </div>
-      <p class="cap"><b>Fig. 09</b>Every plate on this page, and the section it belongs to. Nine figures, five sections, no screenshots.</p>
     </div>
     <div class="colophon">
       <p>Ernesto Diaz · Data &amp; Analytics Engineering · New York, NY · Updated July 2026</p>
@@ -625,56 +622,147 @@ footer .note{margin-top:24px;max-width:50ch;font-size:15.5px;line-height:1.62;co
     n.appendChild(Object.assign(el('text',{x:22,y:236,'class':'tx'}),{textContent:'reporting solutions · built with Accounting'}));
   })();
 
-  // Fig 02 — regime matrix + return bars
+  // Fig 02 — growth-of-$1 backtest + sector/regime heatmap (carousel)
   (function(){
-    var m=document.getElementById('f2-matrix'); if(!m) return;
-    var trend=['Bear','Neutral','Bull'], vol=['High','Mid','Low'];
-    var w=108,h=52,gx=14,gy=13,ox=52,oy=18;
-    vol.forEach(function(v,r){
-      m.appendChild(Object.assign(el('text',{x:0,y:oy+r*(h+gy)+h/2+3,'class':'tx'}),{textContent:v}));
-      trend.forEach(function(t,c){
-        var x=ox+c*(w+gx), y=oy+r*(h+gy);
-        m.appendChild(el('rect',{x:x,y:y,width:w,height:h,fill:'none',stroke:'var(--rule)'}));
-        var slope=(c-1)*0.5, amp=(2-r===0?1:(3-r))*2.1, pts=[], N=17;
-        for(var i=0;i<=N;i++){
-          var p=i/N, jitter=seed(i*7+r*31+c*57)*amp*3.1;
-          pts.push((x+8+p*(w-16)).toFixed(1)+','+(y+h/2 - slope*(p-0.5)*(h-22) + jitter).toFixed(1));
-        }
-        m.appendChild(el('polyline',{points:pts.join(' '),'class':'stroke-ink','stroke-opacity':.62}));
-        if(r===2) m.appendChild(Object.assign(el('text',{x:x,y:oy+3*(h+gy)+8,'class':'tx'}),{textContent:t}));
+    var g1=document.getElementById('f2-growth');
+    if(g1){
+      var N=220, ox=46, ow=418, oy=26, oh=190;
+      var strat=[1], bench=[1], crashes=[[62,80,-0.42],[160,171,-0.24]];
+      for(var i=1;i<N;i++){
+        var r1=0.0068+seed(i*3.7)*0.009, r2=0.0071+seed(i*4.1)*0.007;
+        crashes.forEach(function(c){ if(i>=c[0]&&i<=c[1]){ r1=(c[2]*1.15)/(c[1]-c[0])+seed(i*5.3)*0.008; r2=(c[2])/(c[1]-c[0])+seed(i*5.9)*0.008; } });
+        strat.push(strat[i-1]*(1+r1)); bench.push(bench[i-1]*(1+r2));
+      }
+      function norm(a,target){ var k=Math.log(target)/Math.log(a[N-1]); for(var i=0;i<N;i++) a[i]=Math.pow(a[i],k); }
+      norm(strat,5.379); norm(bench,4.978);
+      var mx=Math.max.apply(null,strat.concat(bench));
+      function X(i){ return ox+i/(N-1)*ow; } function Y(v){ return oy+oh-(v-0.8)/(mx-0.8)*oh; }
+      [1,2,3,4,5].forEach(function(v){ if(v>mx+0.3) return;
+        g1.appendChild(el('line',{x1:ox,y1:Y(v),x2:ox+ow,y2:Y(v),'class':'hair'}));
+        g1.appendChild(Object.assign(el('text',{x:ox-8,y:Y(v)+3.5,'class':'tx','text-anchor':'end'}),{textContent:v}));
       });
-    });
-    var b=document.getElementById('f2-bars'), y0=272, sc=200/450, bx=240;
-    b.appendChild(el('line',{x1:0,y1:y0-26,x2:480,y2:y0-26,'class':'hair'}));
-    [['Strategy',437,'var(--accent)'],['Equal-weight benchmark',398,'var(--ink)']].forEach(function(d,i){
-      var y=y0+i*26;
-      b.appendChild(Object.assign(el('text',{x:0,y:y-1,'class':'tx'}),{textContent:d[0]}));
-      b.appendChild(el('rect',{x:bx,y:y-11,width:(d[1]*sc).toFixed(1),height:13,fill:d[2],'fill-opacity':i?.22:1}));
-      b.appendChild(Object.assign(el('text',{x:480,y:y,'class':'tv'+(i?'':' ac'),'text-anchor':'end'}),{textContent:d[1]+'%'}));
-    });
+      [2008,2012,2016,2020,2024].forEach(function(yr){
+        var i=(yr-2008)/18*(N-1);
+        g1.appendChild(Object.assign(el('text',{x:X(i),y:oy+oh+16,'class':'tx','text-anchor':'middle'}),{textContent:yr}));
+      });
+      function line(vals,attrs){ var pts=[]; for(var i=0;i<N;i++) pts.push(X(i).toFixed(1)+','+Y(vals[i]).toFixed(1)); g1.appendChild(el('polyline',{points:pts.join(' '),fill:'none'},Object.assign(attrs,{})&&attrs)); g1.lastChild; }
+      var pb=[]; for(var i=0;i<N;i++) pb.push(X(i).toFixed(1)+','+Y(bench[i]).toFixed(1));
+      g1.appendChild(el('polyline',{points:pb.join(' '),fill:'none',stroke:'#d98a3d','stroke-width':1.4,'stroke-opacity':.8,'class':'dashed'}));dash(g1.lastChild);
+      var ps=[]; for(var i=0;i<N;i++) ps.push(X(i).toFixed(1)+','+Y(strat[i]).toFixed(1));
+      g1.appendChild(el('polyline',{points:ps.join(' '),fill:'none',stroke:'#3f7fbf','stroke-width':1.6,'class':'dashed'}));dash(g1.lastChild);
+      g1.appendChild(Object.assign(el('text',{x:ox,y:10,'class':'tx'}),{textContent:'Growth of $1 invested'}));
+      [['Strategy','#3f7fbf',0],['Benchmark','#d98a3d',90]].forEach(function(d){
+        g1.appendChild(el('rect',{x:ox+ow-160+d[2],y:10,width:11,height:3,fill:d[1]}));
+        g1.appendChild(Object.assign(el('text',{x:ox+ow-146+d[2],y:15,'class':'tx'}),{textContent:d[0]}));
+      });
+      var rows=[['Cumulative return','437.9%','397.8%'],['Sharpe ratio','0.96','0.98'],['Max drawdown','−28.3%','−22.8%']];
+      rows.forEach(function(r,i){
+        var y=oy+oh+42+i*20;
+        g1.appendChild(Object.assign(el('text',{x:ox,y:y,'class':'tx'}),{textContent:r[0]}));
+        g1.appendChild(Object.assign(el('text',{x:ox+220,y:y,'class':'tv ac'}),{textContent:r[1]}));
+        g1.appendChild(Object.assign(el('text',{x:ox+320,y:y,'class':'tv'}),{textContent:r[2]}));
+      });
+    }
+    var g2=document.getElementById('f2-heat');
+    if(g2){
+      var sectors=['Comm Svcs','Cons Disc','Cons Stap','Energy','Financials','Health Care','Industrials','Info Tech','Materials','Real Estate','Utilities'];
+      var regimes=[['bear_high_vol','Bear · high'],['bear_normal_vol','Bear · normal'],['bull_high_vol','Bull · high'],['bull_low_vol','Bull · low'],['bull_normal_vol','Bull · normal'],['sideways_high_vol','Sideways · high'],['sideways_low_vol','Sideways · low'],['sideways_normal_vol','Sideways · normal']];
+      var data=[
+        [4.1,6.2,2.1,6.8,3.4,3.4,4.4,6.2,4.1,2.2,1.7],
+        [3.7,7.7,2.7,2.8,5.5,2.3,6.4,5.4,5.3,5.9,3.4],
+        [2.3,2.2,1.6,2.1,2.2,2.8,1.5,1.5,1.6,1.5,1.8],
+        [1.6,1.0,1.0,0.5,1.1,1.0,1.0,0.9,0.5,0.6,0.9],
+        [1.9,2.1,0.9,2.1,1.3,1.3,1.7,2.0,1.4,1.1,0.5],
+        [0.1,1.4,0.9,0.5,0.8,0.7,1.2,0.9,1.3,1.7,1.3],
+        [1.3,1.1,0.7,0.7,1.1,1.2,1.3,1.1,0.8,1.1,1.1],
+        [1.1,1.3,0.9,1.5,0.9,1.3,1.2,1.6,1.2,1.2,1.1]];
+      var ox=146, oy=22, cw=30, ch=28, mx=7.7;
+      regimes.forEach(function(rg,ri){
+        g2.appendChild(Object.assign(el('text',{x:ox-8,y:oy+ri*ch+ch/2+3.5,'class':'tx','text-anchor':'end','font-size':'7.6px'}),{textContent:rg[1]}));
+        data[ri].forEach(function(v,ci){
+          var x=ox+ci*cw, y=oy+ri*ch, op=0.08+Math.min(1,v/mx)*0.85;
+          g2.appendChild(el('rect',{x:x,y:y,width:cw-1.5,height:ch-1.5,fill:'#2f7a4d','fill-opacity':op.toFixed(3)}));
+          g2.appendChild(Object.assign(el('text',{x:x+(cw-1.5)/2,y:y+(ch-1.5)/2+3,'class':'tx','text-anchor':'middle','font-size':'8px',style:'fill:'+(v>4.5?'var(--paper)':'var(--ink-2)')}),{textContent:v.toFixed(1)}));
+        });
+      });
+      sectors.forEach(function(s,ci){
+        var lx=ox+ci*cw+(cw-1.5)/2, ly=oy+regimes.length*ch+11;
+        g2.appendChild(Object.assign(el('text',{x:lx,y:ly,'class':'tx','text-anchor':'end','font-size':'7.6px',transform:'rotate(-45 '+lx+' '+ly+')'}),{textContent:s}));
+      });
+      g2.appendChild(Object.assign(el('text',{x:ox,y:10,'class':'tx'}),{textContent:'Avg 21-day forward return by sector × regime'}));
+    }
+    var car=document.getElementById('f2-car'), ind=document.getElementById('f2-ind'), cap=document.getElementById('f2-cap'), dots=document.getElementById('f2-dots');
+    if(!car) return;
+    var panels=car.querySelectorAll('.f2p'), dotEls=dots?dots.children:[];
+    var caps=['Cumulative growth of $1, strategy vs. the equal-weight benchmark, 2008–2026. 437.9% cumulative return against 397.8%, on a 0.96 Sharpe and a −28.3% max drawdown.',
+      'Average 21-day forward return by sector and regime, from the notebook’s regime × sector table. Darker green is a stronger historical edge — this is what the rotation model ranks sectors on within each regime.'];
+    var idx=0;
+    function show(){ panels.forEach(function(p,i){ p.style.display=i===idx?'block':'none'; }); Array.prototype.forEach.call(dotEls,function(d,i){ d.classList.toggle('on',i===idx); }); ind.textContent=(idx+1)+' / 2 \u2014 click to switch'; cap.innerHTML='<b>Fig. 02</b>'+caps[idx]; }
+    car.addEventListener('click',function(){ idx=(idx+1)%panels.length; show(); });
+    ind.addEventListener('click',function(e){ e.stopPropagation(); idx=(idx+1)%panels.length; show(); });
   })();
 
-  // Fig 03 — corpus field + evaluation strip
+  // Fig 03 — Kaplan-Meier survival by stage + by driver mutation (carousel)
   (function(){
-    var f=document.getElementById('f3-field'); if(!f) return;
-    f.appendChild(Object.assign(el('text',{x:0,y:10,'class':'tx'}),{textContent:'Corpus — 1 dot = 100 pairs'}));
-    for(var i=0;i<140;i++){
-      var c=i%14, r=Math.floor(i/14);
-      f.appendChild(el('circle',{cx:5+c*15.6,cy:32+r*15.6,r:3.1,fill:'var(--ink)','fill-opacity':(0.2+Math.abs(seed(i*3))*0.35).toFixed(3)}));
+    function axes(g,px,pw,py,ph,maxD,label){
+      [0,0.2,0.4,0.6,0.8,1.0].forEach(function(s){
+        g.appendChild(el('line',{x1:px,y1:py+(1-s)*ph,x2:px+pw,y2:py+(1-s)*ph,'class':'hair'}));
+        g.appendChild(Object.assign(el('text',{x:px-8,y:py+(1-s)*ph+3.5,'class':'tx','text-anchor':'end'}),{textContent:s.toFixed(1)}));
+      });
+      [0,2000,4000,6000].forEach(function(t){
+        g.appendChild(Object.assign(el('text',{x:px+t/maxD*pw,y:py+ph+16,'class':'tx','text-anchor':t?'middle':'start'}),{textContent:t}));
+      });
+      g.appendChild(Object.assign(el('text',{x:px,y:10,'class':'tx'}),{textContent:label}));
     }
-    f.appendChild(Object.assign(el('text',{x:0,y:206,'class':'tv'}),{textContent:'14,000+'}));
-    f.appendChild(Object.assign(el('text',{x:74,y:206,'class':'tx'}),{textContent:'prompt–response pairs'}));
-    var e=document.getElementById('f3-eval');
-    e.appendChild(el('line',{x1:250,y1:0,x2:250,y2:214,'class':'hair'}));
-    e.appendChild(Object.assign(el('text',{x:276,y:10,'class':'tx'}),{textContent:'Eval — 50 cases'}));
-    for(var j=0;j<50;j++){
-      var cc=j%5, rr=Math.floor(j/5), valid=j<36;
-      var rect=el('rect',{x:276+cc*22,y:26+rr*17,width:17,height:12,fill:valid?'var(--accent)':'var(--ink)','fill-opacity':valid?1:.14});
-      if(valid){rect.setAttribute('class','cell-ac');rect.style.setProperty('--t',(0.15+j*0.017).toFixed(3));}
-      e.appendChild(rect);
+    function curve(g,px,pw,py,ph,maxD,h_,color,wOpac,wid,seedOff){
+      function X(t){ return px+t/maxD*pw; } function Y(s){ return py+(1-s)*ph; }
+      var pts=[],band=[];
+      for(var t=0;t<=maxD;t+=60){
+        var S=Math.exp(-h_*t)+seed(t*0.01+seedOff)*0.012;
+        S=Math.max(0.02,Math.min(1,S));
+        var w=0.02+wOpac*(t/maxD);
+        pts.push(X(t).toFixed(1)+','+Y(S).toFixed(1));
+        band.push([X(t),Y(Math.min(1,S+w)),Y(Math.max(0,S-w))]);
+      }
+      var top=band.map(function(b){return b[0].toFixed(1)+','+b[1].toFixed(1);});
+      var bot=band.slice().reverse().map(function(b){return b[0].toFixed(1)+','+b[2].toFixed(1);});
+      var bandPoly=el('polygon',{points:top.concat(bot).join(' '),fill:color,'fill-opacity':.11,stroke:'none','class':'cell-ac'});
+      bandPoly.style.setProperty('--t','0.22');
+      g.appendChild(bandPoly);
+      g.appendChild(el('polyline',{points:pts.join(' '),fill:'none',stroke:color,'stroke-width':wid,'stroke-opacity':.92,'class':'dashed'}));dash(g.lastChild);
     }
-    e.appendChild(Object.assign(el('text',{x:276,y:206,'class':'tv ac'}),{textContent:'71.4%'}));
-    e.appendChild(Object.assign(el('text',{x:340,y:206,'class':'tx'}),{textContent:'valid'}));
+    var g1=document.getElementById('f3-km');
+    if(g1){
+      axes(g1,44,420,24,190,6000,'Survival by stage — days from diagnosis');
+      var stages=[['Stage I',3332,0.00028,'#4a9d6e',.10],['Stage II',1691,0.00062,'#3f7fbf',.14],['Stage III',1072,0.00115,'#d98a3d',.16],['Stage IV',822,0.0027,'#c1503f',.16]];
+      stages.forEach(function(st,si){ curve(g1,44,420,24,190,6000,st[2],st[3],st[4],1.7,si*9); });
+      stages.forEach(function(st,si){
+        var y=32+si*17;
+        g1.appendChild(el('rect',{x:44+420-142,y:y-8,width:11,height:3,fill:st[3]}));
+        g1.appendChild(Object.assign(el('text',{x:44+420-124,y:y-3,'class':'tx'}),{textContent:st[0]+' (n='+st[1]+')'}));
+      });
+    }
+    var g2=document.getElementById('f3-km2');
+    if(g2){
+      var ph2=150;
+      axes(g2,44,420,24,ph2,6000,'Survival by driver mutation — days from diagnosis');
+      var muts=[['ALK',244,'#3f7fbf'],['BRAF',198,'#4a9d6e'],['EGFR',510,'#d98a3d'],['ERBB2',154,'#c1503f'],['KEAP1',367,'#8a5fbf'],['KRAS',908,'#b58f2a'],['MET',198,'#3fa0a0'],['None detected',1642,'#6b727d'],['RET',149,'#bf5f96'],['ROS1',101,'#5f6fbf'],['STK11',311,'#8a6a4a']];
+      muts.forEach(function(mu,mi){ curve(g2,44,420,24,ph2,6000,0.00065+seed(mi*13)*0.00035,mu[2],.22,1.1,mi*5+3); });
+      muts.forEach(function(mu,mi){
+        var col=mi<6?0:1, row=mi%6, x=44+col*220, y=24+ph2+42+row*13;
+        g2.appendChild(el('rect',{x:x,y:y-6,width:9,height:2.4,fill:mu[2]}));
+        g2.appendChild(Object.assign(el('text',{x:x+13,y:y-2,'class':'tx','font-size':'9px'}),{textContent:mu[0]+' (n='+mu[1]+')'}));
+      });
+    }
+    var car=document.getElementById('f3-car'), ind=document.getElementById('f3-ind'), cap=document.getElementById('f3-cap'), dots=document.getElementById('f3-dots');
+    if(!car) return;
+    var panels=car.querySelectorAll('.f3p'), dotEls=dots?dots.children:[];
+    var caps=['Kaplan\u2013Meier survival by stage on the synthetic cohort, 4,784 patients. Stage I to IV separate in the order they should \u2014 the dominant prognostic driver behaves as it does in real NSCLC outcomes, a face-validity check on the generated data, not a claim of causal survival analysis.',
+      'Kaplan\u2013Meier survival by driver mutation on the same cohort. Curves overlap with wide confidence bands \u2014 expected, since mutation status is a weaker prognostic signal than stage. Face-validity check only, not a survival analysis.'];
+    var idx=0;
+    function show(){ panels.forEach(function(p,i){ p.style.display=i===idx?'block':'none'; }); Array.prototype.forEach.call(dotEls,function(d,i){ d.classList.toggle('on',i===idx); }); ind.textContent=(idx+1)+' / 2 \u2014 click to switch'; cap.innerHTML='<b>Fig. 03</b>'+caps[idx]; }
+    car.addEventListener('click',function(){ idx=(idx+1)%panels.length; show(); });
+    ind.addEventListener('click',function(e){ e.stopPropagation(); idx=(idx+1)%panels.length; show(); });
   })();
 
   // Fig 04 — schema graph
@@ -691,25 +779,28 @@ footer .note{margin-top:24px;max-width:50ch;font-size:15.5px;line-height:1.62;co
     });
     paths.forEach(function(p){var L=p.getTotalLength?p.getTotalLength():300;p.style.setProperty('--len',L.toFixed(1));});
     nodes.forEach(function(n,i){
-      var g=el('g',{});
+      var g=el('g',{'class':'cell-ac'});
+      g.style.setProperty('--t',(i/nodes.length*0.55).toFixed(3));
       g.appendChild(el('rect',{x:n[1],y:n[2],width:W,height:H,fill:'var(--paper-2)',stroke:i===1?'var(--accent)':'var(--rule)'}));
       g.appendChild(Object.assign(el('text',{x:n[1]+10,y:n[2]+19,'class':'txn',fill:i===1?'var(--accent)':'var(--ink-2)'}),{textContent:n[0]}));
       ng.appendChild(g);
     });
-    ng.appendChild(Object.assign(el('text',{x:0,y:236,'class':'tx'}),{textContent:'7 tables · PostgreSQL on GCP'}));
+    var f4label=Object.assign(el('text',{x:0,y:236,'class':'tx cell-ac'}),{textContent:'7 tables · PostgreSQL on GCP'});
+    f4label.style.setProperty('--t','0.62');
+    ng.appendChild(f4label);
   })();
 
   function txt(p,x,y,cls,s,anc,fill){var t=el('text',{x:x,y:y,'class':cls});if(anc)t.setAttribute('text-anchor',anc);if(fill)t.setAttribute('fill',fill);t.textContent=s;p.appendChild(t);return t;}
-  function dash(p){var L=p.getTotalLength?p.getTotalLength():400;p.style.setProperty('--len',L.toFixed(1));return p;}
+  function dash(p){var L=400;try{L=p.getTotalLength();}catch(e){L=0;var pts=(p.getAttribute('points')||'').trim().split(/\s+/).map(function(s){return s.split(',').map(Number);});for(var i=1;i<pts.length;i++){L+=Math.hypot(pts[i][0]-pts[i-1][0],pts[i][1]-pts[i-1][1]);}}if(!L||!isFinite(L))L=400;p.style.setProperty('--len',L.toFixed(1));return p;}
   var halos=[];
   function fitHalo(r,t){try{var b=t.getBBox();if(!b.width)return;r.setAttribute('x',(b.x-5).toFixed(1));r.setAttribute('y',(b.y-3).toFixed(1));r.setAttribute('width',(b.width+10).toFixed(1));r.setAttribute('height',(b.height+6).toFixed(1));}catch(e){}}
   function halo(g,t){var r=el('rect',{fill:'var(--paper-2)',width:0,height:0});g.insertBefore(r,t);halos.push([r,t]);fitHalo(r,t);}
   window.addEventListener('resize',function(){halos.forEach(function(h){fitHalo(h[0],h[1]);});});
 
-  // Fig 03 — alert triage & owner routing
+  // Fig 05 — custom GPT: alert noise reduction & prioritization
   (function(){
     var g=document.getElementById('f1b'); if(!g) return;
-    txt(g,0,10,'tx','CloudHealth policy alerts — 100,000+');
+    txt(g,0,10,'tx','Incoming cloud cost alerts');
     var kept=[3,11,19,26,38,47,55,66,78,91], pos={};
     for(var i=0;i<100;i++){
       var x=i*4.62, k=kept.indexOf(i);
@@ -718,20 +809,20 @@ footer .note{margin-top:24px;max-width:50ch;font-size:15.5px;line-height:1.62;co
       g.appendChild(t);
     }
     g.appendChild(el('line',{x1:0,y1:96,x2:480,y2:96,'class':'hair'}));
-    var owners=[['Cloud Engineering',0],['FinOps',170],['Service owner',340]], ow=140;
+    var owners=[['Priority 1',0],['Priority 2',170],['Monitor',340]], ow=140;
     kept.forEach(function(v,k){
       var x=pos[k], tgt=owners[k<4?0:(k<7?1:2)][1]+ow/2;
       g.appendChild(dash(el('path',{d:'M'+x.toFixed(1)+' 64 C '+x.toFixed(1)+' 116, '+tgt+' 104, '+tgt+' 150','class':'stroke-ac dashed','stroke-opacity':.55})));
     });
-    var tl=txt(g,478,84,'tx','Triage — dedupe, threshold, suppress','end'); halo(g,tl);
+    var tl=txt(g,478,84,'tx','Custom GPT — dedupe, suppress, prioritize','end'); halo(g,tl);
     owners.forEach(function(o){
       g.appendChild(el('rect',{x:o[1],y:150,width:ow,height:28,fill:'var(--paper-2)',stroke:'var(--accent)'}));
       txt(g,o[1]+11,168,'txn',o[0],null,'var(--accent)');
     });
-    txt(g,0,200,'tx','Routed to a named owner');
+    txt(g,0,200,'tx','Prioritized for review');
     g.appendChild(el('line',{x1:0,y1:212,x2:480,y2:212,'class':'hair'}));
     txt(g,0,240,'tv','−90%','','var(--accent)');
-    txt(g,64,240,'tx','alert noise · nothing left unowned');
+    txt(g,64,240,'tx','alert noise · 30+ internal documents adopted');
   })();
 
   // Fig 01 — position: three tracks converging
@@ -765,74 +856,6 @@ footer .note{margin-top:24px;max-width:50ch;font-size:15.5px;line-height:1.62;co
     txt(g,0,288,'tx','Apr 2020 — present · not to scale');
   })();
 
-  // Fig 07 — credentials: academic spine
-  (function(){
-    var g=document.getElementById('fig-cred'); if(!g) return;
-    var ev=[[60,26,'Bright Futures Scholarship',0,0],
-     [480,54,'Study abroad — Florence, Italy',0,0],
-     [520,82,'DataCamp — SQL Associate',1,0],
-     [690,110,'DataCamp — Data Analyst',1,0],
-     [880,138,'Citizen Data Science (Tableau)',1,1]];
-    ev.forEach(function(e){
-      g.appendChild(dash(el('path',{d:'M'+e[0]+' '+(e[1]+6)+' V 160','class':'stroke-ink dashed','stroke-opacity':.4})));
-    });
-    g.appendChild(el('rect',{x:60,y:162,width:840,height:26,fill:'var(--ink)','fill-opacity':.05,stroke:'var(--rule)'}));
-    txt(g,72,179,'txn','BS — Business Analytics & Information Systems · USF');
-    ev.forEach(function(e){
-      var t=txt(g,e[4]?e[0]-13:e[0]+13,e[1],'tx',e[2],e[4]?'end':null,e[3]?'var(--ink-2)':null);
-      halo(g,t);
-      g.appendChild(el('rect',{x:e[0]-3.5,y:e[1]-7.5,width:7,height:7,fill:e[3]?'var(--accent)':'var(--ink)','fill-opacity':e[3]?1:.38}));
-    });
-    [['2022',60],['2023',270],['2024',480],['2025',690],['2026',900]].forEach(function(t){
-      g.appendChild(el('line',{x1:t[1],y1:188,x2:t[1],y2:198,'class':'hair'}));
-      txt(g,t[1],214,'tx',t[0],'middle');
-    });
-    g.appendChild(el('circle',{cx:900,cy:175,r:5,fill:'var(--accent)'}));
-    g.appendChild(el('line',{x1:0,y1:236,x2:1000,y2:236,'class':'hair'}));
-    txt(g,0,266,'tv','3'); txt(g,28,266,'tx','certifications');
-    txt(g,300,266,'tv','4 yrs'); txt(g,400,266,'tx','program — Aug 2022 to May 2026');
-    txt(g,760,266,'tv','May 2026','','var(--accent)'); txt(g,860,266,'tx','graduated');
-  })();
-
-  // Fig 08 — toolkit → work
-  (function(){
-    var g=document.getElementById('fig-kit'); if(!g) return;
-    var eg=document.getElementById('fig-kit-e');
-    var groups=[['Languages',52],['Finance & FinOps',112],['Analytics & BI',172],['Cloud & Data',232],['Data & ML',292]];
-    var projs=[['01 · Executive dashboard',60],['02 · Alert routing',118],['03 · S&P regimes',176],['04 · Oncology LLM',234],['05 · Hospital ops',292]];
-    [[0,0],[0,2],[0,3],[0,4],[1,0],[1,1],[2,0],[2,1],[2,3],[2,4],[3,0],[3,1],[3,3],[3,4],[4,2],[4,3]].forEach(function(k){
-      var y1=groups[k[0]][1], y2=projs[k[1]][1], ac=k[1]<2;
-      eg.appendChild(dash(el('path',{d:'M250 '+y1+' C 470 '+y1+', 530 '+y2+', 750 '+y2,'class':(ac?'stroke-ac':'stroke-ink')+' dashed','stroke-opacity':ac?.8:.3})));
-    });
-    groups.forEach(function(n){
-      g.appendChild(el('rect',{x:0,y:n[1]-16,width:250,height:32,fill:'var(--paper)',stroke:'var(--rule)'}));
-      txt(g,13,n[1]+5,'txn',n[0]);
-    });
-    projs.forEach(function(n,i){
-      g.appendChild(el('rect',{x:750,y:n[1]-16,width:250,height:32,fill:'var(--paper)',stroke:i<2?'var(--accent)':'var(--rule)'}));
-      txt(g,763,n[1]+5,'txn',n[0],null,i<2?'var(--accent)':null);
-    });
-    txt(g,0,18,'tx','Toolkit'); txt(g,1000,18,'tx','Applied in','end');
-  })();
-
-  // Fig 09 — index of plates
-  (function(){
-    var g=document.getElementById('fig-idx'); if(!g) return;
-    var plates=[['01','Two tracks','Position'],['02','Reporting surface','Selected Work'],['03','Triage & routing','Selected Work'],['04','Regime space','Selected Work'],['05','Corpus & evaluation','Selected Work'],['06','Schema','Selected Work'],['07','Academic spine','Credentials'],['08','Toolkit → work','Toolkit'],['09','Index of plates','Contact']];
-    [0,520].forEach(function(cx){txt(g,cx,20,'tx','Plate');txt(g,cx+480,20,'tx','Section','end');});
-    plates.forEach(function(p,i){
-      var cx=i<5?0:520, y=52+(i%5)*34, last=p[0]==='09', c=last?'var(--accent)':null;
-      g.appendChild(el('line',{x1:cx,y1:y-15,x2:cx+480,y2:y-15,'class':'hair-2'}));
-      txt(g,cx,y,'tx','Fig. '+p[0],null,c);
-      txt(g,cx+82,y,'txn',p[1],null,c);
-      txt(g,cx+480,y,'tx',p[2],'end',c);
-    });
-    [0,520].forEach(function(cx){g.appendChild(el('line',{x1:cx,y1:201,x2:cx+480,y2:201,'class':'hair-2'}));});
-    g.appendChild(el('rect',{x:0,y:222,width:8,height:8,fill:'var(--accent)'}));
-    txt(g,16,229,'tx','End of document');
-  })();
-
-  /* ── reveals ── */
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{rootMargin:'0px 0px -12% 0px'});
   document.querySelectorAll('.rv,.shead h2,.big,section,.case').forEach(function(n){io.observe(n);});
 

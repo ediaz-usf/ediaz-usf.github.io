@@ -1,22 +1,22 @@
 <!doctype html>
-<!-- @dsCard group="Brand" name="Portfolio" subtitle="Editorial light direction — Newsreader/Geist, ledger red accent, SVG figures" viewport="1440x1200" -->
+<!-- @dsCard group="Brand" name="Portfolio" subtitle="Flat light direction — Geist, slate accent, SVG figures" viewport="1440x1200" -->
 <html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ernesto Diaz — Data &amp; Technology Analyst · Cloud FinOps</title>
-<meta name="description" content="Ernesto Diaz — data and technology analyst. Cloud FinOps, financial analytics, AI solutions. New York, NY." />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23eceef1'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' fill='%232f5673' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" />
+<title>Ernesto Diaz — Technology Governance Analyst</title>
+<meta name="description" content="Ernesto Diaz — technology governance analyst at SitusAMC. Governance, data, cloud FinOps and AI. New York, NY." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23eceef1'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-weight='700' font-size='19' fill='%232f5673' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..600;1,6..72,200..500&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&display=swap" rel="stylesheet" />
 <style>
 :root{
   --paper:#eceef1;--paper-2:#f7f8fa;--paper-3:#dde1e7;
   --ink:#12151a;--ink-2:#3f454e;--ink-3:#6b727d;
   --rule:rgba(18,21,26,.18);--rule-2:rgba(18,21,26,.095);
   --accent:#2f5673;--accent-soft:rgba(47,86,115,.13);
-  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --serif:"Geist",ui-sans-serif,system-ui,-apple-system,sans-serif;
   --sans:"Geist",ui-sans-serif,system-ui,-apple-system,sans-serif;
   --gut:clamp(20px,4vw,96px);
   --ease:cubic-bezier(.19,1,.22,1);
@@ -209,7 +209,7 @@ section{padding:clamp(76px,9vw,140px) 0 0}
 .tx{font-family:var(--sans);font-size:10.4px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;fill:var(--ink-3)}
 .txn{font-family:var(--sans);font-size:10.4px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;fill:var(--ink-2)}
 @media(max-width:640px){.tx{font-size:12.5px}.txn{font-size:11.4px}.tv{font-size:19px}}
-.tv{font-family:"Newsreader",serif;font-size:15px;fill:var(--ink);font-variant-numeric:tabular-nums}
+.tv{font-family:var(--sans);font-weight:600;font-size:15px;fill:var(--ink);font-variant-numeric:tabular-nums}
 .tv.ac{fill:var(--accent)}
 .dashed{stroke-dasharray:var(--len);stroke-dashoffset:calc(var(--len) * (1 - var(--p,0)));transition:stroke-dashoffset .18s linear}
 .cell-ac{opacity:clamp(0,(var(--p,0) - var(--t)) * 5,1)}
@@ -267,6 +267,24 @@ footer .note{margin-top:24px;max-width:50ch;font-size:15.5px;line-height:1.62;co
 .colophon p{font-size:12px;line-height:1.6;color:var(--ink-3);max-width:44ch}
 @media(max-width:760px){.ft-grid{grid-template-columns:1fr}}
 
+/* ── flat type: one sans family, bold & square, no italics ── */
+.grain{display:none}
+em,.head-sub,.cap,.lede em,.prose em,.prose p.first em,.shead h2 em,footer .big em,h1.head em{font-style:normal}
+h1.head{font-weight:700;font-size:clamp(34px,6vw,78px);letter-spacing:-.04em}
+h1.head em::after{display:none}
+.head-sub{font-weight:500;font-size:clamp(16px,1.6vw,22px);letter-spacing:-.01em;color:var(--ink-3)}
+.lede em{font-family:var(--sans);font-size:1em;font-weight:600;color:var(--ink)}
+.shead h2,footer .big{font-weight:700;letter-spacing:-.035em}
+.shead h2 em,footer .big em{color:var(--accent)}
+.shead .folio,.cmeta .cn{font-weight:600}
+.prose p.first{font-weight:500;letter-spacing:-.02em}
+.prose p.first em,.prose em{font-family:var(--sans);font-size:1em;font-weight:600;color:var(--ink)}
+.case h3,.cred h3{font-weight:700;letter-spacing:-.03em}
+.ledger .v{font-weight:700;font-size:clamp(18px,1.65vw,24px);letter-spacing:-.02em}
+.stats .v{font-weight:700}
+.exp .role,.minor .t,.notes .n b,.mast .name,.rh .nm,#pre .pname,.mail{font-weight:700;letter-spacing:-.015em}
+.cap{font-size:13px}
+
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   #pre{display:none}
@@ -281,7 +299,7 @@ footer .note{margin-top:24px;max-width:50ch;font-size:15.5px;line-height:1.62;co
 </style>
 </head>
 <body>
-<div id="pre"><div class="pin"><span class="pname">Ernesto Diaz</span><span class="prule"></span><span class="prole">Data &amp; Technology Analyst</span></div></div>
+<div id="pre"><div class="pin"><span class="pname">Ernesto Diaz</span><span class="prule"></span><span class="prole">Technology Governance Analyst</span></div></div>
 <div class="grain" aria-hidden="true"></div>
 
 <div class="rh" id="rh"><div class="bar" id="rhbar"></div><div class="in"><a class="nm" href="#top">Ernesto Diaz</a><span class="sec" id="rhsec">Position</span><a class="to ulink" href="mailto:ernestoabel.diaz@gmail.com">ernestoabel.diaz@gmail.com</a></div></div>
@@ -301,14 +319,14 @@ footer .note{margin-top:24px;max-width:50ch;font-size:15.5px;line-height:1.62;co
 
   <div class="hero">
     <div class="dateline">
-      <span><b>Focus</b> Data, finance &amp; cloud technology</span><span><b>Base</b> New York, NY</span><span><b>Current</b> Cloud FinOps &amp; Financial Analysis, SitusAMC</span>
+      <span><b>Focus</b> Technology governance, data &amp; cloud</span><span><b>Base</b> New York, NY</span><span><b>Current</b> Technology Governance, SitusAMC</span>
     </div>
     <div class="hero-grid">
       <div>
-        <h1 class="head"><span class="ln"><i>Data &amp; Technology Analyst</i></span></h1>
-        <p class="head-sub"><span class="ln"><i>Cloud FinOps · Financial Analytics · AI Solutions</i></span></p>
-        <p class="lede rv d1"><em>I make financial data legible.</em> I work at the intersection of data, finance, and technology — turning messy enterprise data into information executives can trust and act on. Cloud costs, financial reporting, AI-assisted workflows: different domains, same discipline. <em>Most of the work happens before the chart.</em></p>
-        <div class="now rv d2"><span class="dot"></span><p><b>Now</b> — Cloud FinOps &amp; Financial Analyst at SitusAMC, New York. Executive reporting with Accounting; cloud cost governance with FinOps and Cloud Engineering.</p></div>
+        <h1 class="head"><span class="ln"><i>Technology Governance Analyst</i></span></h1>
+        <p class="head-sub"><span class="ln"><i>Technology Governance · Data · Cloud &amp; AI</i></span></p>
+        <p class="lede rv d1"><em>I make the data behind delivery trustworthy.</em> I work where technology, data, and process meet — making sure the systems teams use to plan, track, and deliver work hold information leaders can trust, audit, and act on. Governance, cloud costs, financial reporting: different domains, same discipline. <em>Most of the work happens before the chart.</em></p>
+        <div class="now rv d2"><span class="dot"></span><p><b>Now</b> — Technology Governance Analyst at SitusAMC, New York. Governance across Azure DevOps, ServiceNow, KeyedIn and 7pace; compliance reporting for leadership; process documentation.</p></div>
         <div class="cta rv d3">
           <a class="btn" href="#work" data-mag>Selected work<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
           <a class="btn gh" href="mailto:ernestoabel.diaz@gmail.com" data-mag>Get in touch</a>
@@ -322,43 +340,45 @@ footer .note{margin-top:24px;max-width:50ch;font-size:15.5px;line-height:1.62;co
   </div>
 
   <div class="ledger rv">
-    <div><span class="lbl">Cloud FinOps</span><span class="v">7 → 3</span><span class="k">FinOps platforms evaluated and narrowed to finalists</span></div>
-    <div><span class="lbl">Executive Reporting</span><span class="v">3 business units</span><span class="k">Financial reporting across Corporate, CRE, and Residential</span></div>
-    <div><span class="lbl">AI / Automation</span><span class="v">90% less noise</span><span class="k">Cloud alert noise reduced through AI-assisted triage</span></div>
-    <div><span class="lbl">Data Engineering</span><span class="v">SQL → Python → BI</span><span class="k">End-to-end analytical workflows from source data to reporting</span></div>
-  </div>
+    <div><span class="lbl">Data Engineering</span><span class="v">SQL → Python → BI</span><span class="k">End-to-end workflows, from raw source data to the reporting leaders use</span></div>
+    <div><span class="lbl">Technology Governance</span><span class="v">Process → Platform</span><span class="k">Turning how teams work into documented, auditable systems in ServiceNow &amp; Azure DevOps</span></div>
+    <div><span class="lbl">Cloud &amp; FinOps</span><span class="v">Cost → Owner</span><span class="k">Allocating cloud spend and routing optimizations to the people who own it</span></div>
+    <div><span class="lbl">AI &amp; Automation</span><span class="v">Prompt → Workflow</span><span class="k">Fine-tuned LLMs and AI-assisted workflows that take manual work off the table</span></div>
+      </div>
 
   <!-- 01 POSITION -->
   <section id="position" data-sec="Position">
     <div class="shead">
       <span class="folio">01</span>
       <div>
-        <h2><span class="ln"><i>An engineer's hands,</i></span><span class="ln"><i>a <em>finance</em> read.</i></span></h2>
+        <h2><span class="ln"><i>Data background,</i></span><span class="ln"><i><em>governance</em> focus.</i></span></h2>
       </div>
     </div>
     <div class="pos">
       <div class="prose rv">
         <p class="first">I started in <em>data analysis and data engineering</em> — SQL, pipelines, getting a messy dataset into a shape someone can actually use. That's still the part of the work I'm best at.</p>
-        <p>Financial and operational problems pulled me in because the numbers have to be trustworthy and useful, not just interesting. I now apply those same data-engineering and analytics habits at <b>Cloud FinOps and financial analysis at SitusAMC</b> — executive reporting with Accounting, cloud cost governance with FinOps and Cloud Engineering — and I'm drawn to work that sits at the intersection of data, finance, cloud technology, and the decisions a business actually has to make.</p>
+        <p>Financial and operational problems pulled me in because the numbers have to be trustworthy and useful, not just interesting. After a summer in <b>Cloud FinOps and financial analysis at SitusAMC</b> — executive reporting with Accounting, cloud cost governance with Cloud Engineering — I moved into <b>technology governance</b>. Now I apply the same habits to the systems a technology organization runs on: keeping Azure DevOps, ServiceNow, KeyedIn and 7pace accurate and in sync, owning compliance reporting for leadership, and documenting how work gets designed and approved.</p>
+        <p>I'm building depth in <b>ServiceNow</b>, especially CMDB and platform administration, because the problem I care most about is giving an organization one source of truth it can audit and trust.</p>
       </div>
       <aside class="notes rv d1">
-        <div class="n"><b>Where I gravitate</b><p>FinOps, financial analytics, analytics engineering, and technology-focused analytical roles where I own the underlying data or problem — not just decorate dashboards.</p></div>
-        <div class="n"><b>How I work</b><p>Model first, visualize second. Make the number trustworthy, document the logic, then build the reporting layer.</p></div>
+        <div class="n"><b>Where I gravitate</b><p>Technology governance, ServiceNow and CMDB, FinOps, and analytical roles where I own the underlying data or process — not just decorate dashboards.</p></div>
+        <div class="n"><b>How I work</b><p>Get the data right first. Make the number trustworthy, document the logic, then build the reporting and process around it.</p></div>
       </aside>
     </div>
     <div class="exp rv">
       <div class="row hd"><span class="lbl">Role</span><span class="lbl">Organization</span><span class="lbl" style="text-align:right">Period</span></div>
-      <div class="row"><span class="role">Cloud FinOps &amp; Financial Analysis Intern</span><span class="org">SitusAMC — New York, NY</span><span class="per num-t">Jun 2026 — <span class="cur">Present</span></span></div>
+      <div class="row"><span class="role">Technology Governance Analyst</span><span class="org">SitusAMC — New York, NY</span><span class="per num-t">Sep 2026 — <span class="cur">Present</span></span></div>
+      <div class="row"><span class="role">Cloud FinOps &amp; Financial Analysis Intern</span><span class="org">SitusAMC — New York, NY</span><span class="per num-t">Jun 2026 — Aug 2026</span></div>
       <div class="row"><span class="role">AI &amp; ML Research Assistant</span><span class="org">USF × Florida Blue</span><span class="per num-t">Oct 2025 — May 2026</span></div>
       <div class="row"><span class="role">Data Analytics Tutor</span><span class="org">Knack — University of South Florida</span><span class="per num-t">May 2024 — May 2026</span></div>
       <div class="row"><span class="role">Data Analytics Intern</span><span class="org">Colegio Yannette</span><span class="per num-t">Apr 2020 — Jun 2020</span></div>
     </div>
     <div class="fig-full fig-w rv" data-scrub>
       <div class="fig">
-        <div class="ft"><span>Fig. 01</span><span>Two tracks</span></div>
-        <div class="figscroll"><svg viewBox="0 0 1000 300" role="img" aria-label="Timeline of four roles on finance, teaching and research tracks, bracketed where they converge on analytics engineering"><g id="fig-pos"></g></svg></div>
+        <div class="ft"><span>Fig. 01</span><span>Three tracks</span></div>
+        <div class="figscroll"><svg viewBox="0 0 1000 300" role="img" aria-label="Timeline of five roles on finance, teaching and research tracks, bracketed where they converge on technology governance"><g id="fig-pos"></g></svg></div>
       </div>
-      <p class="cap"><b>Fig. 01</b>Four roles on three tracks, 2020 to present. Not to scale — recent years are expanded. Two tracks are finance and reporting, one is research; the accent bar is the current role, and the accent node is where all three converge.</p>
+      <p class="cap"><b>Fig. 01</b>Five roles on three tracks, 2020 to present. Not to scale — recent years are expanded. The tracks are finance and governance, teaching, and research; the accent bar is the current role, and the accent node is where all three converge.</p>
     </div>
   </section>
 
@@ -548,6 +568,7 @@ footer .note{margin-top:24px;max-width:50ch;font-size:15.5px;line-height:1.62;co
       </div>
     </div>
     <div class="kit rv">
+      <div class="k"><h4>Governance &amp; Delivery</h4><p class="items">ServiceNow<i>·</i>Azure DevOps<i>·</i>KeyedIn<i>·</i>7pace<i>·</i>SharePoint</p></div>
       <div class="k"><h4>Data &amp; Engineering</h4><p class="items">Python<i>·</i>SQL<i>·</i>pandas<i>·</i>NumPy<i>·</i>dbt<i>·</i>Git</p></div>
       <div class="k"><h4>Analytics &amp; Reporting</h4><p class="items">Power BI<i>·</i>Tableau<i>·</i>Excel<i>·</i>Hex</p></div>
       <div class="k"><h4>Cloud &amp; FinOps</h4><p class="items">AWS<i>·</i>Azure<i>·</i>CloudHealth<i>·</i>Cloud cost allocation &amp; showback</p></div>
@@ -560,7 +581,7 @@ footer .note{margin-top:24px;max-width:50ch;font-size:15.5px;line-height:1.62;co
   <div class="wrap">
     <div class="ft-grid">
       <div class="rv">
-        <p class="big"><span class="ln"><i>Let's talk data, finance</i></span><span class="ln"><i>&amp; <em>technology</em>.</i></span></p>
+        <p class="big"><span class="ln"><i>Let's talk data, governance</i></span><span class="ln"><i>&amp; <em>technology</em>.</i></span></p>
         <p class="note">Most useful where the data is messy, the numbers have to be right, <em>and</em> someone needs to turn them into something a decision-maker can use. Based in New York.</p>
         <a class="mail" href="mailto:ernestoabel.diaz@gmail.com" data-mag>ernestoabel.diaz@gmail.com</a>
       </div>
@@ -571,8 +592,8 @@ footer .note{margin-top:24px;max-width:50ch;font-size:15.5px;line-height:1.62;co
       </div>
     </div>
     <div class="colophon">
-      <p>Ernesto Diaz · Data &amp; Analytics Engineering · New York, NY · Updated July 2026</p>
-      <p>Set in Newsreader and Geist. All figures drawn in SVG from project structure; no stock imagery. Built by hand.</p>
+      <p>Ernesto Diaz · Technology Governance · New York, NY · Updated October 2026</p>
+      <p>Set in Geist. All figures drawn in SVG from project structure; no stock imagery. Built by hand.</p>
     </div>
   </div>
 </footer>
@@ -828,31 +849,32 @@ footer .note{margin-top:24px;max-width:50ch;font-size:15.5px;line-height:1.62;co
   // Fig 01 — position: three tracks converging
   (function(){
     var g=document.getElementById('fig-pos'); if(!g) return;
-    var lanes=[['Finance & reporting',34],['Teaching',104],['Research',174]];
+    var lanes=[['Finance & governance',34],['Teaching',104],['Research',174]];
     lanes.forEach(function(l){
       txt(g,0,l[1],'tx',l[0]);
       g.appendChild(el('line',{x1:0,y1:l[1]+22,x2:1000,y2:l[1]+22,'class':'hair-2'}));
     });
     [{l:0,a:90,b:140,t:'Colegio Yannette',out:1},
-     {l:0,a:760,b:940,t:'SitusAMC',ac:1},
+     {l:0,a:740,b:830,t:'FinOps'},
+      {l:0,a:840,b:950,t:'Governance',ac:1},
      {l:1,a:300,b:720,t:'Knack — USF'},
      {l:2,a:520,b:720,t:'USF × Florida Blue'}].forEach(function(b){
       var y=lanes[b.l][1]+10;
-      g.appendChild(el('rect',{x:b.a,y:y,width:b.b-b.a,height:24,fill:b.ac?'var(--accent)':'var(--ink)','fill-opacity':b.ac?.13:.06,stroke:b.ac?'var(--accent)':'var(--rule)'}));
-      txt(g,b.out?b.b+12:b.a+11,y+16,'txn',b.t,null,b.ac?'var(--accent)':null);
+      g.appendChild(el('rect',{x:b.a,y:y,width:b.b-b.a,height:24,fill:b.ac?'var(--accent)':'var(--ink)','fill-opacity':b.ac?1:.06,stroke:b.ac?'var(--accent)':'var(--rule)'}));
+      var lt=txt(g,b.out?b.b+12:b.a+11,y+16,'txn',b.t); if(b.ac) lt.style.fill='var(--paper-2)';
     });
     g.appendChild(el('line',{x1:0,y1:240,x2:1000,y2:240,'class':'hair'}));
-    [['2020',90],['2024',250],['2025',400],['Jan 2026',560],['May 2026',720],['Now',940]].forEach(function(t){
+    [['2020',90],['2024',250],['2025',400],['Jan 2026',560],['May 2026',720],['Sep 2026',850],['Now',940]].forEach(function(t){
       g.appendChild(el('line',{x1:t[1],y1:240,x2:t[1],y2:248,'class':'hair'}));
       txt(g,t[1],262,'tx',t[0],'middle');
     });
     g.appendChild(el('path',{d:'M168 248 L178 232 M178 248 L188 232','class':'hair'}));
-    [[940,56],[720,126],[720,196]].forEach(function(e){
+    [[950,56],[720,126],[720,196]].forEach(function(e){
       var mx=(e[0]+960)/2;
       g.appendChild(dash(el('path',{d:'M'+e[0]+' '+e[1]+' C '+mx+' '+e[1]+', '+mx+' 126, 960 126','class':'stroke-ac dashed','stroke-opacity':.6})));
     });
     g.appendChild(el('circle',{cx:966,cy:126,r:5,fill:'var(--accent)'}));
-    txt(g,1000,288,'tx','→ Analytics engineering','end','var(--accent)');
+    txt(g,1000,288,'tx','→ Technology governance','end','var(--accent)');
     txt(g,0,288,'tx','Apr 2020 — present · not to scale');
   })();
 

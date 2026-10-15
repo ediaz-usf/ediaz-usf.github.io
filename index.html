@@ -285,6 +285,21 @@ h1.head em::after{display:none}
 .exp .role,.minor .t,.notes .n b,.mast .name,.rh .nm,#pre .pname,.mail{font-weight:700;letter-spacing:-.015em}
 .cap{font-size:13px}
 
+/* Fig. 01 role pop-ups */
+.fig{position:relative}
+.fig .bar{cursor:pointer;outline:none;transform-box:fill-box;transform-origin:center;transition:transform .45s var(--ease),filter .3s}
+.fig .bar:hover,.fig .bar:focus-visible{transform:scale(1.07);filter:drop-shadow(0 4px 10px rgba(18,21,26,.16))}
+.fig .bar:focus-visible rect{stroke:var(--ink);stroke-opacity:1}
+.bpop{position:absolute;z-index:5;width:max-content;max-width:min(340px,86vw);padding:14px 16px 16px;background:var(--paper-2);border:1px solid var(--rule);box-shadow:0 18px 40px -18px rgba(18,21,26,.35);opacity:0;transform:scale(.92) translateY(6px);pointer-events:none;transition:opacity .28s ease,transform .45s var(--ease)}
+.bpop.on{opacity:1;transform:none}
+.bpop b{display:block;font-size:15px;font-weight:700;letter-spacing:-.01em;color:var(--ink);padding-left:16px;position:relative}
+.bp-sw{position:absolute;left:16px;top:20px;width:9px;height:9px}
+.bp-per{display:block;margin-top:2px;padding-left:16px;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.bp-k{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.bp-k span{display:inline-flex;align-items:center;gap:6px;padding:4px 9px;font-size:12.5px;font-weight:600}
+.bp-k i{width:6px;height:6px;border-radius:50%}
+@media(prefers-reduced-motion:reduce){.bpop{transition:none}}
+
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   #pre{display:none}
@@ -376,9 +391,9 @@ h1.head em::after{display:none}
     <div class="fig-full fig-w rv" data-scrub>
       <div class="fig">
         <div class="ft"><span>Fig. 01</span><span>Path to current role</span></div>
-        <div class="figscroll"><svg viewBox="0 0 1000 300" role="img" aria-label="Timeline of five roles across finance and governance, data analysis and research tracks, ending in the current technology governance role"><g id="fig-pos"></g></svg></div>
+        <div class="figscroll"><svg viewBox="0 0 1000 300" role="group" aria-label="Timeline of five roles across finance and governance, data analysis and research tracks, ending in the current technology governance role"><g id="fig-pos"></g></svg></div>
       </div>
-      <p class="cap"><b>Fig. 01</b>Five roles on three tracks, 2020 to present. Not to scale — recent years are expanded. Tracks are finance and governance, data analysis, and research; roles that span two tracks sit between them. The shaded band on the right is where I am now: the solid bar is my current role.</p>
+      <p class="cap"><b>Fig. 01</b>Five roles on three tracks, 2020 to present. Not to scale — recent years are expanded. Tracks are finance and governance, data analysis, and research; roles that span two tracks sit between them. Hover or tap a role to see the tools I used there. The shaded band on the right is where I am now: the solid bar is my current role.</p>
     </div>
   </section>
 
@@ -861,14 +876,51 @@ h1.head em::after{display:none}
     txt(g,826,8,'tx','← Before','end');
     // bars sit on a lane, or midway between two lanes when a role spans both
     function ly(p,q){return (lanes[p][1]+lanes[q][1])/2+10;}
-    [{y:ly(1,1),a:90,b:140,t:'Colegio Yannette',out:1,c:'#7d8b6a'},
-     {y:ly(0,1),a:300,b:720,t:'Knack — USF',c:'#a88a5c'},
-     {y:ly(1,2),a:520,b:720,t:'USF × Florida Blue',c:'#5f8a8b'},
-     {y:ly(0,1)-20,a:740,b:830,t:'FinOps',c:'#76709e'},
-     {y:ly(0,1),a:842,b:990,t:'Tech Governance',c:'var(--accent)',ac:1}].forEach(function(b){
-      g.appendChild(el('rect',{x:b.a,y:b.y,width:b.b-b.a,height:24,fill:b.c,'fill-opacity':b.ac?1:.32,stroke:b.c,'stroke-opacity':b.ac?1:.7}));
-      var lt=txt(g,b.out?b.b+12:b.a+11,b.y+16,'txn',b.t); if(b.ac) lt.style.fill='var(--paper-2)';
+    // skill chips per role, tinted with each tool's brand color [label, text, background]
+    var K={
+      excel:['Excel','#1d6f42','#e3f1e8'], tableau:['Tableau','#c4621c','#fbeadd'], stats:['Statistics','#3f454e','#e4e7ec'],
+      dq:['Data quality','#3f454e','#e4e7ec'], entry:['Data entry','#3f454e','#e4e7ec'], da:['Data analysis','#3f454e','#e4e7ec'],
+      python:['Python','#2b5b84','#e1ebf5'], pytorch:['PyTorch','#c63c1e','#fbe5df'], hf:['Hugging Face','#8a6a00','#fdf3c8'],
+      sql:['SQL','#2f5673','#e0e9f0'], hex:['Hex','#4b3a8f','#e9e5f6'],
+      aws:['AWS','#232f3e','#ffe7c2'], cloudhealth:['CloudHealth','#0073b3','#ddeef8'], powerbi:['Power BI','#7a5c00','#fbf0c0'],
+      gpt:['Custom GPTs','#0d7a5f','#dcf2ea'],
+      ado:['Azure DevOps','#0063b1','#dcebf8'], snow:['ServiceNow','#62d84e','#293e40'], keyedin:['KeyedIn','#3f454e','#e4e7ec'],
+      sevenpace:['7pace','#3f454e','#e4e7ec'], sharepoint:['SharePoint','#03787c','#daf0f0'], codex:['Codex','#ffffff','#111111']
+    };
+    var bars=[
+     {y:ly(1,1),a:90,b:140,t:'Colegio Yannette',out:1,c:'#7d8b6a',role:'Data Analytics Intern',org:'Colegio Yannette',per:'Apr 2020 — Jun 2020',k:['excel','entry','dq']},
+     {y:ly(0,1),a:300,b:720,t:'Knack — USF',c:'#a88a5c',role:'Data Analytics Tutor',org:'Knack — USF',per:'May 2024 — May 2026',k:['tableau','excel','stats','da']},
+     {y:ly(1,2),a:520,b:720,t:'USF × Florida Blue',c:'#5f8a8b',role:'AI & ML Research Assistant',org:'USF × Florida Blue',per:'Oct 2025 — May 2026',k:['python','pytorch','hf','sql','hex']},
+     {y:ly(0,1)-20,a:740,b:830,t:'FinOps',c:'#76709e',role:'Cloud FinOps & Financial Analysis Intern',org:'SitusAMC',per:'Jun 2026 — Aug 2026',k:['excel','da','cloudhealth','aws','powerbi','gpt']},
+     {y:ly(0,1),a:842,b:990,t:'Tech Governance',c:'var(--accent)',ac:1,role:'Technology Governance Analyst',org:'SitusAMC',per:'Sep 2026 — Present',k:['ado','snow','keyedin','sevenpace','sharepoint','codex']}];
+    var fig=g.closest('.fig'), pop=document.createElement('div');
+    pop.className='bpop'; pop.setAttribute('role','tooltip'); fig.appendChild(pop);
+    var hideT;
+    function show(b,node){
+      clearTimeout(hideT);
+      pop.innerHTML='<span class="bp-sw" style="background:'+b.c+'"></span><b>'+b.role+'</b><span class="bp-per">'+b.org+' · '+b.per+'</span>'+
+        '<div class="bp-k">'+b.k.map(function(id){var c=K[id];return '<span style="color:'+c[1]+';background:'+c[2]+'"><i style="background:'+c[1]+'"></i>'+c[0]+'</span>';}).join('')+'</div>';
+      var fr=fig.getBoundingClientRect(), r=node.querySelector('rect').getBoundingClientRect();
+      var w=pop.offsetWidth, h=pop.offsetHeight;
+      var x=Math.max(8,Math.min(fr.width-w-8, r.left-fr.left+r.width/2-w/2));
+      var above=r.top-fr.top-h-12>0;
+      pop.style.left=x+'px'; pop.style.top=(above? r.top-fr.top-h-12 : r.bottom-fr.top+12)+'px';
+      pop.style.transformOrigin=(r.left-fr.left+r.width/2-x)+'px '+(above?'100%':'0%');
+      pop.classList.add('on');
+    }
+    function hide(){ hideT=setTimeout(function(){pop.classList.remove('on');},90); }
+    bars.forEach(function(b){
+      var bg=el('g',{'class':'bar'+(b.ac?' cur':''),tabindex:0,'aria-label':b.role+', '+b.per});
+      bg.appendChild(el('rect',{x:b.a,y:b.y,width:b.b-b.a,height:24,fill:b.c,'fill-opacity':b.ac?1:.32,stroke:b.c,'stroke-opacity':b.ac?1:.7}));
+      var lt=txt(bg,b.out?b.b+12:b.a+11,b.y+16,'txn',b.t); if(b.ac) lt.style.fill='var(--paper-2)';
+      g.appendChild(bg);
+      bg.addEventListener('mouseenter',function(){show(b,bg);});
+      bg.addEventListener('mouseleave',hide);
+      bg.addEventListener('focus',function(){show(b,bg);});
+      bg.addEventListener('blur',hide);
+      bg.addEventListener('click',function(e){e.stopPropagation(); if(pop.classList.contains('on')&&pop.dataset.r===b.t){pop.classList.remove('on');} else {show(b,bg);} pop.dataset.r=b.t;});
     });
+    document.addEventListener('click',function(){pop.classList.remove('on');});
     g.appendChild(el('line',{x1:0,y1:240,x2:1000,y2:240,'class':'hair'}));
     [['2020',90],['2024',250],['2025',400],['Jan 2026',560],['May 2026',720],['Sep 2026',850],['Now',940]].forEach(function(t){
       g.appendChild(el('line',{x1:t[1],y1:240,x2:t[1],y2:248,'class':'hair'}));

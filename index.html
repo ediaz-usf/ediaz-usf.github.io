@@ -4,9 +4,9 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ernesto Diaz — Technology Governance Analyst</title>
-<meta name="description" content="Ernesto Diaz — technology governance analyst at SitusAMC. Governance, data, cloud FinOps and AI." />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23eceef1'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-weight='700' font-size='19' fill='%232f5673' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" />
+<title>Ernesto Diaz — Data &amp; Business Analyst</title>
+<meta name="description" content="Ernesto Diaz — data and business analyst working across technology governance, cloud FinOps and AI." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23eceef1'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-weight='700' font-size='19' fill='%231b3358' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&display=swap" rel="stylesheet" />
@@ -15,7 +15,7 @@
   --paper:#eceef1;--paper-2:#f7f8fa;--paper-3:#dde1e7;
   --ink:#12151a;--ink-2:#3f454e;--ink-3:#6b727d;
   --rule:rgba(18,21,26,.18);--rule-2:rgba(18,21,26,.095);
-  --accent:#2f5673;--accent-soft:rgba(47,86,115,.13);
+  --accent:#1b3358;--accent-soft:rgba(27,51,88,.12);
   --serif:"Geist",ui-sans-serif,system-ui,-apple-system,sans-serif;
   --sans:"Geist",ui-sans-serif,system-ui,-apple-system,sans-serif;
   --gut:clamp(20px,4vw,96px);
@@ -39,16 +39,6 @@ p{margin:0}
 .num-t{font-variant-numeric:tabular-nums lining-nums}
 hr.rule{border:0;border-top:1px solid var(--rule);margin:0}
 
-/* ── preloader ─────────────────────────── */
-#pre{position:fixed;inset:0;z-index:200;background:var(--paper);display:grid;place-items:center;transition:transform 1s var(--ease)}
-#pre.out{transform:translateY(-101%)}
-#pre .pin{display:grid;justify-items:center;gap:16px}
-#pre .pname{font-family:var(--serif);font-size:clamp(26px,3.6vw,40px);letter-spacing:.02em}
-#pre .prule{height:1px;width:0;background:var(--accent);animation:draw .78s var(--ease) .12s forwards}
-#pre .prole{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);opacity:0;animation:fade .5s ease .5s forwards}
-@keyframes draw{to{width:min(280px,52vw)}}
-@keyframes fade{to{opacity:1}}
-
 /* ── running head ──────────────────────── */
 .rh{position:fixed;top:0;left:0;right:0;z-index:110;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px) saturate(1.1);border-bottom:1px solid var(--rule-2);transform:translateY(-101%);transition:transform .55s var(--ease)}
 .rh.on{transform:none}
@@ -61,7 +51,8 @@ hr.rule{border:0;border-top:1px solid var(--rule);margin:0}
 
 /* ── masthead ──────────────────────────── */
 .mast{display:flex;align-items:baseline;justify-content:space-between;gap:32px;padding:26px 0 18px;border-bottom:1px solid var(--ink)}
-.mast .name{font-family:var(--serif);font-size:19px;letter-spacing:.01em}
+.mast{align-items:center}
+.mast nav{margin-left:auto}
 .mast nav{display:flex;flex-wrap:wrap;gap:26px}
 .mast nav a,.ulink{position:relative;font-size:13px;color:var(--ink-2);padding-bottom:3px}
 .mast nav a::after,.ulink::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
@@ -71,16 +62,16 @@ hr.rule{border:0;border-top:1px solid var(--rule);margin:0}
 
 /* ── line reveal ───────────────────────── */
 .ln{display:block;overflow:hidden;padding-bottom:.18em;margin-bottom:-.18em}
-.ln>i{display:block;font-style:inherit;transform:translateY(108%);transition:transform 1.15s var(--ease)}
+.ln>i{display:block;font-style:inherit;transform:translateY(108%);transition:transform .6s var(--ease)}
 .on .ln>i,body.ready .hero .ln>i{transform:none}
-.ln:nth-child(2)>i{transition-delay:.1s}
-.ln:nth-child(3)>i{transition-delay:.2s}
-.rv{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform 1s var(--ease)}
+.ln:nth-child(2)>i{transition-delay:.05s}
+.ln:nth-child(3)>i{transition-delay:.1s}
+.rv{opacity:.001;transform:translateY(8px);transition:opacity .35s ease,transform .45s var(--ease)}
 .rv.on,.on .rv{opacity:1;transform:none}
-.rv.d1{transition-delay:.09s}.rv.d2{transition-delay:.18s}.rv.d3{transition-delay:.27s}
+.rv.d1{transition-delay:.04s}.rv.d2{transition-delay:.08s}.rv.d3{transition-delay:.12s}
 
 /* ── hero ──────────────────────────────── */
-.hero{padding:clamp(52px,7vw,104px) 0 clamp(40px,5vw,64px)}
+.hero{padding:clamp(40px,5vw,72px) 0 clamp(32px,4vw,52px)}
 .dateline{display:flex;flex-wrap:wrap;gap:8px 40px;padding-bottom:clamp(30px,4vw,52px)}
 .dateline span{display:flex;gap:10px;align-items:baseline}
 .dateline span{font-size:11px;font-weight:500;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3)}
@@ -88,24 +79,25 @@ hr.rule{border:0;border-top:1px solid var(--rule);margin:0}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) clamp(230px,25vw,330px);gap:clamp(40px,6vw,88px);align-items:end}
 h1.head{font-family:var(--serif);font-weight:300;font-size:clamp(34px,6.4vw,84px);line-height:1.0;letter-spacing:-.03em;overflow-wrap:break-word}
 .head-sub{margin-top:clamp(15px,1.6vw,24px);font-family:var(--serif);font-weight:300;font-style:italic;font-size:clamp(19px,2.1vw,30px);line-height:1.2;letter-spacing:-.018em;color:var(--ink-2)}
-.head-sub .ln>i{transition-delay:.24s}
+.head-sub .ln>i{transition-delay:.08s}
 h1.head em{font-style:italic;font-weight:300;position:relative;padding-right:.04em}
 h1.head em::after{content:"";position:absolute;left:.02em;right:.06em;bottom:.09em;height:.045em;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 1.1s var(--ease) .85s}
 body.ready h1.head em::after{transform:scaleX(1)}
-.lede{margin-top:clamp(26px,3vw,40px);max-width:52ch;font-size:clamp(16.5px,1.35vw,19px);line-height:1.62;color:var(--ink-2)}
+.lede{margin-top:clamp(16px,1.6vw,22px);max-width:52ch;font-size:clamp(16.5px,1.35vw,19px);line-height:1.62;color:var(--ink-2)}
 .lede em{font-family:var(--serif);font-style:italic;font-size:1.1em;color:var(--ink)}
-.now{display:flex;align-items:baseline;gap:14px;margin-top:34px;padding-top:16px;border-top:1px solid var(--rule)}
+.now{display:flex;align-items:baseline;gap:14px;margin-top:18px;padding-top:16px;border-top:1px solid var(--rule)}
 .now .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none;transform:translateY(-2px);animation:pulse 3.4s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 .now p{font-size:14.5px;color:var(--ink-2)}
 .now b{color:var(--ink);font-weight:500}
-.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
 .btn{--mx:0px;--my:0px;display:inline-flex;align-items:center;gap:10px;padding:12px 22px;font-family:var(--sans);font-size:13.5px;font-weight:500;border:1px solid var(--ink);background:var(--ink);color:var(--paper);cursor:pointer;transform:translate(var(--mx),var(--my));transition:transform .5s var(--ease),background .3s,color .3s}
 .btn.gh{background:transparent;color:var(--ink);border-color:var(--rule)}
 .btn.gh:hover{border-color:var(--ink)}
 .btn svg{width:13px;height:13px}
 .btn .ar{transition:transform .4s var(--ease)}
-.btn:hover .ar{transform:translateX(4px)}
+.btn:hover .ar{transform:translate(3px,-3px)}
+.btn.gh:hover .ar{transform:translate(3px,3px)}
 
 /* portrait — duotone, in-browser treatment */
 .portrait{margin:0}
@@ -147,15 +139,21 @@ section{padding:clamp(76px,9vw,140px) 0 0}
 .notes .n:last-child{border-bottom:0}
 .notes .n p{font-size:13.5px;line-height:1.55;color:var(--ink-3);margin-top:6px;text-wrap:pretty}
 .notes .n b{display:block;font-family:var(--serif);font-size:16px;color:var(--ink)}
-.fig-click{cursor:pointer;text-decoration:underline;text-decoration-color:var(--rule)}
+.ftabs{display:inline-flex;gap:0;border:1px solid var(--rule)}
+.ftabs button{white-space:nowrap;font:inherit;font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border:0;background:transparent;color:var(--ink-3);cursor:pointer;transition:background .25s,color .25s}
+.ftabs button+button{border-left:1px solid var(--rule)}
+.ftabs button:hover{color:var(--ink)}
+.ftabs button[aria-selected=true]{background:var(--accent);color:var(--paper-2)}
+.fig .ft{align-items:center}
+.replay{white-space:nowrap;display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;border:1px solid var(--rule);background:transparent;color:var(--ink-3);cursor:pointer;transition:color .25s,border-color .25s}
+.fig .replay svg{display:inline-block;width:12px;height:12px;overflow:visible;transition:transform .5s var(--ease)}
+.replay:hover{color:var(--accent);border-color:var(--accent)}
+.fig .replay:hover svg{transform:rotate(-200deg)}
+.ft-r{display:inline-flex;gap:8px;align-items:center}
 .case.wide-fig{grid-template-columns:minmax(0,.88fr) minmax(0,1.28fr)}
-.fig-car{position:relative;cursor:pointer;padding:0 10px 22px 0}
+.fig-car{position:relative;padding:0 10px 10px 0}
 .fig-car::before{content:"";position:absolute;top:8px;left:8px;right:-2px;bottom:-2px;background:var(--paper-2);border:1px solid var(--rule);z-index:0}
 .fig-car svg{position:relative;z-index:1;background:var(--paper-2);display:block}
-.fig-car:hover::before{top:11px;left:11px}
-.fig-dots{display:flex;gap:6px;justify-content:center;margin-top:10px}
-.fig-dots span{width:6px;height:6px;border-radius:50%;background:var(--rule);transition:background .2s}
-.fig-dots span.on{background:var(--accent)}
 .exp{margin-top:clamp(52px,6vw,84px);border-top:1px solid var(--ink)}
 .exp .row{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) 150px;gap:24px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--rule-2);transition:padding-left .45s var(--ease)}
 .exp .row:hover{padding-left:12px}
@@ -183,7 +181,14 @@ section{padding:clamp(76px,9vw,140px) 0 0}
 .case h3 a:hover::after{transform:scaleX(1)}
 .case .desc{margin-top:20px;max-width:50ch;font-size:16px;line-height:1.65;color:var(--ink-2);text-wrap:pretty}
 .case .desc b{font-weight:600;color:var(--ink)}
-.stats{margin-top:30px;border-top:1px solid var(--rule)}
+.prr{margin:22px 0 0;max-width:54ch}
+.prr div{display:grid;grid-template-columns:76px minmax(0,1fr);gap:4px 16px;padding:11px 0;border-top:1px solid var(--rule-2)}
+.prr div:first-child{border-top:0;padding-top:0}
+.prr dt{font-size:10.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);padding-top:4px}
+.prr dd{margin:0;font-size:15px;line-height:1.55;color:var(--ink-2);text-wrap:pretty}
+.prr b{font-weight:600;color:var(--ink)}
+@media(max-width:640px){.prr div{grid-template-columns:1fr;gap:2px}}
+.stats{margin-top:24px;border-top:1px solid var(--rule)}
 .stats .s{display:grid;grid-template-columns:minmax(96px,max-content) minmax(0,1fr);gap:8px 24px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--rule-2)}
 .stats .v{font-family:var(--serif);font-size:clamp(20px,1.9vw,26px);line-height:1;letter-spacing:-.02em;color:var(--accent);font-variant-numeric:tabular-nums}
 .stats .k{font-size:13.5px;line-height:1.5;color:var(--ink-3);text-wrap:pretty}
@@ -213,6 +218,7 @@ section{padding:clamp(76px,9vw,140px) 0 0}
 .tv.ac{fill:var(--accent)}
 .dashed{stroke-dasharray:var(--len);stroke-dashoffset:calc(var(--len) * (1 - var(--p,0)));transition:stroke-dashoffset .18s linear}
 .cell-ac{opacity:clamp(0,(var(--p,0) - var(--t)) * 5,1)}
+.drw{stroke-dasharray:var(--len);stroke-dashoffset:calc(var(--len) * (1 - clamp(0,(var(--p,0) - var(--t)) * 6,1)))}
 
 /* full-width plates */
 .fig-full{margin-top:clamp(44px,5vw,72px)}
@@ -270,9 +276,9 @@ footer .note{margin-top:24px;max-width:50ch;font-size:15.5px;line-height:1.62;co
 /* ── flat type: one sans family, bold & square, no italics ── */
 .grain{display:none}
 em,.head-sub,.cap,.lede em,.prose em,.prose p.first em,.shead h2 em,footer .big em,h1.head em{font-style:normal}
-h1.head{font-weight:700;font-size:clamp(34px,6vw,78px);letter-spacing:-.04em}
+h1.head{font-weight:700;font-size:clamp(48px,9vw,128px);line-height:.92;letter-spacing:-.05em}
 h1.head em::after{display:none}
-.head-sub{font-weight:500;font-size:clamp(16px,1.6vw,22px);letter-spacing:-.01em;color:var(--ink-3)}
+.head-sub{margin-top:clamp(10px,1vw,16px);font-weight:500;font-size:clamp(16px,1.6vw,22px);letter-spacing:-.01em;color:var(--ink-3)}
 .lede em{font-family:var(--sans);font-size:1em;font-weight:600;color:var(--ink)}
 .shead h2,footer .big{font-weight:700;letter-spacing:-.035em}
 .shead h2 em,footer .big em{color:var(--accent)}
@@ -282,7 +288,7 @@ h1.head em::after{display:none}
 .case h3,.cred h3{font-weight:700;letter-spacing:-.03em}
 .ledger .v{font-weight:700;font-size:clamp(18px,1.65vw,24px);letter-spacing:-.02em}
 .stats .v{font-weight:700}
-.exp .role,.minor .t,.notes .n b,.mast .name,.rh .nm,#pre .pname,.mail{font-weight:700;letter-spacing:-.015em}
+.exp .role,.minor .t,.notes .n b,.rh .nm,.mail{font-weight:700;letter-spacing:-.015em}
 .cap{font-size:13px}
 
 /* tool chips */
@@ -291,9 +297,8 @@ h1.head em::after{display:none}
 .chip i{width:6px;height:6px;border-radius:50%;flex:none}
 .chip:hover{transform:translateY(-2px)}
 .kit .items.chips{line-height:1.4;padding-top:1px}
-.herostack{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin-top:clamp(20px,2.2vw,30px);max-width:640px}
+.herostack{margin-top:clamp(16px,1.6vw,22px)}
 .herostack .chip{font-size:13px;padding:5px 11px}
-.herostack .more{font-size:13px;white-space:nowrap}
 
 /* current role highlight + SitusAMC mark */
 .exp .org{display:inline-flex;align-items:center;gap:8px}
@@ -323,52 +328,84 @@ h1.head em::after{display:none}
 .bp-k{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
 @media(prefers-reduced-motion:reduce){.bpop{transition:none}}
 
+/* contact pop-up */
+.ct{width:min(460px,94vw);padding:0;border:1px solid var(--rule);background:var(--paper-2);color:var(--ink);box-shadow:0 30px 80px -30px rgba(18,21,26,.5)}
+.ct::backdrop{background:rgba(18,21,26,.45);backdrop-filter:blur(3px)}
+.ct[open]{animation:ctin .35s var(--ease)}
+@keyframes ctin{from{opacity:0;transform:translateY(10px) scale(.98)}}
+.ct-h{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:20px 14px 16px 22px;border-bottom:1px solid var(--rule)}
+.ct-h b{display:block;font-size:20px;font-weight:700;letter-spacing:-.02em}
+.ct-h span{display:block;margin-top:2px;font-size:13.5px;color:var(--ink-3)}
+.ct-l{list-style:none;margin:0;padding:6px 0}
+.ct-l li{display:flex;align-items:center;gap:8px;padding:0 14px 0 8px}
+.ct-l li+li{border-top:1px solid var(--rule-2)}
+.ct-l a{flex:1;display:flex;align-items:center;gap:14px;padding:13px 10px;min-width:0;transition:color .25s}
+.ct-l a svg{width:20px;height:20px;flex:none;color:var(--accent)}
+.ct-l a span{min-width:0;font-size:15px;overflow-wrap:anywhere}
+.ct-l a em{display:block;font-style:normal;font-size:10.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3)}
+.ct-l a i{margin-left:auto;font-style:normal;color:var(--ink-3);transition:transform .3s var(--ease)}
+.ct-l a:hover{color:var(--accent)}
+.ct-l a:hover i{transform:translate(2px,-2px);color:var(--accent)}
+.ct-copy{flex:none;font:inherit;font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;border:1px solid var(--rule);background:transparent;color:var(--ink-3);cursor:pointer}
+.ct-copy:hover{color:var(--accent);border-color:var(--accent)}
+
+/* résumé preview */
+.cv{width:min(880px,94vw);height:min(92vh,1100px);padding:0;border:1px solid var(--rule);background:var(--paper-2);color:var(--ink);box-shadow:0 30px 80px -30px rgba(18,21,26,.5)}
+.cv::backdrop{background:rgba(18,21,26,.45);backdrop-filter:blur(3px)}
+.cv[open]{display:flex;flex-direction:column}
+.cv-h{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px 12px 20px;border-bottom:1px solid var(--rule)}
+.cv-h b{font-size:15px;font-weight:700;letter-spacing:-.01em}
+.cv-a{display:flex;gap:8px;align-items:center}
+.cv-a .btn{padding:8px 14px;font-size:13px}
+.cv-x{width:36px;height:36px;border:0;background:transparent;font-size:22px;line-height:1;color:var(--ink-2);cursor:pointer}
+.cv-x:hover{color:var(--ink)}
+.cv iframe{flex:1;width:100%;border:0;background:var(--paper-3)}
+@media(max-width:640px){.cv{width:100vw;height:100dvh;max-width:none;max-height:none;margin:0}.cv-a .btn.gh{display:none}}
+
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
-  #pre{display:none}
   .ln>i{transform:none}
   .rv{opacity:1;transform:none}
   h1.head em::after{transform:scaleX(1)}
   .dashed{stroke-dashoffset:0}
   .cell-ac{opacity:1}
+  .drw{stroke-dashoffset:0}
   .pt img{transform:scale(1.1)}
   .rh{transform:none}
 }
 </style>
 </head>
 <body>
-<div id="pre"><div class="pin"><span class="pname">Ernesto Diaz</span><span class="prule"></span><span class="prole">Technology Governance Analyst</span></div></div>
 <div class="grain" aria-hidden="true"></div>
 
 <div class="rh" id="rh"><div class="bar" id="rhbar"></div><div class="in"><a class="nm" href="#top">Ernesto Diaz</a><span class="sec" id="rhsec">Position</span><a class="to ulink" href="mailto:ernestoabel.diaz@gmail.com">ernestoabel.diaz@gmail.com</a></div></div>
 
 <div class="wrap" id="top">
   <header class="mast">
-    <a class="name" href="#top">Ernesto Diaz</a>
     <nav aria-label="Sections">
       <a href="#position">Position</a>
       <a href="#work">Selected Work</a>
       <a href="#credentials">Credentials</a>
       <a href="#toolkit">Toolkit</a>
       <a href="#contact">Contact</a>
-      <a href="assets/Ernesto%20Diaz%20-%20Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+      <a href="assets/Ernesto%20Diaz%20-%20Resume.pdf" target="_blank" rel="noopener" data-cv>Résumé</a>
     </nav>
   </header>
 
   <div class="hero">
     <div class="hero-grid">
       <div>
-        <h1 class="head"><span class="ln"><i>Technology Governance Analyst</i></span></h1>
-        <p class="head-sub"><span class="ln"><i>Technology Governance · Data · Cloud &amp; AI</i></span></p>
+        <h1 class="head"><span class="ln"><i>Ernesto Diaz</i></span></h1>
+        <p class="head-sub"><span class="ln"><i>Data &amp; Business Analyst · Governance · Cloud &amp; AI</i></span></p>
         <div class="herostack rv d1">
-          <div class="chips" data-chips="snow ado sql python powerbi excel tableau aws pytorch codex"></div>
-          <a class="ulink more" href="#toolkit">Full toolkit →</a>
+          <div class="chips" data-chips="snow ado sql python powerbi aws"></div>
         </div>
-        <p class="lede rv d1"><em>I make the data behind delivery trustworthy.</em> I work where technology, data, and process meet — making sure the systems teams use to plan, track, and deliver work hold information leaders can trust, audit, and act on. Governance, cloud costs, financial reporting: different domains, same discipline. <em>Most of the work happens before the chart.</em></p>
-        <div class="now rv d2"><span class="dot"></span><p><b>Now</b> — Technology Governance Analyst at SitusAMC. Governance across Azure DevOps, ServiceNow, KeyedIn and 7pace; compliance reporting for leadership; process documentation.</p></div>
+        <p class="lede rv d1"><em>I make the data behind delivery trustworthy.</em> I work where technology, data, and process meet — so the numbers leaders see are ones they can trust, audit, and act on.</p>
+        <div class="now rv d2"><span class="dot"></span><p><b>Now</b> — Technology Governance Analyst at SitusAMC.</p></div>
         <div class="cta rv d3">
-          <a class="btn" href="#work" data-mag>Selected work<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-          <a class="btn gh" href="mailto:ernestoabel.diaz@gmail.com" data-mag>Get in touch</a>
+          <a class="btn" href="#work" data-mag>Selected work<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+          <a class="btn gh" href="#contact" data-ct data-mag>Get in touch<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 7l10 10M17 8v9H8"/></svg></a>
+          <button type="button" class="btn gh" data-cv data-mag><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h6"/></svg>Résumé</button>
         </div>
       </div>
       <figure class="portrait rv d2" style="align-self:start">
@@ -425,48 +462,83 @@ h1.head em::after{display:none}
     <div class="shead">
       <span class="folio">02</span>
       <div>
-        <h2><span class="ln"><i>Five projects, and</i></span><span class="ln"><i>what they <em>changed</em>.</i></span></h2>
+        <h2><span class="ln"><i>Six projects, and</i></span><span class="ln"><i>what they <em>changed</em>.</i></span></h2>
         <p class="dek rv">Figures below are drawn from each project's own structure — schematics, not screenshots. Client dashboards stay internal.</p>
       </div>
     </div>
     <div class="cases">
 
-<!-- 01 S&P 500 -->
+<!-- 01 Technology governance -->
+      <article class="case" data-scrub>
+        <div>
+          <div class="cmeta rv"><span class="cn">01</span><span class="cd">Technology Governance · SitusAMC</span><span class="cd">2026 — Now</span></div>
+          <h3 class="rv">One source of truth across four delivery systems</h3>
+          <dl class="prr rv d1">
+            <div><dt>Problem</dt><dd>Work is planned, tracked and reported across four systems — Azure DevOps, ServiceNow, KeyedIn and 7pace. When they drift apart, leadership reports stop being trustworthy.</dd></div>
+            <div><dt>My role</dt><dd>I keep the four systems accurate and in sync, own the compliance reporting leadership reviews, and document how work gets designed and approved.</dd></div>
+            <div><dt>Result</dt><dd>One auditable record that leadership reporting is built on — a process that can be audited, not just remembered.</dd></div>
+          </dl>
+          <div class="stats rv d1">
+            <div class="s"><span class="v">4</span><span class="k">platforms governed — Azure DevOps, ServiceNow, KeyedIn, 7pace</span></div>
+          </div>
+          <div class="stack rv d2"><span class="lbl">Stack</span><p class="st">ServiceNow · Azure DevOps · KeyedIn · 7pace · SharePoint · SQL</p></div>
+          <a class="clink rv d2" href="mailto:ernestoabel.diaz@gmail.com?subject=Technology%20governance%20work">Internal work — ask me about it ↗</a>
+        </div>
+        <div class="fig-wrap rv d1">
+          <div class="fig">
+            <div class="ft"><span>Fig. 02</span><span>Governance flow</span></div>
+            <svg viewBox="0 0 480 250" role="img" aria-label="Schematic of four delivery systems feeding a reconciliation and governance layer that produces compliance reporting for leadership"><g id="fgov"></g></svg>
+          </div>
+          <p class="cap"><b>Fig. 02</b>Schematic. Four systems each hold part of the picture. Governance reconciles them into one record, and compliance reporting for leadership is built on that record, not on any single tool.</p>
+        </div>
+      </article>
+
+      
+
+<!-- 02 S&P 500 -->
       <article class="case wide-fig" data-scrub>
         <div>
-          <div class="cmeta rv"><span class="cn">01</span><span class="cd">Quantitative Research</span><span class="cd">2026</span></div>
+          <div class="cmeta rv"><span class="cn">02</span><span class="cd">Quantitative Research</span><span class="cd">2026</span></div>
           <h3 class="rv"><a href="https://github.com/ediaz-usf/SP500-Analysis-Project/tree/main" target="_blank" rel="noopener">S&amp;P 500 market regimes &amp; sector rotation<span class="ar">↗</span></a></h3>
-          <p class="desc rv d1">A regime-aware sector rotation model built on twenty-five years of S&amp;P 500 data. I engineered the feature pipeline, classified market states, ranked sectors within each regime, and backtested the strategy end to end.</p>
+          <dl class="prr rv d1">
+            <div><dt>Problem</dt><dd>Does sector performance depend on market conditions — and can you rotate into the right sectors using only what you'd know at the time?</dd></div>
+            <div><dt>My role</dt><dd>Built it end to end on 25 years of S&amp;P 500 data: the feature pipeline, regime classification, sector ranking within each regime, and a backtest that only uses data available at each rebalance date.</dd></div>
+            <div><dt>Result</dt><dd>Beat the equal-weight benchmark on total return, but <b>not on a risk-adjusted basis</b> — a slightly lower Sharpe, a deeper drawdown, and behind in each stress window tested. The extra return came from extra risk.</dd></div>
+          </dl>
           <div class="stats rv d1">
             <div class="s"><span class="v">2.9M+</span><span class="k">daily price observations engineered</span></div>
             <div class="s"><span class="v">15+</span><span class="k">technical features per stock</span></div>
             <div class="s"><span class="v">9</span><span class="k">market regimes — trend × volatility</span></div>
-            <div class="s"><span class="v">437%</span><span class="k">strategy cumulative return vs 398% equal-weight benchmark</span></div>
+            <div class="s"><span class="v">437% vs 398%</span><span class="k">full-period cumulative return, strategy vs equal-weight benchmark</span></div>
+            <div class="s"><span class="v">0.96 vs 0.98</span><span class="k">Sharpe ratio — the benchmark was slightly better risk-adjusted</span></div>
           </div>
           <div class="stack rv d2"><span class="lbl">Stack</span><p class="st">Python · pandas · NumPy · Matplotlib · Seaborn · yfinance</p></div>
           <a class="clink rv d2" href="https://github.com/ediaz-usf/SP500-Analysis-Project/tree/main" target="_blank" rel="noopener">View on GitHub ↗</a>
         </div>
         <div class="fig-wrap rv d1">
           <div class="fig">
-            <div class="ft"><span>Fig. 02</span><span>Backtest &amp; sector map</span><span class="fig-click" id="f2-ind">1 / 2 — click to switch</span></div>
+            <div class="ft"><span>Fig. 03</span><span class="ftabs" id="f2-tabs" role="tablist" aria-label="Figure view"><button type="button" role="tab" aria-selected="true">Backtest</button><button type="button" role="tab" aria-selected="false">Sector map</button></span></div>
             <div class="fig-car" id="f2-car">
-              <svg class="f2p" viewBox="0 0 480 320" role="img" aria-label="Cumulative growth of one dollar for the strategy versus the equal-weight benchmark from 2008 to 2026, with cumulative return, Sharpe ratio and max drawdown"><g id="f2-growth"></g></svg>
+              <svg class="f2p" viewBox="0 0 480 320" role="img" aria-label="Cumulative growth of one dollar for the strategy versus the equal-weight benchmark from late 2007 to 2026, with cumulative return, Sharpe ratio and max drawdown"><g id="f2-growth"></g></svg>
               <svg class="f2p" style="display:none" viewBox="0 0 480 324" role="img" aria-label="Heatmap of average 21-day forward return by sector and market regime, shaded green by return strength"><g id="f2-heat"></g></svg>
             </div>
-            <div class="fig-dots" id="f2-dots"><span class="on"></span><span></span></div>
           </div>
-          <p class="cap" id="f2-cap"><b>Fig. 02</b>Cumulative growth of $1, strategy vs. the equal-weight benchmark, 2008–2026. 437.9% cumulative return against 397.8%, on a 0.96 Sharpe and a −28.3% max drawdown.</p>
+          <p class="cap" id="f2-cap"><b>Fig. 03</b>Cumulative growth of $1, strategy vs. the equal-weight benchmark, 2008–2026, traced from the notebook’s backtest. The strategy ends ahead (437.9% vs 397.8%) but with a slightly lower Sharpe and a deeper drawdown: more return, bought with more risk.</p>
         </div>
       </article>
 
       
 
-<!-- 02 Oncology -->
+<!-- 03 Oncology -->
       <article class="case flip" data-scrub>
         <div>
-          <div class="cmeta rv"><span class="cn">02</span><span class="cd">Applied ML Research</span><span class="cd">2025 — 2026</span></div>
-          <h3 class="rv"><a href="https://app.hex.tech/019d0dac-70a5-7000-afb6-89f9a561208d/hex/Blue-Cross---AI-Agent-032lUHH6eZFLAK3nYdXBDC/draft/logic" target="_blank" rel="noopener">Oncology clinical decision support<span class="ar">↗</span></a></h3>
-          <p class="desc rv d1">The question was whether a small model, fine-tuned, could beat its own base and GPT-3.5 on structured clinical tasks. I fine-tuned <b>Med42-8B</b> on 14k synthetic NSCLC cases with QLoRA across six iterative training runs. Partway through, I found that 30% of one run's outputs were duplicates — I rewrote the data generator, regenerated the corpus, and the next run converged cleanly on data that couldn't be memorized. I also built evaluation beyond ROUGE alone, since ROUGE scored a wrong drug recommendation at 97.8.</p>
+          <div class="cmeta rv"><span class="cn">03</span><span class="cd">Applied ML Research</span><span class="cd">2025 — 2026</span></div>
+          <h3 class="rv"><a href="https://app.hex.tech/019d0dac-70a5-7000-afb6-89f9a561208d/app/Oncology-AI-LUAD-Clinical-Decision-Support-032lUHH6eZFLAK3nYdXBDC/latest" target="_blank" rel="noopener">Oncology clinical decision support<span class="ar">↗</span></a></h3>
+          <dl class="prr rv d1">
+            <div><dt>Problem</dt><dd>Can a small model, fine-tuned, beat its own base and GPT-3.5 on structured clinical tasks?</dd></div>
+            <div><dt>My role</dt><dd>Fine-tuned <b>Med42-8B</b> on 14k synthetic NSCLC cases with QLoRA across six runs. When 30% of one run's outputs were duplicates, I rewrote the data generator and regenerated the corpus. I built evaluation beyond ROUGE, since ROUGE scored a wrong drug recommendation at 97.8.</dd></div>
+            <div><dt>Result</dt><dd>2.8× the base model and GPT-3.5 on ROUGE-1, and the only model that held its format across all three task types.</dd></div>
+          </dl>
           <div class="stats rv d1">
             <div class="s"><span class="v">0.705</span><span class="k">ROUGE-1 on held-out test data — 2.8× both base Med42 and GPT-3.5</span></div>
             <div class="s"><span class="v">71.4%</span><span class="k">clinically appropriate drug recommendations on the held-out drug-recall cases</span></div>
@@ -474,29 +546,32 @@ h1.head em::after{display:none}
             <div class="s"><span class="v">30% → 0.25%</span><span class="k">duplicate response rate after regenerating the 14k-case corpus</span></div>
           </div>
           <div class="stack rv d2"><span class="lbl">Stack</span><p class="st">Python · PyTorch · QLoRA · Hugging Face · Hex · SQL</p></div>
-          <a class="clink rv d2" href="https://app.hex.tech/019d0dac-70a5-7000-afb6-89f9a561208d/hex/Blue-Cross---AI-Agent-032lUHH6eZFLAK3nYdXBDC/draft/logic" target="_blank" rel="noopener">View the project ↗</a>
+          <a class="clink rv d2" href="https://app.hex.tech/019d0dac-70a5-7000-afb6-89f9a561208d/app/Oncology-AI-LUAD-Clinical-Decision-Support-032lUHH6eZFLAK3nYdXBDC/latest" target="_blank" rel="noopener">View the project ↗</a>
         </div>
         <div class="fig-wrap rv d1">
           <div class="fig">
-            <div class="ft"><span>Fig. 03</span><span>Cohort face validity</span><span class="fig-click" id="f3-ind">1 / 2 — click to switch</span></div>
+            <div class="ft"><span>Fig. 04</span><span class="ftabs" id="f3-tabs" role="tablist" aria-label="Figure view"><button type="button" role="tab" aria-selected="true">By stage</button><button type="button" role="tab" aria-selected="false">By mutation</button></span></div>
             <div class="fig-car" id="f3-car">
               <svg class="f3p" viewBox="0 0 480 300" role="img" aria-label="Kaplan-Meier survival curves for the synthetic cohort by cancer stage, showing the expected stage I to IV survival gradient with confidence bands"><g id="f3-km"></g></svg>
               <svg class="f3p" style="display:none" viewBox="0 0 480 300" role="img" aria-label="Kaplan-Meier survival curves for the synthetic cohort by driver mutation, showing overlapping curves with wide confidence bands"><g id="f3-km2"></g></svg>
             </div>
-            <div class="fig-dots" id="f3-dots"><span class="on"></span><span></span></div>
           </div>
-          <p class="cap" id="f3-cap"><b>Fig. 03</b>Kaplan–Meier survival by stage on the synthetic cohort, 4,784 patients. Stage I to IV separate in the order they should — the dominant prognostic driver behaves as it does in real NSCLC outcomes, a face-validity check on the generated data, not a claim of causal survival analysis.</p>
+          <p class="cap" id="f3-cap"><b>Fig. 04</b>Kaplan–Meier survival by stage on the synthetic cohort, 4,784 patients. Stage I to IV separate in the order they should — the dominant prognostic driver behaves as it does in real NSCLC outcomes, a face-validity check on the generated data, not a claim of causal survival analysis.</p>
         </div>
       </article>
 
       
 
-<!-- 03 Executive dashboard -->
+<!-- 04 Executive dashboard -->
       <article class="case" data-scrub>
         <div>
-          <div class="cmeta rv"><span class="cn">03</span><span class="cd">Financial Reporting · with Accounting</span><span class="cd">2026</span></div>
+          <div class="cmeta rv"><span class="cn">04</span><span class="cd">Financial Reporting · with Accounting</span><span class="cd">2026</span></div>
           <h3 class="rv">Executive dashboard for Corporate IT, Prepaid &amp; SG&amp;A</h3>
-          <p class="desc rv d1">Built with the <b>Accounting team</b>, on Accounting's data. I built the dashboard itself — the data model behind it, the formulas, and the six reporting views leadership opens.</p>
+          <dl class="prr rv d1">
+            <div><dt>Problem</dt><dd>Leadership needed one view of Corporate IT, Global Prepaid and SG&amp;A, built on Accounting's own data.</dd></div>
+            <div><dt>My role</dt><dd>Built the dashboard with the <b>Accounting team</b> — the data model behind it, the formulas, and the reporting views.</dd></div>
+            <div><dt>Result</dt><dd>Six reporting solutions leadership opens, covering 14.2M+ journal entries and 90+ products.</dd></div>
+          </dl>
           <div class="stats rv d1">
             <div class="s"><span class="v">14.2M+</span><span class="k">journal entries the dashboard reports on</span></div>
             <div class="s"><span class="v">6+</span><span class="k">reporting solutions delivered to leadership</span></div>
@@ -507,21 +582,25 @@ h1.head em::after{display:none}
         </div>
         <div class="fig-wrap rv d1">
           <div class="fig">
-            <div class="ft"><span>Fig. 04</span><span>Reporting surface</span></div>
+            <div class="ft"><span>Fig. 05</span><span>Reporting surface</span></div>
             <svg viewBox="0 0 480 250" role="img" aria-label="Schematic of ninety product cells across three business segments above a band of journal entries funneling into six reporting solutions"><g id="f1-grid"></g><g id="f1-flow"></g></svg>
           </div>
-          <p class="cap"><b>Fig. 04</b>Schematic. Above: ninety product cells across the three segments the dashboard covers. Below: the 14.2M+ journal entries behind it, feeding the six reporting views built with Accounting.</p>
+          <p class="cap"><b>Fig. 05</b>Schematic. Above: ninety product cells across the three segments the dashboard covers, one tone per segment. Below: the 14.2M+ journal entries behind it, feeding the six reporting views built with Accounting.</p>
         </div>
       </article>
 
       
 
-<!-- 04 Custom GPT for cloud cost alerts -->
+<!-- 05 Custom GPT for cloud cost alerts -->
       <article class="case flip" data-scrub>
         <div>
-          <div class="cmeta rv"><span class="cn">04</span><span class="cd">FinOps · with Cloud Engineering</span><span class="cd">2026</span></div>
+          <div class="cmeta rv"><span class="cn">05</span><span class="cd">FinOps · with Cloud Engineering</span><span class="cd">2026</span></div>
           <h3 class="rv">Custom GPT for cloud cost alerts</h3>
-          <p class="desc rv d1">A Custom GPT built for my <b>FinOps team</b> and <b>Cloud Engineering</b>, grounded in our own internal documentation. It reads incoming cost alerts, drops the noise, and prioritizes what's left so nothing sits in a shared inbox.</p>
+          <dl class="prr rv d1">
+            <div><dt>Problem</dt><dd>Cloud cost alerts landed in a shared inbox, and most of them were noise.</dd></div>
+            <div><dt>My role</dt><dd>Built a Custom GPT for my <b>FinOps team</b> and <b>Cloud Engineering</b>, grounded in our internal documentation, that reads incoming alerts, drops the noise and prioritizes what's left.</dd></div>
+            <div><dt>Result</dt><dd>About 90% less alert noise, with what remains sorted into priority tiers so nothing sits unread.</dd></div>
+          </dl>
           <div class="stats rv d1">
             <div class="s"><span class="v">30+</span><span class="k">internal documents adopted as the GPT's knowledge base</span></div>
             <div class="s"><span class="v">−90%</span><span class="k">alert noise reduction, with the remainder prioritized</span></div>
@@ -531,21 +610,25 @@ h1.head em::after{display:none}
         </div>
         <div class="fig-wrap rv d1">
           <div class="fig">
-            <div class="ft"><span>Fig. 05</span><span>Noise reduction</span></div>
+            <div class="ft"><span>Fig. 06</span><span>Noise reduction</span></div>
             <svg viewBox="0 0 480 250" role="img" aria-label="Schematic of incoming cost alerts reduced by the Custom GPT to a prioritized working queue"><g id="f1b"></g></svg>
           </div>
-          <p class="cap"><b>Fig. 05</b>Schematic. Each tick is a batch of incoming cost alerts; accent ticks are what survives triage and gets prioritized for review.</p>
+          <p class="cap"><b>Fig. 06</b>Schematic. Each tick is a batch of incoming cost alerts; colored ticks are what survives triage, routed by tier — Priority 1, Priority 2, or Monitor.</p>
         </div>
       </article>
 
       
 
-<!-- 05 Hospital ops -->
+<!-- 06 Hospital ops -->
       <article class="case" data-scrub>
         <div>
-          <div class="cmeta rv"><span class="cn">05</span><span class="cd">Analytics &amp; Data Modeling</span><span class="cd">2025</span></div>
+          <div class="cmeta rv"><span class="cn">06</span><span class="cd">Analytics &amp; Data Modeling</span><span class="cd">2025</span></div>
           <h3 class="rv"><a href="https://usfedu.sharepoint.com/:v:/r/teams/FinalProjectISM4212GRP/Shared%20Documents/General/Recordings/Final%20Project%20ISM4212-20251210_153204-Meeting%20Recording.mp4?csf=1&amp;web=1&amp;e=xlHaWs" target="_blank" rel="noopener">Hospital operations &amp; patient flow<span class="ar">↗</span></a></h3>
-          <p class="desc rv d1">Designed the relational schema, wrote the queries, and shipped the Tableau dashboard. The question was narrow: which departments are driving long wait times, and why.</p>
+          <dl class="prr rv d1">
+            <div><dt>Problem</dt><dd>Which departments are driving long wait times, and why?</dd></div>
+            <div><dt>My role</dt><dd>Designed the relational schema on Google Cloud, wrote the queries, and shipped the Tableau dashboard.</dd></div>
+            <div><dt>Result</dt><dd>Surfaced ~30% above-average load in high-traffic departments — traced back to appointments, at the center of the model.</dd></div>
+          </dl>
           <div class="stats rv d1">
             <div class="s"><span class="v">7</span><span class="k">table relational schema modeled on GCP, end to end</span></div>
             <div class="s"><span class="v">1,000+</span><span class="k">appointment records analyzed</span></div>
@@ -556,10 +639,10 @@ h1.head em::after{display:none}
         </div>
         <div class="fig-wrap rv d1">
           <div class="fig">
-            <div class="ft"><span>Fig. 06</span><span>Schema</span></div>
+            <div class="ft"><span>Fig. 07</span><span>Schema</span></div>
             <svg viewBox="0 0 480 250" role="img" aria-label="Seven table relational schema drawn as labeled nodes joined by hairline edges"><g id="f4-edges"></g><g id="f4-nodes"></g></svg>
           </div>
-          <p class="cap"><b>Fig. 06</b>The seven-table schema, drawn as joins rather than data. Appointments sit at the center of the model, which is also where the wait-time answer turned out to live.</p>
+          <p class="cap"><b>Fig. 07</b>The seven-table schema, drawn as joins rather than data. Appointments sit at the center of the model, which is also where the wait-time answer turned out to live.</p>
         </div>
       </article>
     </div>
@@ -626,7 +709,7 @@ h1.head em::after{display:none}
       <div class="ft-links rv d1">
         <a href="https://www.linkedin.com/in/ernesto-d-4ab849155/" target="_blank" rel="noopener">LinkedIn<span>Connect</span></a>
         <a href="https://github.com/ediaz-usf" target="_blank" rel="noopener">GitHub<span>Repos</span></a>
-        <a href="assets/Ernesto%20Diaz%20-%20Resume.pdf" target="_blank" rel="noopener">Résumé<span>PDF</span></a>
+        <a href="assets/Ernesto%20Diaz%20-%20Resume.pdf" target="_blank" rel="noopener" data-cv>Résumé<span>Preview · PDF</span></a>
       </div>
     </div>
     <div class="colophon">
@@ -635,6 +718,24 @@ h1.head em::after{display:none}
     </div>
   </div>
 </footer>
+
+<dialog class="ct" id="ct" aria-label="Contact details">
+  <div class="ct-h"><div><b>Get in touch</b><span>Happy to talk data, governance &amp; technology.</span></div><button type="button" class="cv-x" aria-label="Close">&times;</button></div>
+  <ul class="ct-l">
+    <li><a href="mailto:ernestoabel.diaz@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg><span><em>Email</em>ernestoabel.diaz@gmail.com</span></a><button type="button" class="ct-copy" data-copy="ernestoabel.diaz@gmail.com">Copy</button></li>
+    <li><a href="tel:+13477572325"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg><span><em>Phone</em>347-757-2325</span></a><button type="button" class="ct-copy" data-copy="347-757-2325">Copy</button></li>
+    <li><a href="https://www.linkedin.com/in/ernesto-d-4ab849155/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h3v11H4zM5.5 4a1.6 1.6 0 1 1 0 3.2 1.6 1.6 0 0 1 0-3.2zM10 9h3v1.6c.5-1 1.8-1.8 3.3-1.8 3 0 3.7 2 3.7 4.6V20h-3v-5.8c0-1.4-.3-2.6-1.8-2.6s-2.2 1.1-2.2 2.6V20h-3z"/></svg><span><em>LinkedIn</em>ernesto-d</span><i>↗</i></a></li>
+    <li><a href="https://github.com/ediaz-usf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4 1.3-4-2-6-2.5M15 21v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg><span><em>GitHub</em>ediaz-usf</span><i>↗</i></a></li>
+    <li><a href="assets/Ernesto%20Diaz%20-%20Resume.pdf" target="_blank" rel="noopener" data-cv><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h6"/></svg><span><em>Résumé</em>Preview or download the PDF</span><i>↗</i></a></li>
+  </ul>
+</dialog>
+<dialog class="cv" id="cv" aria-label="Résumé preview">
+  <div class="cv-h"><b>Résumé — Ernesto Diaz</b><div class="cv-a">
+    <a class="btn gh" href="assets/Ernesto%20Diaz%20-%20Resume.pdf" target="_blank" rel="noopener">Open in new tab</a>
+    <a class="btn" href="assets/Ernesto%20Diaz%20-%20Resume.pdf" download="Ernesto Diaz - Resume.pdf">Download PDF</a>
+    <button type="button" class="cv-x" aria-label="Close preview">&times;</button></div></div>
+  <iframe title="Résumé PDF" data-src="assets/Ernesto%20Diaz%20-%20Resume.pdf#view=FitH"></iframe>
+</dialog>
 
 <script>
 (function(){
@@ -657,6 +758,18 @@ h1.head em::after{display:none}
   function chip(id){var c=K[id];return '<span class="chip" style="color:'+c[1]+';background:'+c[2]+'"><i style="background:'+c[1]+'"></i>'+c[0]+'</span>';}
   document.querySelectorAll('[data-chips]').forEach(function(n){n.innerHTML=n.getAttribute('data-chips').split(' ').map(chip).join('')+n.innerHTML;});
 
+  // named view tabs for two-panel figures
+  function tabs(car,bar,cap,caps,lbl){
+    if(!car||!bar) return;
+    var panels=car.querySelectorAll('svg'), btns=bar.querySelectorAll('button');
+    btns.forEach(function(b,i){ b.addEventListener('click',function(){
+      panels.forEach(function(p,j){ p.style.display=j===i?'block':'none'; });
+      btns.forEach(function(x,j){ x.setAttribute('aria-selected',j===i?'true':'false'); });
+      cap.innerHTML='<b>'+lbl+'</b>'+caps[i];
+      var sc=car.closest('[data-scrub]'); if(sc&&sc._play) sc._play();
+    }); });
+  }
+
   /* ── figures: drawn in-browser from project structure ── */
   var NS='http://www.w3.org/2000/svg';
   function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e;}
@@ -665,67 +778,65 @@ h1.head em::after{display:none}
   // Fig 02 — reporting surface: segments × products, journal entries → six solutions
   (function(){
     var g=document.getElementById('f1-grid'); if(!g) return;
-    var segs=['Corporate IT','Global Prepaid','SG&A'], cw=12, ch=13, gap=2, cols=10, rows=3, sgap=22;
-    segs.forEach(function(name,s){
+    // three segments, each its own tone on the same cool spectrum; the figure builds as it scrolls through view
+    var segs=[['Corporate IT','#1b3358'],['Global Prepaid','#3b7d86'],['SG&A','#6a6296']], cw=12, ch=13, gap=2, cols=10, rows=3, sgap=22;
+    function at(node,t){ node.classList.add('cell-ac'); node.style.setProperty('--t',t.toFixed(3)); return node; }
+    segs.forEach(function(sg,s){
       var x0=s*(cols*(cw+gap)+sgap);
-      g.appendChild(Object.assign(el('text',{x:x0,y:12,'class':'tx'}),{textContent:name}));
+      g.appendChild(at(Object.assign(el('text',{x:x0,y:12,'class':'tx',style:'fill:'+sg[1]}),{textContent:sg[0]}),0.02+s*0.1));
       for(var r=0;r<rows;r++)for(var c=0;c<cols;c++){
         var i=s*30+r*cols+c, x=x0+c*(cw+gap), y=22+r*(ch+gap);
-        var o=.10+Math.abs(seed(i))*.42;
-        g.appendChild(el('rect',{x:x,y:y,width:cw,height:ch,fill:'var(--ink)','fill-opacity':o.toFixed(3)}));
+        var o=.22+Math.abs(seed(i))*.6;
+        g.appendChild(at(el('rect',{x:x,y:y,width:cw,height:ch,fill:sg[1],'fill-opacity':o.toFixed(3)}),0.04+s*0.1+(c/cols)*0.08));
       }
     });
-    g.appendChild(Object.assign(el('text',{x:0,y:88,'class':'tx'}),{textContent:'3 segments · 90+ products'}));
+    g.appendChild(at(Object.assign(el('text',{x:0,y:88,'class':'tx'}),{textContent:'3 segments · 90+ products'}),0.3));
 
     var n=document.getElementById('f1-flow');
     n.appendChild(el('line',{x1:0,y1:104,x2:480,y2:104,'class':'hair'}));
-    n.appendChild(Object.assign(el('text',{x:0,y:126,'class':'tx'}),{textContent:'Journal entries — 14.2M+'}));
+    n.appendChild(at(Object.assign(el('text',{x:0,y:126,'class':'tx'}),{textContent:'Journal entries — 14.2M+'}),0.34));
     for(var i=0;i<140;i++){
-      n.appendChild(el('line',{x1:(i*3.42).toFixed(2),y1:136,x2:(i*3.42).toFixed(2),y2:158,stroke:'var(--ink)','stroke-opacity':(.08+Math.abs(seed(i*5))*.16).toFixed(3),'stroke-width':1.8}));
+      var sc=segs[Math.min(2,Math.floor(i/140*3))][1];
+      n.appendChild(at(el('line',{x1:(i*3.42).toFixed(2),y1:136,x2:(i*3.42).toFixed(2),y2:158,stroke:sc,'stroke-opacity':(.16+Math.abs(seed(i*5))*.3).toFixed(3),'stroke-width':1.8}),0.32+i/140*0.2));
     }
     var bw=62, bg=21.6;
     for(var b=0;b<6;b++){
       var cx=b*(bw+bg)+bw/2;
       [-46,0,46].forEach(function(o){
-        n.appendChild(el('line',{x1:Math.max(0,Math.min(480,cx+o)).toFixed(1),y1:162,x2:cx.toFixed(1),y2:188,'class':'hair-2'}));
+        var ln=el('line',{x1:Math.max(0,Math.min(480,cx+o)).toFixed(1),y1:160,x2:cx.toFixed(1),y2:185,stroke:'var(--ink-3)','stroke-opacity':.55,'stroke-width':1,'class':'drw'});
+        ln.style.setProperty('--len',Math.hypot(o,25).toFixed(1)); ln.style.setProperty('--t',(0.5+b*0.03).toFixed(3)); n.appendChild(ln);
       });
-      var r=el('rect',{x:(b*(bw+bg)).toFixed(1),y:190,width:bw,height:20,fill:'var(--accent)','class':'cell-ac'});
-      r.style.setProperty('--t',(0.16+b*0.06).toFixed(3));
+      n.appendChild(at(el('path',{d:'M'+(cx-3.5)+' 183 L'+cx+' 188 L'+(cx+3.5)+' 183',fill:'none',stroke:'var(--ink-3)','stroke-width':1.2}),0.6+b*0.03));
+      var r=el('rect',{x:(b*(bw+bg)).toFixed(1),y:190,width:bw,height:20,fill:'var(--accent)'});
       n.appendChild(el('rect',{x:(b*(bw+bg)).toFixed(1),y:190,width:bw,height:20,fill:'none',stroke:'var(--rule)'}));
-      n.appendChild(r);
+      n.appendChild(at(r,0.55+b*0.04));
     }
-    n.appendChild(Object.assign(el('text',{x:0,y:236,'class':'tv ac'}),{textContent:'6'}));
-    n.appendChild(Object.assign(el('text',{x:22,y:236,'class':'tx'}),{textContent:'reporting solutions · built with Accounting'}));
+    n.appendChild(at(Object.assign(el('text',{x:0,y:236,'class':'tv ac'}),{textContent:'6'}),0.78));
+    n.appendChild(at(Object.assign(el('text',{x:22,y:236,'class':'tx'}),{textContent:'reporting solutions · built with Accounting'}),0.78));
   })();
 
   // Fig 02 — growth-of-$1 backtest + sector/regime heatmap (carousel)
   (function(){
     var g1=document.getElementById('f2-growth');
     if(g1){
-      var N=220, ox=46, ow=418, oy=26, oh=190;
-      var strat=[1], bench=[1], crashes=[[62,80,-0.42],[160,171,-0.24]];
-      for(var i=1;i<N;i++){
-        var r1=0.0068+seed(i*3.7)*0.009, r2=0.0071+seed(i*4.1)*0.007;
-        crashes.forEach(function(c){ if(i>=c[0]&&i<=c[1]){ r1=(c[2]*1.15)/(c[1]-c[0])+seed(i*5.3)*0.008; r2=(c[2])/(c[1]-c[0])+seed(i*5.9)*0.008; } });
-        strat.push(strat[i-1]*(1+r1)); bench.push(bench[i-1]*(1+r2));
-      }
-      function norm(a,target){ var k=Math.log(target)/Math.log(a[N-1]); for(var i=0;i<N;i++) a[i]=Math.pow(a[i],k); }
-      norm(strat,5.379); norm(bench,4.978);
-      var mx=Math.max.apply(null,strat.concat(bench));
-      function X(i){ return ox+i/(N-1)*ow; } function Y(v){ return oy+oh-(v-0.8)/(mx-0.8)*oh; }
-      [1,2,3,4,5].forEach(function(v){ if(v>mx+0.3) return;
+      // growth of $1, traced from the notebook's backtest chart (S&P_Analysis.ipynb, section 10)
+      var T0=2007.721, T1=2026.098;
+      var S=[1.04,0.99,0.95,0.92,0.93,0.94,0.94,0.93,0.92,0.93,0.93,0.94,0.94,0.95,0.96,0.96,0.97,0.97,0.98,0.98,0.99,0.99,1.05,1.08,1.12,1.2,1.2,1.19,1.18,1.17,1.28,1.29,1.29,1.28,1.28,1.28,1.27,1.26,1.26,1.18,1.17,1.17,1.17,1.2,1.23,1.22,1.2,1.21,1.23,1.25,1.27,1.28,1.29,1.34,1.35,1.36,1.37,1.38,1.39,1.4,1.4,1.4,1.4,1.43,1.47,1.48,1.49,1.52,1.54,1.55,1.56,1.57,1.58,1.61,1.64,1.67,1.67,1.66,1.65,1.65,1.63,1.66,1.76,1.79,1.76,1.79,1.94,1.97,2.0,2.02,2.07,2.12,2.17,2.22,2.28,2.31,2.3,2.32,2.34,2.39,2.39,2.49,2.59,2.66,2.74,2.77,2.76,2.77,2.85,2.87,2.97,3.02,2.71,2.7,2.44,2.49,2.52,2.59,2.66,2.73,2.75,2.68,2.72,2.8,2.91,2.77,2.47,2.2,2.2,2.2,2.19,2.19,2.18,2.39,2.57,2.63,2.85,2.97,3.1,3.19,3.24,3.32,3.23,3.32,3.43,3.49,3.46,3.63,3.46,3.26,3.09,3.07,2.82,3.15,3.28,3.39,3.52,3.46,3.42,3.55,3.8,3.85,3.68,3.49,3.6,3.67,3.79,4.05,4.03,4.12,4.18,4.24,4.32,4.38,4.73,4.5,4.59,4.4,4.23,4.38,4.65,4.8,5.0,5.07,5.11,5.22,5.34];
+      var B=[1.03,0.99,0.96,0.94,0.94,0.95,0.96,0.96,0.97,0.97,0.98,0.98,0.99,0.99,1.0,1.0,1.01,1.02,1.02,1.03,1.03,1.03,1.08,1.12,1.17,1.23,1.23,1.22,1.2,1.2,1.31,1.32,1.32,1.31,1.31,1.3,1.3,1.29,1.28,1.22,1.2,1.2,1.2,1.23,1.26,1.25,1.22,1.22,1.25,1.28,1.3,1.31,1.32,1.37,1.39,1.4,1.42,1.43,1.44,1.45,1.45,1.46,1.47,1.49,1.53,1.56,1.58,1.6,1.61,1.62,1.62,1.63,1.64,1.67,1.71,1.74,1.73,1.72,1.72,1.71,1.7,1.74,1.83,1.82,1.72,1.78,1.92,1.94,1.96,1.98,2.0,2.02,2.04,2.08,2.14,2.16,2.16,2.19,2.22,2.26,2.27,2.32,2.37,2.45,2.51,2.54,2.54,2.56,2.66,2.72,2.82,2.86,2.64,2.65,2.4,2.46,2.53,2.6,2.67,2.75,2.77,2.75,2.79,2.86,2.96,2.84,2.57,2.31,2.31,2.3,2.3,2.3,2.29,2.54,2.69,2.74,2.99,3.18,3.32,3.37,3.4,3.47,3.42,3.52,3.62,3.64,3.63,3.8,3.64,3.51,3.32,3.28,3.03,3.32,3.46,3.5,3.56,3.49,3.46,3.48,3.72,3.71,3.53,3.34,3.45,3.52,3.6,3.83,3.77,3.83,3.84,3.99,4.09,4.12,4.35,4.14,4.2,4.06,3.92,4.05,4.25,4.37,4.49,4.51,4.55,4.65,4.83];
+      S[S.length-1]=5.379; B[B.length-1]=4.978; // exact end values from the notebook's printed output
+      var N=S.length, ox=46, ow=418, oy=26, oh=190, lo=0.8, mx=5.6;
+      function X(i){ return ox+i/(N-1)*ow; } function Y(v){ return oy+oh-(v-lo)/(mx-lo)*oh; }
+      function TX(yr){ return ox+(yr-T0)/(T1-T0)*ow; }
+      [1,2,3,4,5].forEach(function(v){
         g1.appendChild(el('line',{x1:ox,y1:Y(v),x2:ox+ow,y2:Y(v),'class':'hair'}));
         g1.appendChild(Object.assign(el('text',{x:ox-8,y:Y(v)+3.5,'class':'tx','text-anchor':'end'}),{textContent:v}));
       });
       [2008,2012,2016,2020,2024].forEach(function(yr){
-        var i=(yr-2008)/18*(N-1);
-        g1.appendChild(Object.assign(el('text',{x:X(i),y:oy+oh+16,'class':'tx','text-anchor':'middle'}),{textContent:yr}));
+        g1.appendChild(Object.assign(el('text',{x:TX(yr),y:oy+oh+16,'class':'tx','text-anchor':'middle'}),{textContent:yr}));
       });
-      function line(vals,attrs){ var pts=[]; for(var i=0;i<N;i++) pts.push(X(i).toFixed(1)+','+Y(vals[i]).toFixed(1)); g1.appendChild(el('polyline',{points:pts.join(' '),fill:'none'},Object.assign(attrs,{})&&attrs)); g1.lastChild; }
-      var pb=[]; for(var i=0;i<N;i++) pb.push(X(i).toFixed(1)+','+Y(bench[i]).toFixed(1));
-      g1.appendChild(el('polyline',{points:pb.join(' '),fill:'none',stroke:'#d98a3d','stroke-width':1.4,'stroke-opacity':.8,'class':'dashed'}));dash(g1.lastChild);
-      var ps=[]; for(var i=0;i<N;i++) ps.push(X(i).toFixed(1)+','+Y(strat[i]).toFixed(1));
-      g1.appendChild(el('polyline',{points:ps.join(' '),fill:'none',stroke:'#3f7fbf','stroke-width':1.6,'class':'dashed'}));dash(g1.lastChild);
+      function pts(a){ var o=[]; for(var i=0;i<N;i++) o.push(X(i).toFixed(1)+','+Y(a[i]).toFixed(1)); return o.join(' '); }
+      g1.appendChild(el('polyline',{points:pts(B),fill:'none',stroke:'#d98a3d','stroke-width':1.4,'stroke-opacity':.85,'class':'dashed'}));dash(g1.lastChild);
+      g1.appendChild(el('polyline',{points:pts(S),fill:'none',stroke:'#3f7fbf','stroke-width':1.6,'class':'dashed'}));dash(g1.lastChild);
       g1.appendChild(Object.assign(el('text',{x:ox,y:10,'class':'tx'}),{textContent:'Growth of $1 invested'}));
       [['Strategy','#3f7fbf',0],['Benchmark','#d98a3d',90]].forEach(function(d){
         g1.appendChild(el('rect',{x:ox+ow-160+d[2],y:10,width:11,height:3,fill:d[1]}));
@@ -735,8 +846,8 @@ h1.head em::after{display:none}
       rows.forEach(function(r,i){
         var y=oy+oh+42+i*20;
         g1.appendChild(Object.assign(el('text',{x:ox,y:y,'class':'tx'}),{textContent:r[0]}));
-        g1.appendChild(Object.assign(el('text',{x:ox+220,y:y,'class':'tv ac'}),{textContent:r[1]}));
-        g1.appendChild(Object.assign(el('text',{x:ox+320,y:y,'class':'tv'}),{textContent:r[2]}));
+        g1.appendChild(Object.assign(el('text',{x:ox+220,y:y,'class':'tv'+(i?'':' ac')}),{textContent:r[1]}));
+        g1.appendChild(Object.assign(el('text',{x:ox+320,y:y,'class':'tv'+(i?' ac':'')}),{textContent:r[2]}));
       });
     }
     var g2=document.getElementById('f2-heat');
@@ -757,8 +868,10 @@ h1.head em::after{display:none}
         g2.appendChild(Object.assign(el('text',{x:ox-8,y:oy+ri*ch+ch/2+3.5,'class':'tx','text-anchor':'end','font-size':'7.6px'}),{textContent:rg[1]}));
         data[ri].forEach(function(v,ci){
           var x=ox+ci*cw, y=oy+ri*ch, op=0.08+Math.min(1,v/mx)*0.85;
-          g2.appendChild(el('rect',{x:x,y:y,width:cw-1.5,height:ch-1.5,fill:'#2f7a4d','fill-opacity':op.toFixed(3)}));
-          g2.appendChild(Object.assign(el('text',{x:x+(cw-1.5)/2,y:y+(ch-1.5)/2+3,'class':'tx','text-anchor':'middle','font-size':'8px',style:'fill:'+(v>4.5?'var(--paper)':'var(--ink-2)')}),{textContent:v.toFixed(1)}));
+          var hc=el('rect',{x:x,y:y,width:cw-1.5,height:ch-1.5,fill:'#2f7a4d','fill-opacity':op.toFixed(3),'class':'cell-ac'});
+          hc.style.setProperty('--t',((ri+ci)/(regimes.length+sectors.length-2)*0.62).toFixed(3)); g2.appendChild(hc);
+          var hv=Object.assign(el('text',{x:x+(cw-1.5)/2,y:y+(ch-1.5)/2+3,'class':'tx','text-anchor':'middle','font-size':'8px',style:'fill:'+(v>4.5?'var(--paper)':'var(--ink-2)')}),{textContent:v.toFixed(1)});
+          hv.classList.add('cell-ac'); hv.style.setProperty('--t',(0.62+Math.min(1,v/mx)*0.14).toFixed(3)); g2.appendChild(hv);
         });
       });
       sectors.forEach(function(s,ci){
@@ -767,15 +880,9 @@ h1.head em::after{display:none}
       });
       g2.appendChild(Object.assign(el('text',{x:ox,y:10,'class':'tx'}),{textContent:'Avg 21-day forward return by sector × regime'}));
     }
-    var car=document.getElementById('f2-car'), ind=document.getElementById('f2-ind'), cap=document.getElementById('f2-cap'), dots=document.getElementById('f2-dots');
-    if(!car) return;
-    var panels=car.querySelectorAll('.f2p'), dotEls=dots?dots.children:[];
-    var caps=['Cumulative growth of $1, strategy vs. the equal-weight benchmark, 2008–2026. 437.9% cumulative return against 397.8%, on a 0.96 Sharpe and a −28.3% max drawdown.',
+    var caps=['Cumulative growth of $1, strategy vs. the equal-weight benchmark, 2008–2026, traced from the notebook’s backtest. The strategy ends ahead (437.9% vs 397.8%) but with a slightly lower Sharpe and a deeper drawdown: more return, bought with more risk.',
       'Average 21-day forward return by sector and regime, from the notebook’s regime × sector table. Darker green is a stronger historical edge — this is what the rotation model ranks sectors on within each regime.'];
-    var idx=0;
-    function show(){ panels.forEach(function(p,i){ p.style.display=i===idx?'block':'none'; }); Array.prototype.forEach.call(dotEls,function(d,i){ d.classList.toggle('on',i===idx); }); ind.textContent=(idx+1)+' / 2 \u2014 click to switch'; cap.innerHTML='<b>Fig. 02</b>'+caps[idx]; }
-    car.addEventListener('click',function(){ idx=(idx+1)%panels.length; show(); });
-    ind.addEventListener('click',function(e){ e.stopPropagation(); idx=(idx+1)%panels.length; show(); });
+    tabs(document.getElementById('f2-car'),document.getElementById('f2-tabs'),document.getElementById('f2-cap'),caps,'Fig. 03');
   })();
 
   // Fig 03 — Kaplan-Meier survival by stage + by driver mutation (carousel)
@@ -830,21 +937,17 @@ h1.head em::after{display:none}
         g2.appendChild(Object.assign(el('text',{x:x+13,y:y-2,'class':'tx','font-size':'9px'}),{textContent:mu[0]+' (n='+mu[1]+')'}));
       });
     }
-    var car=document.getElementById('f3-car'), ind=document.getElementById('f3-ind'), cap=document.getElementById('f3-cap'), dots=document.getElementById('f3-dots');
-    if(!car) return;
-    var panels=car.querySelectorAll('.f3p'), dotEls=dots?dots.children:[];
     var caps=['Kaplan\u2013Meier survival by stage on the synthetic cohort, 4,784 patients. Stage I to IV separate in the order they should \u2014 the dominant prognostic driver behaves as it does in real NSCLC outcomes, a face-validity check on the generated data, not a claim of causal survival analysis.',
       'Kaplan\u2013Meier survival by driver mutation on the same cohort. Curves overlap with wide confidence bands \u2014 expected, since mutation status is a weaker prognostic signal than stage. Face-validity check only, not a survival analysis.'];
-    var idx=0;
-    function show(){ panels.forEach(function(p,i){ p.style.display=i===idx?'block':'none'; }); Array.prototype.forEach.call(dotEls,function(d,i){ d.classList.toggle('on',i===idx); }); ind.textContent=(idx+1)+' / 2 \u2014 click to switch'; cap.innerHTML='<b>Fig. 03</b>'+caps[idx]; }
-    car.addEventListener('click',function(){ idx=(idx+1)%panels.length; show(); });
-    ind.addEventListener('click',function(e){ e.stopPropagation(); idx=(idx+1)%panels.length; show(); });
+    tabs(document.getElementById('f3-car'),document.getElementById('f3-tabs'),document.getElementById('f3-cap'),caps,'Fig. 04');
   })();
 
   // Fig 04 — schema graph
   (function(){
     var ng=document.getElementById('f4-nodes'); if(!ng) return;
-    var nodes=[['Patient',18,104],['Appointment',180,104],['Department',352,36],['Physician',180,20],['Room',352,104],['Procedure',180,180],['Billing',18,180]];
+    // same tones as Fig. 05: navy for the core table, teal for patient & billing, violet for staff & facilities
+    var GRP={core:'var(--accent)',pat:'#3b7d86',fac:'#6a6296'};
+    var nodes=[['Patient',18,104,'pat'],['Appointment',180,104,'core'],['Department',352,36,'fac'],['Physician',180,20,'fac'],['Room',352,104,'fac'],['Procedure',180,180,'pat'],['Billing',18,180,'pat']];
     var edges=[[0,1],[1,3],[1,2],[1,4],[1,5],[0,6],[5,6]];
     var W=120,H=30, eg=document.getElementById('f4-edges'), paths=[];
     edges.forEach(function(e,i){
@@ -857,9 +960,17 @@ h1.head em::after{display:none}
     nodes.forEach(function(n,i){
       var g=el('g',{'class':'cell-ac'});
       g.style.setProperty('--t',(i/nodes.length*0.55).toFixed(3));
-      g.appendChild(el('rect',{x:n[1],y:n[2],width:W,height:H,fill:'var(--paper-2)',stroke:i===1?'var(--accent)':'var(--rule)'}));
-      g.appendChild(Object.assign(el('text',{x:n[1]+10,y:n[2]+19,'class':'txn',fill:i===1?'var(--accent)':'var(--ink-2)'}),{textContent:n[0]}));
+      var c=GRP[n[3]];
+      g.appendChild(el('rect',{x:n[1],y:n[2],width:W,height:H,fill:i===1?c:'var(--paper-2)'}));
+      g.appendChild(el('rect',{x:n[1],y:n[2],width:W,height:H,fill:c,'fill-opacity':i===1?0:.18,stroke:c,'stroke-opacity':i===1?1:.7}));
+      var lt=Object.assign(el('text',{x:n[1]+10,y:n[2]+19,'class':'txn'}),{textContent:n[0]}); lt.style.fill=i===1?'var(--paper-2)':c;
+      g.appendChild(lt);
       ng.appendChild(g);
+    });
+    [['Patient & billing','#3b7d86',30],['Staff & facilities','#6a6296',48]].forEach(function(l){
+      var lg=el('g',{'class':'cell-ac'}); lg.style.setProperty('--t','0.62');
+      lg.appendChild(el('rect',{x:18,y:l[2]-8,width:9,height:9,fill:l[1],'fill-opacity':.8}));
+      var tt=Object.assign(el('text',{x:32,y:l[2],'class':'tx'}),{textContent:l[0]}); lg.appendChild(tt); ng.appendChild(lg);
     });
     var f4label=Object.assign(el('text',{x:0,y:236,'class':'tx cell-ac'}),{textContent:'7 tables · PostgreSQL on GCP'});
     f4label.style.setProperty('--t','0.62');
@@ -873,27 +984,54 @@ h1.head em::after{display:none}
   function halo(g,t){var r=el('rect',{fill:'var(--paper-2)',width:0,height:0});g.insertBefore(r,t);halos.push([r,t]);fitHalo(r,t);}
   window.addEventListener('resize',function(){halos.forEach(function(h){fitHalo(h[0],h[1]);});});
 
+  // Fig 02 — governance: four systems → reconcile → leadership reporting
+  (function(){
+    var g=document.getElementById('fgov'); if(!g) return;
+    // tones borrowed from each tool's chip: Azure blue, ServiceNow green, plus teal and violet from the site palette
+    var sys=[['Azure DevOps','#0063b1'],['ServiceNow','#3f8f3a'],['KeyedIn','#3b7d86'],['7pace','#6a6296']], w=108, gp=16;
+    txt(g,0,10,'tx','Delivery systems');
+    sys.forEach(function(n,i){
+      var x=i*(w+gp);
+      var bx=el('g',{'class':'cell-ac'}); bx.style.setProperty('--t',(i*0.05).toFixed(3));
+      bx.appendChild(el('rect',{x:x,y:22,width:w,height:30,fill:n[1],'fill-opacity':.12,stroke:n[1],'stroke-opacity':.8}));
+      var lt=txt(bx,x+10,41,'txn',n[0]); lt.style.fill=n[1];
+      g.appendChild(bx);
+      g.appendChild(dash(el('path',{d:'M'+(x+w/2)+' 52 C '+(x+w/2)+' 84, 240 74, 240 104',fill:'none',stroke:n[1],'stroke-width':1.3,'stroke-opacity':.65,'class':'dashed'})));
+    });
+    var r=el('rect',{x:120,y:104,width:240,height:34,fill:'var(--accent)','class':'cell-ac'}); r.style.setProperty('--t','0.3');
+    g.appendChild(el('rect',{x:120,y:104,width:240,height:34,fill:'none',stroke:'var(--accent)'})); g.appendChild(r);
+    var t=txt(g,240,125,'txn','Reconcile · govern · document','middle'); t.style.fill='var(--paper-2)';
+    g.appendChild(dash(el('path',{d:'M240 138 L240 166','class':'stroke-ac dashed'})));
+    g.appendChild(el('rect',{x:150,y:166,width:180,height:30,fill:'var(--paper-2)',stroke:'var(--accent)'}));
+    txt(g,240,185,'txn','Compliance reporting','middle','var(--accent)').style.fill='var(--accent)';
+    g.appendChild(el('line',{x1:0,y1:212,x2:480,y2:212,'class':'hair'}));
+    txt(g,0,240,'tv','1','','var(--accent)').style.fill='var(--accent)';
+    txt(g,18,240,'tx','auditable record · for technology leadership');
+  })();
+
   // Fig 05 — custom GPT: alert noise reduction & prioritization
   (function(){
     var g=document.getElementById('f1b'); if(!g) return;
     txt(g,0,10,'tx','Incoming cloud cost alerts');
     var kept=[3,11,19,26,38,47,55,66,78,91], pos={};
+    var TIER=['#b4553f','#b8862f','#3b7d86']; function tier(k){ return k<4?0:(k<7?1:2); } // priority 1 · priority 2 · monitor
     for(var i=0;i<100;i++){
       var x=i*4.62, k=kept.indexOf(i);
-      var t=el('line',{x1:x.toFixed(2),y1:24,x2:x.toFixed(2),y2:k>=0?64:50,stroke:k>=0?'var(--accent)':'var(--ink)','stroke-opacity':k>=0?1:.15,'stroke-width':2.2});
+      var t=el('line',{x1:x.toFixed(2),y1:24,x2:x.toFixed(2),y2:k>=0?64:50,stroke:k>=0?TIER[tier(k)]:'var(--ink)','stroke-opacity':k>=0?1:.15,'stroke-width':2.2});
       if(k>=0){t.setAttribute('class','cell-ac');t.style.setProperty('--t',(0.18+k*0.028).toFixed(3));pos[k]=x;}
       g.appendChild(t);
     }
     g.appendChild(el('line',{x1:0,y1:96,x2:480,y2:96,'class':'hair'}));
     var owners=[['Priority 1',0],['Priority 2',170],['Monitor',340]], ow=140;
     kept.forEach(function(v,k){
-      var x=pos[k], tgt=owners[k<4?0:(k<7?1:2)][1]+ow/2;
-      g.appendChild(dash(el('path',{d:'M'+x.toFixed(1)+' 64 C '+x.toFixed(1)+' 116, '+tgt+' 104, '+tgt+' 150','class':'stroke-ac dashed','stroke-opacity':.55})));
+      var x=pos[k], tgt=owners[tier(k)][1]+ow/2;
+      g.appendChild(dash(el('path',{d:'M'+x.toFixed(1)+' 64 C '+x.toFixed(1)+' 116, '+tgt+' 104, '+tgt+' 150',fill:'none',stroke:TIER[tier(k)],'stroke-width':1.4,'stroke-opacity':.6,'class':'dashed'})));
     });
     var tl=txt(g,478,84,'tx','Custom GPT — dedupe, suppress, prioritize','end'); halo(g,tl);
-    owners.forEach(function(o){
-      g.appendChild(el('rect',{x:o[1],y:150,width:ow,height:28,fill:'var(--paper-2)',stroke:'var(--accent)'}));
-      txt(g,o[1]+11,168,'txn',o[0],null,'var(--accent)');
+    owners.forEach(function(o,i){
+      g.appendChild(el('rect',{x:o[1],y:150,width:ow,height:28,fill:'var(--paper-2)'}));
+      g.appendChild(el('rect',{x:o[1],y:150,width:ow,height:28,fill:TIER[i],'fill-opacity':.12,stroke:TIER[i]}));
+      txt(g,o[1]+11,168,'txn',o[0]).style.fill=TIER[i];
     });
     txt(g,0,200,'tx','Prioritized for review');
     g.appendChild(el('line',{x1:0,y1:212,x2:480,y2:212,'class':'hair'}));
@@ -969,7 +1107,7 @@ h1.head em::after{display:none}
     txt(g,0,288,'tx','Apr 2020 — present · not to scale');
   })();
 
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{rootMargin:'0px 0px -12% 0px'});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{rootMargin:'0px 0px 10% 0px'});
   document.querySelectorAll('.rv,.shead h2,.big,section,.case').forEach(function(n){io.observe(n);});
 
   /* ── scroll: running head, progress, parallax, figure scrub ── */
@@ -989,17 +1127,34 @@ h1.head em::after{display:none}
     if(cur) sec.textContent=cur.getAttribute('data-sec');
     if(!RM){
       if(pt){var r=document.getElementById('pt').getBoundingClientRect();pt.style.setProperty('--py',(((r.top+r.height/2)/vh-0.5)*-26).toFixed(1)+'px');}
-      scrubs.forEach(function(s){
-        var r=s.getBoundingClientRect();
-        var p=(vh*0.9-r.top)/(r.height*0.65+vh*0.25);
-        s.style.setProperty('--p',Math.max(0,Math.min(1,p)).toFixed(3));
-      });
     }
   }
   function onScroll(){ if(!tick){tick=true;requestAnimationFrame(frame);} }
   window.addEventListener('scroll',onScroll,{passive:true});
   window.addEventListener('resize',onScroll);
-  if(RM) scrubs.forEach(function(s){s.style.setProperty('--p',1);});
+  /* figures play once when they come into view; the replay button runs them again */
+  var RPL='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>Replay';
+  scrubs.forEach(function(s){
+    if(RM){ s.style.setProperty('--p',1); return; }
+    var raf=0;
+    s._play=function(){
+      cancelAnimationFrame(raf); var t0=0, D=2600;
+      s.style.setProperty('--p',0);
+      (function step(ts){ if(!t0) t0=ts; var k=Math.min(1,(ts-t0)/D); s.style.setProperty('--p',(k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2).toFixed(3)); if(k<1) raf=requestAnimationFrame(step); })(performance.now());
+    };
+    s.style.setProperty('--p',0);
+    var ft=s.classList.contains('case')&&s.querySelector('.fig .ft');
+    if(ft){
+      var b=document.createElement('button'); b.type='button'; b.className='replay'; b.innerHTML=RPL; b.setAttribute('aria-label','Replay figure animation');
+      b.addEventListener('click',function(e){ e.stopPropagation(); s._play(); });
+      var last=ft.lastElementChild, wrap=document.createElement('span'); wrap.className='ft-r';
+      if(last&&last.classList.contains('ftabs')){ ft.insertBefore(wrap,last); wrap.appendChild(last); } else ft.appendChild(wrap);
+      wrap.appendChild(b);
+    }
+    var fig=s.querySelector('.fig')||s;
+    var so=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ so.disconnect(); s._play(); } },{threshold:.35});
+    so.observe(fig);
+  });
   frame();
 
   /* ── magnetic buttons (small, cursor-following nudge) ── */
@@ -1014,11 +1169,39 @@ h1.head em::after{display:none}
     });
   }
 
-  /* ── preloader ── */
-  var pre=document.getElementById('pre');
-  function reveal(){ document.body.classList.add('ready'); if(pre){pre.classList.add('out'); setTimeout(function(){pre.remove();},1100);} }
-  if(RM){ document.body.classList.add('ready'); if(pre) pre.remove(); }
-  else { window.addEventListener('load',function(){setTimeout(reveal,760);}); setTimeout(reveal,2400); }
+  /* ── contact pop-up ── */
+  var ct=document.getElementById('ct');
+  if(ct && ct.showModal){
+    document.querySelectorAll('[data-ct]').forEach(function(a){
+      a.addEventListener('click',function(e){ e.preventDefault(); ct.showModal(); });
+    });
+    ct.querySelector('.cv-x').addEventListener('click',function(){ct.close();});
+    ct.addEventListener('click',function(e){ if(e.target===ct) ct.close(); });
+    ct.querySelector('[data-cv]').addEventListener('click',function(){ ct.close(); });
+    ct.querySelectorAll('.ct-copy').forEach(function(b){
+      b.addEventListener('click',function(){
+        var done=function(){ b.textContent='Copied'; setTimeout(function(){b.textContent='Copy';},1600); };
+        try{ navigator.clipboard.writeText(b.dataset.copy).then(done,function(){}); }catch(e){}
+      });
+    });
+  }
+
+  /* ── résumé preview ── */
+  var cv=document.getElementById('cv');
+  if(cv && cv.showModal){
+    var fr=cv.querySelector('iframe');
+    document.querySelectorAll('[data-cv]').forEach(function(a){
+      a.addEventListener('click',function(e){
+        if(window.matchMedia('(max-width:640px) and (hover:none)').matches && a.tagName==='A') return; // phones: let the PDF open natively
+        e.preventDefault(); if(!fr.src) fr.src=fr.dataset.src; cv.showModal();
+      });
+    });
+    cv.querySelector('.cv-x').addEventListener('click',function(){cv.close();});
+    cv.addEventListener('click',function(e){ if(e.target===cv) cv.close(); });
+  }
+
+  /* content is visible immediately; only the hero headline gets a short entrance */
+  requestAnimationFrame(function(){ document.body.classList.add('ready'); });
 })();
 </script>
 </body>

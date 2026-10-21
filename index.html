@@ -60,6 +60,16 @@ hr.rule{border:0;border-top:1px solid var(--rule);margin:0}
 .mast nav a:hover::after,.ulink:hover::after{transform:scaleX(1)}
 @media(max-width:640px){.mast{flex-direction:column;gap:14px}.mast nav{gap:16px}}
 
+/* ── preloader ─────────────────────────── */
+#pre{position:fixed;inset:0;z-index:200;background:var(--paper);display:grid;place-items:center;transition:transform 1s var(--ease)}
+#pre.out{transform:translateY(-101%)}
+#pre .pin{display:grid;justify-items:center;gap:16px}
+#pre .pname{font-family:var(--serif);font-size:clamp(26px,3.6vw,40px);letter-spacing:.02em}
+#pre .prule{height:1px;width:0;background:var(--accent);animation:draw .78s var(--ease) .12s forwards}
+#pre .prole{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);opacity:0;animation:fade .5s ease .5s forwards}
+@keyframes draw{to{width:min(280px,52vw)}}
+@keyframes fade{to{opacity:1}}
+
 /* ── line reveal ───────────────────────── */
 .ln{display:block;overflow:hidden;padding-bottom:.18em;margin-bottom:-.18em}
 .ln>i{display:block;font-style:inherit;transform:translateY(108%);transition:transform .6s var(--ease)}
@@ -288,7 +298,7 @@ h1.head em::after{display:none}
 .case h3,.cred h3{font-weight:700;letter-spacing:-.03em}
 .ledger .v{font-weight:700;font-size:clamp(18px,1.65vw,24px);letter-spacing:-.02em}
 .stats .v{font-weight:700}
-.exp .role,.minor .t,.notes .n b,.rh .nm,.mail{font-weight:700;letter-spacing:-.015em}
+.exp .role,.minor .t,.notes .n b,.rh .nm,#pre .pname,.mail{font-weight:700;letter-spacing:-.015em}
 .cap{font-size:13px}
 
 /* tool chips */
@@ -365,6 +375,7 @@ h1.head em::after{display:none}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   .ln>i{transform:none}
+  #pre{display:none}
   .rv{opacity:1;transform:none}
   h1.head em::after{transform:scaleX(1)}
   .dashed{stroke-dashoffset:0}
@@ -376,6 +387,7 @@ h1.head em::after{display:none}
 </style>
 </head>
 <body>
+<div id="pre"><div class="pin"><span class="pname">Ernesto Diaz</span><span class="prule"></span><span class="prole">Data &amp; Business Analyst</span></div></div>
 <div class="grain" aria-hidden="true"></div>
 
 <div class="rh" id="rh"><div class="bar" id="rhbar"></div><div class="in"><a class="nm" href="#top">Ernesto Diaz</a><span class="sec" id="rhsec">Position</span><a class="to ulink" href="mailto:ernestoabel.diaz@gmail.com">ernestoabel.diaz@gmail.com</a></div></div>
@@ -1200,8 +1212,11 @@ h1.head em::after{display:none}
     cv.addEventListener('click',function(e){ if(e.target===cv) cv.close(); });
   }
 
-  /* content is visible immediately; only the hero headline gets a short entrance */
-  requestAnimationFrame(function(){ document.body.classList.add('ready'); });
+  /* ── preloader ── */
+  var pre=document.getElementById('pre');
+  function reveal(){ if(document.body.classList.contains('ready')) return; document.body.classList.add('ready'); if(pre){pre.classList.add('out'); setTimeout(function(){pre.remove();},1100);} }
+  if(RM){ document.body.classList.add('ready'); if(pre) pre.remove(); }
+  else { window.addEventListener('load',function(){setTimeout(reveal,760);}); setTimeout(reveal,2400); }
 })();
 </script>
 </body>
